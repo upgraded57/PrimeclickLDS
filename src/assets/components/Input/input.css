@@ -1,0 +1,20 @@
+.input label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.input input {
+  height: 48px;
+  width: 100%;
+  border-radius: var(--input-radius);
+  padding: 8px 16px;
+  border: 1px solid var(--neutral-clr-light-grey);
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.input input::placeholder {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+}

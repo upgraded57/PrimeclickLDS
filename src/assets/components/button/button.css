@@ -1,0 +1,41 @@
+button {
+  height: 48px;
+  width: 100%;
+  font-family: "IBM Plex Sans", sans-serif !important;
+  font-size: 20px;
+  border-radius: var(--input-radius);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+button span {
+  font-size: 27px;
+  display: flex;
+}
+
+.solid-btn {
+  font-weight: 300;
+  background-color: var(--pry-clr);
+  color: white;
+}
+
+.solid-btn:hover {
+  background-color: rgb(7, 37, 170);
+}
+
+.outline-btn {
+  border: 1px solid var(--neutral-clr-light-grey);
+  background-color: white;
+  font-weight: 400;
+  color: var(--neutral-clr-dark);
+}
+
+.outline-btn:hover {
+  background: #f0f0f0;
+}
