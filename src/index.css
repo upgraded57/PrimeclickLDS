@@ -18,6 +18,16 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+a {
+  font-family: inherit !important;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .container {
   width: min(1440px, 100vw);
   min-height: 100vh;
@@ -29,6 +39,12 @@ body {
   font-size: 48px;
   font-weight: 600;
   font-family: "Inter", sans-serif;
+}
+
+.h-200 {
+  font-size: 36px;
+  font-weight: 600;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 a {

@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 100vh;
   padding-block: 4vh;
 }
@@ -46,7 +46,7 @@
 }
 
 .auth-right__content {
-  margin-top: 120px;
+  margin-top: 5vh;
   color: white;
 }
 

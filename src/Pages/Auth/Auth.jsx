@@ -1,18 +1,20 @@
 import { useState } from "react";
 import "./auth.css";
+import { useNavigate } from "react-router-dom";
 
 // images
 import logo from "../../assets/images/logo.png";
 
 // components
-import Input from "./../../assets/components/Input/Input";
-import Button from "./../../assets/components/button/Button";
+import Input from "../../Component/Input/Input";
+import Button from "../../Component/button/Button";
 
 // icons
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineInstagram } from "react-icons/ai";
 
 export default function Auth() {
+  const navigate = useNavigate();
   const [authState, setAuthState] = useState("login");
   return (
     <div className="auth">
@@ -97,7 +99,12 @@ export default function Auth() {
                     name="password"
                     placeholder="**** **** ****"
                   />
-                  <small className="forgot-pass">Forgotten Password</small>
+                  <small
+                    className="forgot-pass"
+                    onClick={() => navigate("/forgot-password")}
+                  >
+                    Forgotten Password
+                  </small>
                 </div>
                 <Button variant="solid" type="submit" text="Login" />
                 <p className="text-body text-center">OR</p>
@@ -114,7 +121,7 @@ export default function Auth() {
                 />
               </form>
               <div className="flex aic jcc" style={{ gap: "10px" }}>
-                <p className="text-body">Don't have an account?</p>
+                <p className="text-body">Don&apos;t have an account?</p>
                 <p
                   className="text-link pointer"
                   onClick={() => setAuthState("signup")}
