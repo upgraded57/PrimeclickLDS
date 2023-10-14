@@ -1,0 +1,34 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+.modal__box {
+  width: 600px;
+  padding: 30px;
+  background: white;
+  border-radius: var(--box-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.modal__box img {
+  width: 100px;
+}

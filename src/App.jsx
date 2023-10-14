@@ -4,6 +4,9 @@ import Loader from "./Component/Loader/Loader";
 
 const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Auth = React.lazy(() => import("./Pages/Auth/Auth"));
+const ResetPassword = React.lazy(() =>
+  import("./Pages/ResetPassword/ResetPassword")
+);
 const ForgotPassword = React.lazy(() =>
   import("./Pages/ForgotPassword/ForgotPassword")
 );
@@ -33,6 +36,14 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <ForgotPassword />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/reset-password"
+            element={
+              <Suspense fallback={<Loader />}>
+                <ResetPassword />
               </Suspense>
             }
           />

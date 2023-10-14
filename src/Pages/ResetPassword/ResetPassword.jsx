@@ -1,5 +1,5 @@
 import "../Auth/auth.css";
-import "./forgotpassword.css";
+import "../ForgotPassword/forgotpassword.css";
 
 // utils
 import { useNavigate } from "react-router-dom";
@@ -11,18 +11,19 @@ import logo from "../../assets/images/logo.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import Input from "../../Component/Input/Input";
 import Button from "../../Component/button/Button";
+import Modal from "./../../Component/Modal/Modal";
 import { useState } from "react";
 import Loader from "../../Component/Loader/Loader";
-import Modal from "./../../Component/Modal/Modal";
 
-export default function ForgotPassword() {
+export default function ResetPassword() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState(false);
 
-  const resetPass = (e) => {
-    setLoading(true);
+  const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const updatePass = (e) => {
     e.preventDefault();
+    setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setModal(true);
@@ -37,9 +38,7 @@ export default function ForgotPassword() {
             <img src={logo} alt="logo" />
           </div>
           <div className="auth-right__content">
-            <h1 className="h-300">
-              It seems you&apos;ve forgotten your password
-            </h1>
+            <h1 className="h-300">Cool, you can now reset your password</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
               sunt culpa ullam placeat, asperiores doloremque vel nemo
@@ -64,14 +63,20 @@ export default function ForgotPassword() {
             </p>
 
             <div className="forgot-password__form">
-              <form onSubmit={resetPass}>
+              <form onSubmit={updatePass}>
                 <Input
-                  type="email"
-                  label="Business Email"
-                  name="email"
-                  placeholder="johndoe@mail.com"
+                  type="password"
+                  label="New Password"
+                  name="password"
+                  placeholder="**** **** ****"
                 />
-                <Button variant="solid" type="submit" text="Reset Password" />
+                <Input
+                  type="password"
+                  label="New Password"
+                  name="confirm-password"
+                  placeholder="**** **** ****"
+                />
+                <Button variant="solid" type="submit" text="Update Password" />
               </form>
             </div>
           </div>
@@ -79,9 +84,9 @@ export default function ForgotPassword() {
       </div>
       {modal && (
         <Modal
-          header="Reset password link sent"
-          text="We have sent a password reset link to your mail"
-          btnText="Go to Mail"
+          header="Password reset successfully"
+          text="Your account password has been updated, click on the button below to go to the login page"
+          btnText="Go to login"
           setState={setModal}
           btnLocation="/auth"
         />
