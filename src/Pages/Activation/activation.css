@@ -1,0 +1,47 @@
+.topbar {
+  width: calc(100vw - 20px);
+  height: 85px;
+  border-radius: var(--box-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pry-clr);
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.topbar img {
+  height: 48px;
+}
+
+.activation {
+  margin-inline: auto;
+  position: relative;
+  top: 20vh;
+  max-width: max-content;
+}
+
+.activation__box {
+  margin-top: 30px;
+  padding: 20px;
+  width: 690px;
+  height: 218px;
+  border-radius: var(--box-radius);
+  background: var(--neutral-clr-grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activation__box h2.success {
+  color: rgba(39, 174, 96, 1);
+}
+
+.activation__box h2.error {
+  color: rgba(235, 87, 87, 1);
+}
+
+.activation-btn {
+  width: 70%;
+}

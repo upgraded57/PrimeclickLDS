@@ -10,6 +10,10 @@ const ResetPassword = React.lazy(() =>
 const ForgotPassword = React.lazy(() =>
   import("./Pages/ForgotPassword/ForgotPassword")
 );
+const Success = React.lazy(() => import("./Pages/Activation/Success"));
+const Expired = React.lazy(() => import("./Pages/Activation/Expired"));
+const Invalid = React.lazy(() => import("./Pages/Activation/Invalid"));
+
 function App() {
   return (
     <div className="container">
@@ -44,6 +48,30 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <ResetPassword />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/activation/success"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Success />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/activation/expired-link"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Expired />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/activation/invalid-link"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Invalid />
               </Suspense>
             }
           />
