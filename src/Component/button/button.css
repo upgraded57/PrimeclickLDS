@@ -39,3 +39,24 @@ button span {
 .outline-btn:hover {
   background: #f0f0f0;
 }
+
+.pill-btn {
+  background: var(--pry-clr);
+  border-radius: 8px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  margin: 0;
+  width: max-content;
+  font-size: 14px;
+  height: max-content !important;
+}
+
+.pill-btn span {
+  font-size: 18px;
+  display: flex;
+}

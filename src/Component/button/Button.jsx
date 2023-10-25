@@ -18,6 +18,14 @@ export default function Button({ variant, type, text, icon }) {
         </button>
       );
 
+    case "pill":
+      return (
+        <button type={type ? type : "button"} className="pill-btn">
+          <span>{icon}</span>
+          {text}
+        </button>
+      );
+
     default:
       return <button type={type ? type : "button"}>Default Button</button>;
   }

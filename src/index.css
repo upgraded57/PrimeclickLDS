@@ -12,10 +12,13 @@ html {
   --box-radius: 24px;
   --neutral-clr-light-grey: rgba(206, 212, 218, 1);
   --neutral-clr-dark: rgba(47, 47, 47, 1);
+  --bg-clr-blue: rgba(235, 238, 251, 1);
+  --neutral-clr: rgba(151, 151, 151, 1);
 }
 
 body {
   font-family: "Inter", sans-serif;
+  background: var(--bg-clr-blue);
 }
 
 a {
@@ -32,7 +35,7 @@ a:hover {
   width: min(1440px, 100vw);
   min-height: 100vh;
   margin-inline: auto;
-  padding-inline: 4vw;
+  padding-inline: 20px;
 }
 
 .h-300 {
@@ -85,4 +88,63 @@ a {
 
 .pointer {
   cursor: pointer;
+}
+
+.leads__table {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.leads__table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leads__table table thead tr th {
+  text-align: left;
+  font-weight: 700;
+  padding-block: 10px 20px;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
+}
+
+.leads__table table tbody tr {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.leads__table table tbody tr:hover {
+  background: var(--neutral-clr-grey);
+  transform: translateX(5px);
+}
+
+.leads__table table tbody tr td {
+  padding-block: 10px;
+}
+
+.leads__table table tbody tr td button {
+  padding: 4px 10px;
+  height: max-content !important;
+  font-size: 14px;
+  width: max-content !important;
+  border-radius: 20px;
+  color: var(--pry-clr);
+  border: 1px solid var(--pry-clr);
+  background: transparent;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.leads__table table tbody tr td button:hover {
+  background: var(--pry-clr);
+  border-color: transparent;
+  color: white;
+}
+
+.cards {
+  width: 94%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-block: 20px;
 }

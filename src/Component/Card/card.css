@@ -1,0 +1,35 @@
+.card {
+  width: 100%;
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--accent-clr);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__top,
+.card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__top span,
+.card__bottom span {
+  cursor: pointer;
+  display: flex;
+}
+
+.card__bottom h1 {
+  font-size: 36px;
+}
+
+.card__top span {
+  font-size: 20px;
+}
+
+.card__bottom span {
+  font-size: 30px;
+}
