@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Loader from "./Component/Loader/Loader";
+import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 
-const Home = React.lazy(() => import("./Pages/Leads/Leads"));
+const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Auth = React.lazy(() => import("./Pages/Auth/Auth"));
 const ResetPassword = React.lazy(() =>
   import("./Pages/ResetPassword/ResetPassword")
@@ -13,9 +14,6 @@ const ForgotPassword = React.lazy(() =>
 const Success = React.lazy(() => import("./Pages/Activation/Success"));
 const Expired = React.lazy(() => import("./Pages/Activation/Expired"));
 const Invalid = React.lazy(() => import("./Pages/Activation/Invalid"));
-const DashboardLayout = React.lazy(() =>
-  import("./Layouts/DashboardLayout/DashboardLayout")
-);
 const Leads = React.lazy(() => import("./Pages/Leads/Leads"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard/Dashboard"));
 const User = React.lazy(() => import("./Pages/User/User"));
@@ -28,6 +26,14 @@ function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
+          <Route
+            index
+            element={
+              <Suspense fallback={<Loader />}>
+                <Home />
+              </Suspense>
+            }
+          />
           <Route
             path="/leads"
             element={
