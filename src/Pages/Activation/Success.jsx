@@ -1,13 +1,11 @@
 import Button from "../../Component/button/Button";
-import logo from "../../assets/images/logo.png";
 import "./activation.css";
+import Topbar from "./../../Component/Topbar/Topbar";
 
 export default function Success() {
   return (
     <>
-      <div className="topbar">
-        <img src={logo} alt="" />
-      </div>
+      <Topbar />
 
       <div className="activation">
         <h2 className="h-200">Account activation</h2>

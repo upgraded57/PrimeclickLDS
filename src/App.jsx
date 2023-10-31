@@ -15,11 +15,14 @@ const Success = React.lazy(() => import("./Pages/Activation/Success"));
 const Expired = React.lazy(() => import("./Pages/Activation/Expired"));
 const Invalid = React.lazy(() => import("./Pages/Activation/Invalid"));
 const Leads = React.lazy(() => import("./Pages/Leads/Leads"));
+const Lead = React.lazy(() => import("./Pages/Lead/Lead"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard/Dashboard"));
 const User = React.lazy(() => import("./Pages/User/User"));
 const Support = React.lazy(() => import("./Pages/Support/Support"));
-const Report = React.lazy(() => import("./Pages/Report/Report"));
+const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
+const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
+const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
 
 function App() {
   return (
@@ -45,6 +48,16 @@ function App() {
             }
           />
           <Route
+            path="/leads/:id"
+            element={
+              <DashboardLayout>
+                <Suspense fallback={<Loader />}>
+                  <Lead />
+                </Suspense>
+              </DashboardLayout>
+            }
+          />
+          <Route
             path="/dashboard"
             element={
               <DashboardLayout>
@@ -59,7 +72,7 @@ function App() {
             element={
               <DashboardLayout>
                 <Suspense fallback={<Loader />}>
-                  <Report />
+                  <Reports />
                 </Suspense>
               </DashboardLayout>
             }
@@ -139,6 +152,22 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <Invalid />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/onboarding"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Onboarding />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/form-setup"
+            element={
+              <Suspense fallback={<Loader />}>
+                <FormSetup />
               </Suspense>
             }
           />

@@ -24,6 +24,7 @@ export default function Home() {
           <Link to="/forgot-password">Reset Password</Link>
           <Link to="/leads">Leads Page</Link>
           <Link to="/report">Report Page</Link>
+          <Link to="/onboarding">Onboarding Options Page</Link>
         </div>
       </div>
     </div>

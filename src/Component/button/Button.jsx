@@ -1,10 +1,14 @@
 import "./button.css";
 
-export default function Button({ variant, type, text, icon }) {
+export default function Button({ variant, type, text, icon, clickEvent }) {
   switch (variant) {
     case "solid":
       return (
-        <button type={type ? type : "button"} className="solid-btn">
+        <button
+          type={type ? type : "button"}
+          className="solid-btn"
+          onClick={clickEvent}
+        >
           <span>{icon}</span>
           {text}
         </button>
@@ -12,7 +16,11 @@ export default function Button({ variant, type, text, icon }) {
 
     case "outline":
       return (
-        <button type={type ? type : "button"} className="outline-btn">
+        <button
+          type={type ? type : "button"}
+          className="outline-btn"
+          onClick={clickEvent}
+        >
           <span>{icon}</span>
           {text}
         </button>
@@ -20,13 +28,21 @@ export default function Button({ variant, type, text, icon }) {
 
     case "pill":
       return (
-        <button type={type ? type : "button"} className="pill-btn">
+        <button
+          type={type ? type : "button"}
+          className="pill-btn"
+          onClick={clickEvent}
+        >
           <span>{icon}</span>
           {text}
         </button>
       );
 
     default:
-      return <button type={type ? type : "button"}>Default Button</button>;
+      return (
+        <button type={type ? type : "button"} onClick={clickEvent}>
+          Default Button
+        </button>
+      );
   }
 }

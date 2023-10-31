@@ -1,0 +1,21 @@
+.topbar {
+  width: calc(100vw - 20px);
+  height: 85px;
+  border-radius: var(--box-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pry-clr);
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.topbar img {
+  height: 48px;
+}
+
+.topbar-empty-space {
+  width: 100%;
+  height: 95px;
+}

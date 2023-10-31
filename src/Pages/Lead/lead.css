@@ -1,4 +1,4 @@
-.report__export-btn {
+.lead__export-btn {
   width: 100%;
   align-items: center;
   justify-content: flex-end;
@@ -6,7 +6,7 @@
   margin-bottom: 20px;
 }
 
-.report__export-btn button {
+.lead__export-btn button {
   flex-direction: row-reverse !important;
 }
 
@@ -93,7 +93,7 @@ span.tooltip {
   font-size: 20px !important;
 }
 
-.report-tooltips {
+.lead-tooltips {
   display: flex;
   flex-direction: column;
   background: white;
@@ -106,23 +106,23 @@ span.tooltip {
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
 }
 
-.report-toolip {
+.lead-toolip {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
 }
 
-.report-toolip:hover {
+.lead-toolip:hover {
   background: var(--neutral-clr-grey);
 }
 
-.report-toolip:hover span {
+.lead-toolip:hover span {
   transform: scale(1.2);
   color: black !important;
 }
 
-.report-toolip span {
+.lead-toolip span {
   display: flex;
   padding: 0 !important;
   font-size: 20px !important;

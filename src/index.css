@@ -59,7 +59,7 @@ a {
 }
 
 .text-body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: var(--text-clr);
@@ -74,6 +74,10 @@ a {
   font-family: "IBM Plex Sans", sans-serif;
   color: VAR(--pry-clr);
   font-size: 18px;
+}
+
+.text-bold {
+  font-weight: 500;
 }
 
 .flex {

@@ -1,16 +1,16 @@
-import "./report.css";
-import Card from "./../../Component/Card/Card";
-import Button from "./../../Component/button/Button";
+import "./lead.css";
+import Card from "../../Component/Card/Card";
+import Button from "../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
-import { users } from "./../../Data/data";
+import { users } from "../../Data/data";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
-import ReportTooltip from "./ReportTooltip";
+import LeadTooltip from "./LeadTooltip";
 
-export default function Report() {
+export default function Lead() {
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
   const [tooltipActive, setTooltipActive] = useState(false);
@@ -29,18 +29,18 @@ export default function Report() {
     }
   };
   return (
-    <div className="report">
-      <div className="report__top">
+    <div className="lead">
+      <div className="lead__top">
         <h3 className="h-100">Grapes Landing Page</h3>
       </div>
 
-      <div className="report__top cards">
+      <div className="lead__top cards">
         <Card text="Total Converted" qty="3000" />
         <Card text="Total Converted" qty="3000" />
         <Card text="Total Converted" qty="3000" />
       </div>
 
-      <div className="report__export-btn">
+      <div className="lead__export-btn">
         <Button variant="pill" text="Export" icon={<RiArrowDownSLine />} />
       </div>
 
@@ -115,7 +115,7 @@ export default function Report() {
                       background: "transparent",
                     }}
                   >
-                    <ReportTooltip />
+                    <leadTooltip />
                   </Tooltip>
                 </td>
               </tr>

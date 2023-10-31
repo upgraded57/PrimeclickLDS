@@ -6,8 +6,10 @@ import { CgSortAz } from "react-icons/cg";
 import { leads } from "../../Data/data";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Leads() {
+  const navigate = useNavigate();
   const [filterOption, setFilterOption] = useState("All");
   const [filterOptionActive, setFilterOptionActive] = useState(false);
   const pickFilterOption = (e) => {
@@ -171,7 +173,9 @@ export default function Leads() {
                 <td>{lead.contacted}</td>
                 <td>{lead.converted}</td>
                 <td>
-                  <button>View more</button>
+                  <button onClick={() => navigate(`/leads/${lead.id}`)}>
+                    View more
+                  </button>
                 </td>
               </tr>
             ))}
