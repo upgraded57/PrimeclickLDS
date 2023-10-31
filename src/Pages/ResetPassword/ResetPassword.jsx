@@ -56,10 +56,10 @@ export default function ResetPassword() {
               <BsArrowLeftCircle />
             </div>
 
-            <h2 className="h-200">Forgot Password</h2>
+            <h2 className="h-200">Reset Password</h2>
 
             <p className="text-body">
-              Please enter your account email address to reset your password
+              Kindly reset your password to have access to your account.
             </p>
 
             <div className="forgot-password__form">

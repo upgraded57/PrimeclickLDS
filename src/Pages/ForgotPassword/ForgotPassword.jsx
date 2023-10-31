@@ -14,6 +14,7 @@ import Button from "../../Component/button/Button";
 import { useState } from "react";
 import Loader from "../../Component/Loader/Loader";
 import Modal from "./../../Component/Modal/Modal";
+import OTPModal from "./../../Component/Modal/OTPModal";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -78,12 +79,11 @@ export default function ForgotPassword() {
         </div>
       </div>
       {modal && (
-        <Modal
-          header="Reset password link sent"
-          text="We have sent a password reset link to your mail"
-          btnText="Go to Mail"
-          setState={setModal}
-          btnLocation="/auth"
+        <OTPModal
+          header="Verification OTP sent"
+          text="A one-time verification code, has been sent to your 
+          Email to confirm its really you. "
+          btnText="Confirm"
         />
       )}
     </>

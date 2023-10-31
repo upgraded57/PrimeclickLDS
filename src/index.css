@@ -14,11 +14,13 @@ html {
   --neutral-clr-dark: rgba(47, 47, 47, 1);
   --bg-clr-blue: rgba(235, 238, 251, 1);
   --neutral-clr: rgba(151, 151, 151, 1);
+  --text-clr: rgba(84, 81, 81, 1);
 }
 
 body {
   font-family: "Inter", sans-serif;
   background: var(--bg-clr-blue);
+  color: var(--text-clr);
 }
 
 a {
@@ -60,7 +62,7 @@ a {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  color: var(--neutral-clr-dark);
+  color: var(--text-clr);
 }
 
 .text-center {
@@ -115,7 +117,7 @@ a {
 
 .leads__table table tbody tr:hover {
   background: var(--neutral-clr-grey);
-  transform: translateX(5px);
+  /* transform: translateX(5px); */
 }
 
 .leads__table table tbody tr td {

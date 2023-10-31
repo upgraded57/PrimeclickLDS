@@ -3,13 +3,17 @@ import Card from "./../../Component/Card/Card";
 import Button from "./../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
+import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
 import { users } from "./../../Data/data";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { useState } from "react";
+import { Tooltip } from "react-tooltip";
+import ReportTooltip from "./ReportTooltip";
 
 export default function Report() {
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
+  const [tooltipActive, setTooltipActive] = useState(false);
 
   const increaseCount = () => {
     if (end < users.length) {
@@ -93,7 +97,26 @@ export default function Report() {
                   </span>
                 </td>
                 <td>
-                  <button>View More</button>
+                  <span
+                    className="tooltip"
+                    onClick={() => setTooltipActive(!tooltipActive)}
+                  >
+                    <PiDotsThreeOutlineVerticalDuotone />
+                  </span>
+                  <Tooltip
+                    anchorSelect=".tooltip"
+                    place="bottom-end"
+                    offset={20}
+                    noArrow
+                    clickable
+                    isOpen={tooltipActive}
+                    style={{
+                      padding: "0",
+                      background: "transparent",
+                    }}
+                  >
+                    <ReportTooltip />
+                  </Tooltip>
                 </td>
               </tr>
             ))}

@@ -32,3 +32,26 @@
 .modal__box img {
   width: 100px;
 }
+
+.otp-input {
+  display: flex;
+  gap: 10px;
+}
+
+.otp-input input {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.otp-input label {
+  border-radius: var(--input-radius);
+  border: 2px solid rgba(206, 212, 218, 1);
+  width: 66px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}

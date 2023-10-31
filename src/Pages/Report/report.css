@@ -83,3 +83,50 @@
 .leads__table table span.rejected {
   background: rgba(235, 87, 87, 1);
 }
+
+span.tooltip {
+  display: flex;
+  max-width: max-content;
+  padding: 0 !important;
+  background: none !important;
+  color: var(--text-clr) !important;
+  font-size: 20px !important;
+}
+
+.report-tooltips {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 10px 0;
+  max-width: max-content;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
+}
+
+.report-toolip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.report-toolip:hover {
+  background: var(--neutral-clr-grey);
+}
+
+.report-toolip:hover span {
+  transform: scale(1.2);
+  color: black !important;
+}
+
+.report-toolip span {
+  display: flex;
+  padding: 0 !important;
+  font-size: 20px !important;
+  background: none !important;
+  color: var(--text-clr) !important;
+  transition: 0.2s !important;
+}
