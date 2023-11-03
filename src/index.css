@@ -49,7 +49,13 @@ a:hover {
 .h-200 {
   font-size: 36px;
   font-weight: 600;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
+}
+
+.h-100 {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
 }
 
 a {
@@ -77,7 +83,7 @@ a {
 }
 
 .text-bold {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 .flex {

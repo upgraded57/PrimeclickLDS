@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import "./modal.css";
 import Button from "./../button/Button";
+import { useVerifyOTP } from "../../ApiCalls/Auth/Auth";
+import toast from "react-hot-toast";
 
 export default function OTPModal({ header, text, btnText, btnLocation }) {
   const [otp, setOtp] = useState("");
+
+  const { mutate: verify, isError } = useVerifyOTP();
+  const verifyOTP = () => {
+    if (otp.length < 6) {
+      toast.error("Please enter a valid OTP");
+    } else {
+      verify({ pass_otp: otp });
+    }
+  };
+  if (isError) {
+    toast.error("Please check the OTP and retry");
+  }
+
   return (
     <div className="modal">
       <div className="modal__backdrop"></div>
@@ -18,6 +33,7 @@ export default function OTPModal({ header, text, btnText, btnLocation }) {
             id="otpInput"
             onChange={(e) => setOtp(e.target.value)}
             value={otp}
+            required
           />
           <label htmlFor="otpInput">{Array.from(otp)[0]}</label>
           <label htmlFor="otpInput">{Array.from(otp)[1]}</label>
@@ -30,7 +46,7 @@ export default function OTPModal({ header, text, btnText, btnLocation }) {
           variant="solid"
           type="button"
           text={btnText}
-          onClick={() => navigate({ btnLocation })}
+          clickEvent={verifyOTP}
         />
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import "./modal.css";
 import successIcon from "../../assets/images/success.png";
 import Button from "./../button/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Modal({
   header,
@@ -10,6 +11,7 @@ export default function Modal({
   btnLocation,
   setState,
 }) {
+  const navigate = useNavigate();
   return (
     <div className="modal">
       <div className="modal__backdrop" onClick={() => setState(false)}></div>
@@ -21,7 +23,7 @@ export default function Modal({
           variant="solid"
           type="button"
           text={btnText}
-          onClick={() => navigate({ btnLocation })}
+          clickEvent={() => navigate(btnLocation)}
         />
       </div>
     </div>

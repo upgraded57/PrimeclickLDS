@@ -15,20 +15,24 @@ import { useState } from "react";
 import Loader from "../../Component/Loader/Loader";
 import Modal from "./../../Component/Modal/Modal";
 import OTPModal from "./../../Component/Modal/OTPModal";
+import { useForgotPassword } from "../../ApiCalls/Auth/Auth";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [mail, setmail] = useState("");
+
+  const {
+    mutate: forgotPassword,
+    isLoading: loading,
+    isSuccess: modal,
+  } = useForgotPassword();
 
   const resetPass = (e) => {
-    setLoading(true);
     e.preventDefault();
-    setTimeout(() => {
-      setLoading(false);
-      setModal(true);
-    }, 1000);
+
+    forgotPassword({ email: mail });
   };
+
   return (
     <>
       {loading && <Loader type="spinner" />}
@@ -71,6 +75,8 @@ export default function ForgotPassword() {
                   label="Business Email"
                   name="email"
                   placeholder="johndoe@mail.com"
+                  setValue={setmail}
+                  required={true}
                 />
                 <Button variant="solid" type="submit" text="Reset Password" />
               </form>
@@ -81,8 +87,8 @@ export default function ForgotPassword() {
       {modal && (
         <OTPModal
           header="Verification OTP sent"
-          text="A one-time verification code, has been sent to your 
-          Email to confirm its really you. "
+          text={`A one-time verification code, has been sent to your 
+          Email - ${mail} - to confirm its really you.`}
           btnText="Confirm"
         />
       )}

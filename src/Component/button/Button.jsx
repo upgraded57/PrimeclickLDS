@@ -14,6 +14,18 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
         </button>
       );
 
+    case "accent":
+      return (
+        <button
+          type={type ? type : "button"}
+          className="solid-btn accent"
+          onClick={clickEvent}
+        >
+          <span>{icon}</span>
+          {text}
+        </button>
+      );
+
     case "outline":
       return (
         <button

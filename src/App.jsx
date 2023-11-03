@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Loader from "./Component/Loader/Loader";
 import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 
@@ -27,6 +28,7 @@ const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
 function App() {
   return (
     <div className="container">
+      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route
