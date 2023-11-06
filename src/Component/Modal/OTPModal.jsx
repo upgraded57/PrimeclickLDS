@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./modal.css";
 import Button from "./../button/Button";
-import { useVerifyOTP } from "../../ApiCalls/Auth/Auth";
 import toast from "react-hot-toast";
 
 export default function OTPModal({ header, text, btnText, btnLocation }) {
   const [otp, setOtp] = useState("");
 
-  const { mutate: verify, isError } = useVerifyOTP();
   const verifyOTP = () => {
     if (otp.length < 6) {
       toast.error("Please enter a valid OTP");

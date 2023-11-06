@@ -13,7 +13,6 @@ import Input from "../../Component/Input/Input";
 import Button from "../../Component/button/Button";
 import { useState } from "react";
 import Loader from "../../Component/Loader/Loader";
-import Modal from "./../../Component/Modal/Modal";
 import OTPModal from "./../../Component/Modal/OTPModal";
 import { useForgotPassword } from "../../ApiCalls/Auth/Auth";
 

@@ -115,7 +115,7 @@ export default function Lead() {
                       background: "transparent",
                     }}
                   >
-                    <leadTooltip />
+                    <LeadTooltip />
                   </Tooltip>
                 </td>
               </tr>

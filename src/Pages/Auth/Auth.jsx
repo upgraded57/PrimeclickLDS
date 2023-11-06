@@ -99,6 +99,7 @@ export default function Auth() {
   let toastId;
   if (loginLoading) {
     toastId = toast.loading("Signing you in");
+    navigate("/dashboard");
   } else if (!loginLoading && loginSuccess) {
     toast.dismiss(toastId);
     toast.success("Sign in successful");
