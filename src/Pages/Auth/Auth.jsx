@@ -12,7 +12,7 @@ import Button from "../../Component/button/Button";
 // icons
 import { FcGoogle } from "react-icons/fc";
 import OTPModal from "../../Component/Modal/OTPModal";
-import { useLoginUser, useRegisterUser } from "../../ApiCalls/Auth/Auth";
+import { loginUser, registerUser } from "../../ApiCalls/Auth/Auth";
 import toast from "react-hot-toast";
 
 export default function Auth() {
@@ -28,19 +28,12 @@ export default function Auth() {
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
 
-  const {
-    mutate: registerUser,
-    data: registerUserRes,
-    isLoading: registerUserLoading,
-    isSuccess: registerUserSuccess,
-    // isError: registerUserError,
-    error: registerUserError,
-  } = useRegisterUser();
-
-  // initialize toast id
+  // Sign up
+  const [newUserData, setNewUserData] = useState({});
   const signup = (e) => {
     e.preventDefault();
     const signupForm = document.getElementById("signupForm");
+    // Prepare signup data
     const signupData = {
       first_name: fullName.split(" ")[0],
       last_name: fullName.split(" ")[1],
@@ -52,61 +45,30 @@ export default function Auth() {
     };
 
     if (signupForm.checkValidity()) {
-      registerUser(signupData);
+      registerUser(signupData, setNewUserData, setOtpModalActive);
     } else {
       console.log(signupForm.reportValidity());
     }
-
-    // show toast errors for different fields
-    registerUserError?.response.data.email &&
-      toast.error(registerUserError.response.data.email, { id: toastId });
-
-    registerUserError?.response.data.phone_number &&
-      toast.error(registerUserError.response.data.phone_number, {
-        id: toastId,
-      });
-
-    registerUserError?.response.data.business_name &&
-      toast.error(registerUserError.response.data.business_name, {
-        id: toastId,
-      });
   };
 
   // login
-  const {
-    mutate: loginUser,
-    error: loginError,
-    isLoading: loginLoading,
-    isSuccess: loginSuccess,
-  } = useLoginUser();
+  const [user, setUser] = useState({});
   const login = (e) => {
     e.preventDefault();
     const loginForm = document.getElementById("loginForm");
 
+    // Prepare login data
     const loginData = {
       email,
       password: pass,
     };
 
     if (loginForm.checkValidity()) {
-      loginUser(loginData);
+      loginUser(loginData, setUser, navigate);
     } else {
       toast.error("One or more fields is invalid");
     }
   };
-
-  // show error if login fails
-  let toastId;
-  if (loginLoading) {
-    toastId = toast.loading("Signing you in");
-    navigate("/dashboard");
-  } else if (!loginLoading && loginSuccess) {
-    toast.dismiss(toastId);
-    toast.success("Sign in successful");
-  } else if (!loginLoading && loginError) {
-    toast.dismiss(toastId);
-    toast.error(loginError.response.data.non_field_errors);
-  }
 
   return (
     <>
@@ -268,8 +230,8 @@ export default function Auth() {
       {otpModalActive && (
         <OTPModal
           header="Account Verification OTP sent"
-          text="A one-time confirmation code, has been sent to your 
-Email. Use this code to validate your account."
+          text={`A one-time confirmation code, has been sent to your 
+Email - ${email}. Use this code to validate your account.`}
           btnText="Confirm"
         />
       )}

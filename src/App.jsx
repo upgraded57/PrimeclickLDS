@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Loader from "./Component/Loader/Loader";
 import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
+import ProtectedRoute from "./Utils/ProtectedRoute";
 
 const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Auth = React.lazy(() => import("./Pages/Auth/Auth"));
@@ -31,84 +32,106 @@ function App() {
       <Toaster />
       <BrowserRouter>
         <Routes>
-          <Route
-            index
-            element={
-              <Suspense fallback={<Loader />}>
-                <Home />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/leads"
-            element={
-              <DashboardLayout>
+          {/* Protected Routes */}
+          <Route path="/" element={<ProtectedRoute />}>
+            <Route
+              index
+              element={
                 <Suspense fallback={<Loader />}>
-                  <Leads />
+                  <Home />
                 </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/leads/:id"
-            element={
-              <DashboardLayout>
+              }
+            />
+            <Route
+              path="/leads"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Leads />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/leads/:id"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Lead />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Dashboard />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/report"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Reports />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <User />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Settings />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/support"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Support />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+
+            <Route
+              path="/new"
+              element={
                 <Suspense fallback={<Loader />}>
-                  <Lead />
+                  <Onboarding />
                 </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <DashboardLayout>
+              }
+            />
+            <Route
+              path="/form-setup"
+              element={
                 <Suspense fallback={<Loader />}>
-                  <Dashboard />
+                  <FormSetup />
                 </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/report"
-            element={
-              <DashboardLayout>
-                <Suspense fallback={<Loader />}>
-                  <Reports />
-                </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/user"
-            element={
-              <DashboardLayout>
-                <Suspense fallback={<Loader />}>
-                  <User />
-                </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <DashboardLayout>
-                <Suspense fallback={<Loader />}>
-                  <Settings />
-                </Suspense>
-              </DashboardLayout>
-            }
-          />
-          <Route
-            path="/support"
-            element={
-              <DashboardLayout>
-                <Suspense fallback={<Loader />}>
-                  <Support />
-                </Suspense>
-              </DashboardLayout>
-            }
-          />
+              }
+            />
+          </Route>
+
+          {/* Public Routes */}
           <Route
             path="/auth"
             element={
@@ -154,22 +177,6 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <Invalid />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/onboarding"
-            element={
-              <Suspense fallback={<Loader />}>
-                <Onboarding />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/form-setup"
-            element={
-              <Suspense fallback={<Loader />}>
-                <FormSetup />
               </Suspense>
             }
           />

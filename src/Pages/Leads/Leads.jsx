@@ -33,6 +33,7 @@ export default function Leads() {
             variant="pill"
             icon={<AiOutlinePlus />}
             text="Add new Leads"
+            clickEvent={() => navigate("/new")}
           />
         </div>
         <div className="cards">
