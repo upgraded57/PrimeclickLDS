@@ -14,23 +14,23 @@ import Button from "../../Component/button/Button";
 import { useState } from "react";
 import Loader from "../../Component/Loader/Loader";
 import OTPModal from "./../../Component/Modal/OTPModal";
-import { useForgotPassword } from "../../ApiCalls/Auth/Auth";
+// import { useForgotPassword } from "../../ApiCalls/Auth/Auth";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
   const [mail, setmail] = useState("");
 
-  const {
-    mutate: forgotPassword,
-    isLoading: loading,
-    isSuccess: modal,
-  } = useForgotPassword();
+  // const {
+  //   mutate: forgotPassword,
+  //   isLoading: loading,
+  //   isSuccess: modal,
+  // } = useForgotPassword();
 
-  const resetPass = (e) => {
-    e.preventDefault();
+  // const resetPass = (e) => {
+  //   e.preventDefault();
 
-    forgotPassword({ email: mail });
-  };
+  //   forgotPassword({ email: mail });
+  // };
 
   return (
     <>
