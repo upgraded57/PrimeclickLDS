@@ -28,6 +28,9 @@
 .search-filter {
   gap: 10px;
 }
+.search-filter {
+  width: 100%;
+}
 
 .sort-select,
 .search-filter-group {

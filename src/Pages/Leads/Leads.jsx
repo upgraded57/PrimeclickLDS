@@ -149,7 +149,6 @@ export default function Leads() {
           </div>
           <Button variant="pill" text="Search" />
         </div>
-        <Button variant="pill" text="Export" icon={<RiArrowDownSLine />} />
       </div>
       <div className="leads__table">
         <table>

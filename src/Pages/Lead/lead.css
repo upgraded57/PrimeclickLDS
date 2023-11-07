@@ -1,9 +1,5 @@
 .lead__export-btn {
-  width: 100%;
-  align-items: center;
-  justify-content: flex-end;
-  display: flex;
-  margin-bottom: 20px;
+  margin-left: auto;
 }
 
 .lead__export-btn button {
