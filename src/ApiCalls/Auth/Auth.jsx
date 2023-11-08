@@ -19,16 +19,15 @@ const baseURL = "https://walrus-app-ximsj.ondigitalocean.app";
 // };
 
 // register new user
-export const registerUser = async (
-  signupData,
-  setNewUserData,
-  setOtpModalActive
-) => {
+export const registerUser = async (signupData, setOtpModalActive) => {
   const toastId = toast.loading("Creating your account");
   await axios
     .post(`${baseURL}/api/register/`, signupData)
     .then((res) => {
-      setNewUserData(res.data);
+      if (localStorage.getItem("newUser")) {
+        localStorage.removeItem("newUser", JSON.stringify(res.data));
+      }
+      localStorage.setItem("newUser", JSON.stringify(res.data));
       toast.success("Account creation successful", {
         id: toastId,
       });
@@ -36,10 +35,10 @@ export const registerUser = async (
     })
     .catch((err) => {
       if (err.response.data.email) {
-        toast.error(`Account creation failed. ${err.response.data.email}`, {
+        toast.error(`Account creation failed. ${err.response.data.email[0]}`, {
           id: toastId,
         });
-      } else if (err.response.data.phone_number[0]) {
+      } else if (err.response.data.phone_number) {
         toast.error(
           `Account creation failed. ${err.response.data.phone_number[0]}`,
           {
@@ -91,7 +90,6 @@ export const loginUser = async (loginData, setUser, navigate) => {
 };
 
 // forgot password
-// const [resetUserId, setResetUserId] = useState("");
 export const forgotPassword = async (mail, setResetUserId) => {
   const toastId = toast.loading("Sending OTP");
   await axios
@@ -111,16 +109,19 @@ export const forgotPassword = async (mail, setResetUserId) => {
 };
 
 // verify OTP
-export const OTPVerify = async (otp) => {
+export const OTPVerify = async (data) => {
   const toastId = toast.loading("Verifying OTP...");
-  await axios
-    .post(`${baseURL}/verify-password-otp/`, otp)
-    .then((res) => {
-      console.log(res.data);
+  await axios({
+    url: `${baseURL}/api/activate/`,
+    method: "post",
+    data,
+  })
+    .then(() => {
       toast.success("OTP verification successful. Please Sign in", {
         id: toastId,
       });
-      window.location("/auth");
+      localStorage.removeItem("newUser");
+      window.location = "/auth";
     })
 
     .catch((err) => {
@@ -129,4 +130,10 @@ export const OTPVerify = async (otp) => {
       });
       console.log(err);
     });
+};
+
+export const logout = (navigate) => {
+  localStorage.removeItem("user");
+  localStorage.removeItem("tokens");
+  navigate("/auth");
 };

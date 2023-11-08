@@ -10,9 +10,11 @@ import { FaUser } from "react-icons/fa";
 import { PiBellLight, PiGearSixFill } from "react-icons/pi";
 import { BiSupport } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../../ApiCalls/Auth/Auth";
 
 export default function DashboardLayout({ children }) {
+  const navigate = useNavigate();
   return (
     <>
       <div className="dashboard-layout">
@@ -64,7 +66,7 @@ export default function DashboardLayout({ children }) {
           </div>
 
           <div className="link-group">
-            <div className="link">
+            <div className="link" onClick={() => logout(navigate)}>
               <span className="icon">
                 <BsBoxArrowLeft />
               </span>

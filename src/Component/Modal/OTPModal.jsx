@@ -4,14 +4,18 @@ import Button from "./../button/Button";
 import toast from "react-hot-toast";
 import { OTPVerify } from "../../ApiCalls/Auth/Auth";
 
-export default function OTPModal({ header, text, btnText, btnLocation }) {
-  const [otp, setOtp] = useState("");
+export default function OTPModal({ header, text, btnText }) {
+  const [otp, setOtp] = useState(
+    JSON.parse(localStorage.getItem("newUser")).otp || ""
+  );
+
+  const user_id = JSON.parse(localStorage.getItem("newUser")).user_id;
 
   const verifyOTP = () => {
     if (otp.length < 6) {
       toast.error("Please enter a valid OTP");
     } else {
-      OTPVerify({ pass_otp: otp });
+      OTPVerify({ otp, user_id });
     }
   };
 

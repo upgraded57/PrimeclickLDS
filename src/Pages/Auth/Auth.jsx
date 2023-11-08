@@ -29,7 +29,6 @@ export default function Auth() {
   const [confirmPass, setConfirmPass] = useState("");
 
   // Sign up
-  const [newUserData, setNewUserData] = useState({});
   const signup = (e) => {
     e.preventDefault();
     const signupForm = document.getElementById("signupForm");
@@ -44,10 +43,14 @@ export default function Auth() {
       confirm_password: confirmPass,
     };
 
-    if (signupForm.checkValidity()) {
-      registerUser(signupData, setNewUserData, setOtpModalActive);
+    if (pass === confirmPass) {
+      if (signupForm.checkValidity()) {
+        registerUser(signupData, setOtpModalActive);
+      } else {
+        console.log(signupForm.reportValidity());
+      }
     } else {
-      console.log(signupForm.reportValidity());
+      toast.error("Passwords do not match");
     }
   };
 
