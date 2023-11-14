@@ -25,6 +25,7 @@ const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
 const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
 const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
+const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
 
 function App() {
   return (
@@ -58,6 +59,16 @@ function App() {
                 <DashboardLayout>
                   <Suspense fallback={<Loader />}>
                     <Lead />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/leads/:id/info"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <LeadInfo />
                   </Suspense>
                 </DashboardLayout>
               }

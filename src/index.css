@@ -15,6 +15,8 @@ html {
   --bg-clr-blue: rgba(235, 238, 251, 1);
   --neutral-clr: rgba(151, 151, 151, 1);
   --text-clr: rgba(84, 81, 81, 1);
+  --yellow-clr: #f2c94c;
+  --green-clr: #6fcf97;
 }
 
 body {
@@ -67,6 +69,13 @@ a {
 .text-body {
   font-family: "DM Sans", sans-serif;
   font-size: 18px;
+  font-weight: 400;
+  color: var(--text-clr);
+}
+
+.text-small {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-clr);
 }
@@ -159,4 +168,47 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-block: 20px;
+}
+
+.rhap_container {
+  width: 100%;
+  padding: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.rhap_controls-section {
+  display: block;
+  max-width: max-content;
+  margin-right: 0 !important;
+}
+
+.rhap_main-controls button {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  color: #798ce1;
+}
+
+.rhap_progress-indicator {
+  background: var(--pry-clr) !important;
+  width: 13px !important;
+  height: 13px !important;
+  top: -5px !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+
+.rhap_progress-bar {
+  height: 2px !important;
+}
+
+.rhap_progress-filled {
+  background: var(--pry-clr) !important;
+}
+
+.rhap_time {
+  font-size: 13px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
 }

@@ -3,7 +3,6 @@ import "../Leads/leads.css";
 import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { FiSearch } from "react-icons/fi";
 import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
 import { users } from "../../Data/data";
 import {
@@ -15,7 +14,7 @@ import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
 
-export default function Lead() {
+export default function Lead({ lead }) {
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
   const [tooltipActive, setTooltipActive] = useState(false);
@@ -187,7 +186,7 @@ export default function Lead() {
                       background: "transparent",
                     }}
                   >
-                    <LeadTooltip />
+                    <LeadTooltip id={user.id} />
                   </Tooltip>
                 </td>
               </tr>

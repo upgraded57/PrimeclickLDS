@@ -1,0 +1,235 @@
+.leadinfo-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.leadinfo-head span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--pry-clr);
+  cursor: pointer;
+}
+
+.leadinfo-head span p {
+  color: var(--pry-clr) !important;
+}
+
+.leadinfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: var(--box-radius);
+  background: white;
+  box-shadow: 0 3px 8px #82828215;
+  min-width: 980px;
+}
+
+.leadinfo-left__user,
+.leadinfo-left__comment,
+.leadinfo-audio,
+.leadinfo-log {
+  border-radius: var(--input-radius);
+  border: 1px solid #eaeaea;
+}
+
+.leadinfo-left__user {
+  width: 100%;
+  padding: 40px 10px 10px;
+}
+
+.leadinfo-left,
+.leadinfo-audio {
+  flex-basis: 40%;
+}
+
+.leadinfo-log {
+  flex-basis: 20%;
+}
+
+.leadinfo-left__user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  color: white;
+  border-radius: 50%;
+  background: var(--pry-clr);
+  margin-inline: auto;
+}
+
+.leadinfo-left__user-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
+}
+
+.leadinfo-left__user-status span.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  background: green;
+  color: white;
+}
+
+.leadinfo-left__user-status span.status.called {
+  background: var(--yellow-clr);
+}
+
+.leadinfo-left__user-status span.status.converted {
+  background: var(--green-clr);
+}
+
+.leadinfo-left__user-info {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
+  display: flex;
+  align-items: center;
+}
+
+.leadinfo-left__user-info:last-child {
+  border-bottom: none;
+}
+
+.leadinfo-left__user-info p:nth-child(1) {
+  flex-basis: 25%;
+}
+
+.leadinfo-left__user-info p:nth-child(2) {
+  flex-basis: 75%;
+}
+
+.leadinfo-left__comment {
+  margin-top: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.leadinfo-left__comment span {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.leadinfo-left__comment form {
+  width: 100%;
+  text-align: right;
+}
+
+.leadinfo-left__comment form textarea {
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.leadinfo-left__comment form button {
+  padding: 3px 12px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  background: var(--pry-clr);
+}
+
+.leadinfo-left__comment form button p {
+  color: white !important;
+}
+
+.leadinfo-left__comment form button[type="reset"] {
+  opacity: 0.4;
+}
+
+.leadinfo-log h3 {
+  color: var(--pry-clr) !important;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.leadinfo-log hr {
+  border-color: var(--neutral-clr-light-grey);
+}
+
+.leadinfo-log .logs {
+  max-height: 612px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.leadinfo-log .log {
+  padding-block: 5px;
+  margin: 10px;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
+}
+
+.leadinfo-log .log:last-child {
+  border-bottom: none;
+}
+
+.leadinfo-log .log h5 {
+  color: var(--pry-clr);
+  opacity: 0.6;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.leadinfo-log .log p.time {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.leadinfo-audio__top {
+  padding: 20px 10px;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
+}
+
+.leadinfo-audio__info {
+  padding: 20px 10px;
+}
+
+.leadinfo-audio__info h4 {
+  font-size: 20px;
+  color: var(--pry-clr);
+  font-family: inherit;
+}
+
+.leadinfo-audio__transcriptions {
+  padding: 10px 20px;
+  max-height: 500px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.leadinfo-audio__transcriptions span {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.leadinfo-audio__transcriptions span p:first-child {
+  flex-basis: 20%;
+}
+
+.leadinfo-audio__transcriptions span p:last-child {
+  flex-basis: 80%;
+}

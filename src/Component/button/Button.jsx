@@ -6,7 +6,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
       return (
         <button
           type={type ? type : "button"}
-          className="solid-btn"
+          className="btn-tp solid-btn"
           onClick={clickEvent}
         >
           <span>{icon}</span>
@@ -18,7 +18,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
       return (
         <button
           type={type ? type : "button"}
-          className="solid-btn accent"
+          className="btn-tp solid-btn accent"
           onClick={clickEvent}
         >
           <span>{icon}</span>
@@ -30,7 +30,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
       return (
         <button
           type={type ? type : "button"}
-          className="outline-btn"
+          className="btn-tp outline-btn"
           onClick={clickEvent}
         >
           <span>{icon}</span>
@@ -42,7 +42,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
       return (
         <button
           type={type ? type : "button"}
-          className="pill-btn"
+          className="btn-tp pill-btn"
           onClick={clickEvent}
         >
           <span>{icon}</span>

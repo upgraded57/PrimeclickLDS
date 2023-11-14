@@ -13,10 +13,27 @@
   margin-bottom: 10px;
 }
 
+.leads__table-head h3 {
+  font-size: 18px !important;
+}
+
+.leads__table-search {
+  display: flex;
+  align-items: center;
+}
+
+.leads__table-search select {
+  height: 30px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid var(--neutral-clr-light-grey);
+  background: transparent;
+  padding-inline: 10px;
+  font-family: inherit;
+}
+
 .leads__table-head form {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .leads__table-head form input {
@@ -33,12 +50,14 @@
 .leads__table-head form button {
   margin: 0;
   width: max-content;
+  min-width: 30px;
   height: 30px;
   padding: 5px;
   border-radius: 0 4px 4px 0;
   border: none;
   background: var(--pry-clr);
   color: white;
+  cursor: pointer;
 }
 
 .leads__table-head .pagination {

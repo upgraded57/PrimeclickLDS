@@ -13,7 +13,10 @@
 .card__bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.card__top {
+  gap: 10px;
 }
 
 .card__top span,

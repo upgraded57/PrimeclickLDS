@@ -2,10 +2,15 @@ import "./lead.css";
 import { CiGrid2H } from "react-icons/ci";
 import { BsSoundwave, BsMusicNoteList } from "react-icons/bs";
 import { IoTrashOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
-export default function LeadTooltip() {
+export default function LeadTooltip({ id }) {
+  const navigate = useNavigate();
   return (
-    <div className="lead-tooltips">
+    <div
+      className="lead-tooltips"
+      onClick={() => navigate(`/leads/${id}/info`)}
+    >
       <div className="lead-toolip">
         <span>
           <CiGrid2H />
