@@ -15,7 +15,7 @@ import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
 import { useFetchLeads } from "../../ApiCalls/Lead/lead";
 
-export default function Lead({ lead }) {
+export default function Lead() {
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
   const [tooltipActive, setTooltipActive] = useState(false);
@@ -50,7 +50,6 @@ export default function Lead({ lead }) {
 
   // fetch lead
   const { data: leads } = useFetchLeads();
-  console.log(leads);
   return (
     <div className="lead">
       <div className="lead__top">

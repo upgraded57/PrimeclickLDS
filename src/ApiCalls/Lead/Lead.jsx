@@ -3,7 +3,6 @@ import { axiosInstance } from "../../Utils/AxiosInstance";
 import { baseURL } from "../baseUrl";
 import { useQuery } from "react-query";
 
-const tempLeadId = "BK2O";
 const campaign_id = JSON.parse(localStorage.getItem("campaign_id"));
 
 // fetch all leads
@@ -19,15 +18,6 @@ export const useFetchLeads = () => {
     select: (data) => data.data,
   });
 };
-
-// export const fetchLeads = async () => {
-//   await axiosInstance({
-//     method: "get",
-//     url: `${baseURL}/leads/list/${campaign_id}`,
-//   })
-//     .then((res) => console.log(res.data))
-//     .catch((err) => console.log(err));
-// };
 
 // create new lead
 export const createLead = async (data, navigate) => {
