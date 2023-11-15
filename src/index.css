@@ -115,6 +115,7 @@ a {
   background: white;
   border-radius: 16px;
   padding: 20px;
+  min-width: 1012px;
 }
 
 .leads__table table {
