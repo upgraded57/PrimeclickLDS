@@ -14,8 +14,10 @@ import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
 import { useFetchLeads } from "./../../ApiCalls/Lead/Lead";
+import { useParams } from "react-router-dom";
 
 export default function Lead() {
+  const { id } = useParams();
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
   const [tooltipActive, setTooltipActive] = useState(false);
@@ -49,7 +51,7 @@ export default function Lead() {
   };
 
   // fetch lead
-  const { data: leads } = useFetchLeads();
+  const { data: leads } = useFetchLeads(id);
   return (
     <div className="lead">
       <div className="lead__top">
@@ -152,7 +154,7 @@ export default function Lead() {
             </tr>
           </thead>
           <tbody>
-            {leads?.slice(start, end).map((lead) => (
+            {leads?.map((lead) => (
               <tr key={lead.id}>
                 <td>{lead.full_name}</td>
                 <td>{lead.email}</td>

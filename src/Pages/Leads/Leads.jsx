@@ -25,6 +25,7 @@ export default function Leads() {
 
   // fetch all campaigns
   const { data: campaigns } = useFetchCampaigns();
+  console.log(campaigns);
 
   return (
     <div className="leads">
