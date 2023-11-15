@@ -22,9 +22,10 @@ export default function Home() {
         <div className="home__info-links">
           <Link to="/auth">Login/Signup</Link>
           <Link to="/forgot-password">Reset Password</Link>
+          <Link to="/dashboard">Dashboard Page</Link>
           <Link to="/leads">Leads Page</Link>
           <Link to="/report">Report Page</Link>
-          <Link to="/onboarding">Onboarding Options Page</Link>
+          <Link to="/new">Onboarding Options Page</Link>
         </div>
       </div>
     </div>

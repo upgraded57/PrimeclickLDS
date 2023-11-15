@@ -3,8 +3,7 @@ import { axiosInstance } from "../../Utils/AxiosInstance";
 import { useMutation } from "react-query";
 import toast from "react-hot-toast";
 import { useState } from "react";
-
-const baseURL = "https://walrus-app-ximsj.ondigitalocean.app";
+import { baseURL } from "../baseUrl";
 
 // // forgot password
 // const forgotPassword = (mail) => {
@@ -45,6 +44,10 @@ export const registerUser = async (signupData, setOtpModalActive) => {
             id: toastId,
           }
         );
+      } else if (err.response.data.last_name) {
+        toast.error(`Account creation failed. Please enter a full name`, {
+          id: toastId,
+        });
       } else {
         toast.error("Something went wrong. Please retry", {
           id: toastId,
@@ -73,7 +76,7 @@ export const loginUser = async (loginData, setUser, navigate) => {
       navigate("/dashboard");
     })
     .catch((err) => {
-      if (err.response.data.non_field_errors[0]) {
+      if (err.response.data.non_field_errors) {
         toast.error(
           `Sign in failed. ${err.response.data.non_field_errors[0]}`,
           {

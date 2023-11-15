@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "../Lead/LeadTooltip";
 import { users } from "../../Data/data";
+import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
 
 export default function Dashboard() {
   const user = localStorage.getItem("user")
@@ -38,6 +39,8 @@ export default function Dashboard() {
       setEnd((prev) => prev - 10);
     }
   };
+
+  const { data: campaigns } = useFetchCampaigns();
 
   return (
     <div className="dashboard">

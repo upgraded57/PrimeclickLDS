@@ -25,6 +25,7 @@ const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
 const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
 const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
+const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
 
 function App() {
@@ -137,6 +138,14 @@ function App() {
               element={
                 <Suspense fallback={<Loader />}>
                   <FormSetup />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/temp-form"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <TempForm />
                 </Suspense>
               }
             />

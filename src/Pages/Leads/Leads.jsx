@@ -3,9 +3,9 @@ import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { AiOutlinePlus, AiOutlineCaretDown } from "react-icons/ai";
 import { CgSortAz } from "react-icons/cg";
-import { leads } from "../../Data/data";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
 
 export default function Leads() {
   const navigate = useNavigate();
@@ -22,6 +22,9 @@ export default function Leads() {
     setSearchOption(e.target.dataset.value);
     setSearchOptionActive(false);
   };
+
+  // fetch all campaigns
+  const { data: campaigns } = useFetchCampaigns();
 
   return (
     <div className="leads">
@@ -158,21 +161,23 @@ export default function Leads() {
               <th>Leads</th>
               <th>Created date/time</th>
               <th>Contacted</th>
+              <th>Type</th>
               <th>Converted</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {leads.slice(0, 10).map((lead) => (
-              <tr key={lead.id}>
-                <td>{lead.id}</td>
-                <td>{lead.title}</td>
-                <td>{lead.leads}</td>
-                <td>{lead.created}</td>
-                <td>{lead.contacted}</td>
-                <td>{lead.converted}</td>
+            {campaigns?.slice(0, 10).map((campaign) => (
+              <tr key={campaign.id}>
+                <td>{campaign.id}</td>
+                <td>{campaign.title}</td>
+                <td>{campaign.leads}</td>
+                <td>{campaign.created}</td>
+                <td>{campaign.contacted || "N/A"}</td>
+                <td>{campaign.type_of}</td>
+                <td>{campaign.converted || "N/A"}</td>
                 <td>
-                  <button onClick={() => navigate(`/leads/${lead.id}`)}>
+                  <button onClick={() => navigate(`/leads/${campaign.id}`)}>
                     View more
                   </button>
                 </td>

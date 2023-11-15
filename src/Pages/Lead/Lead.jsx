@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
+import { useFetchLeads } from "../../ApiCalls/Lead/lead";
 
 export default function Lead({ lead }) {
   const [start, setStart] = useState(1);
@@ -46,6 +47,10 @@ export default function Lead({ lead }) {
     setSearchOption(e.target.dataset.value);
     setSearchOptionActive(false);
   };
+
+  // fetch lead
+  const { data: leads } = useFetchLeads();
+  console.log(leads);
   return (
     <div className="lead">
       <div className="lead__top">
@@ -148,23 +153,23 @@ export default function Lead({ lead }) {
             </tr>
           </thead>
           <tbody>
-            {users.slice(start, end).map((user) => (
-              <tr key={user.id}>
-                <td>{user.fullName}</td>
-                <td>{user.Email}</td>
-                <td>{user.Phone}</td>
-                <td>{user.created}</td>
+            {leads?.slice(start, end).map((lead) => (
+              <tr key={lead.id}>
+                <td>{lead.full_name}</td>
+                <td>{lead.email}</td>
+                <td>{lead.phone_number}</td>
+                <td>{lead.created}</td>
                 <td>
                   <span
                     className={
-                      user.Status === "Called"
+                      lead.status === "Pending"
                         ? "called"
-                        : user.Status === "Converted"
+                        : lead.status === "Converted"
                         ? "converted"
                         : "rejected"
                     }
                   >
-                    {user.Status}
+                    {lead.status}
                   </span>
                 </td>
                 <td>
@@ -186,7 +191,7 @@ export default function Lead({ lead }) {
                       background: "transparent",
                     }}
                   >
-                    <LeadTooltip id={user.id} />
+                    <LeadTooltip id={lead.id} />
                   </Tooltip>
                 </td>
               </tr>

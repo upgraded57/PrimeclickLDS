@@ -13,7 +13,7 @@ import "react-h5-audio-player/lib/styles.css";
 
 export default function LeadInfo() {
   const { id } = useParams();
-  const user = users.filter((user) => user.id === id);
+  const user = users[0];
   const [inputPlaceholder, setInputPlaceholder] = useState(true);
 
   const blurTextarea = (e) => {
@@ -47,17 +47,17 @@ export default function LeadInfo() {
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">First Name: </p>
-              <p className="text-body text-bold">{user[0].fullName}</p>
+              <p className="text-body text-bold">{user.fullName}</p>
             </div>
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">Email: </p>
-              <p className="text-body text-bold">{user[0].Email}</p>
+              <p className="text-body text-bold">{user.Email}</p>
             </div>
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">Phone: </p>
-              <p className="text-body text-bold">{user[0].Phone}</p>
+              <p className="text-body text-bold">{user.Phone}</p>
             </div>
 
             <div className="leadinfo-left__user-info">
@@ -107,7 +107,7 @@ export default function LeadInfo() {
 
           <div className="leadinfo-audio__info">
             <h4>Transcribe</h4>
-            <p className="text-small">{user[0].fullName} at 10:00am</p>
+            <p className="text-small">{user.fullName} at 10:00am</p>
           </div>
 
           <div className="leadinfo-audio__transcriptions">

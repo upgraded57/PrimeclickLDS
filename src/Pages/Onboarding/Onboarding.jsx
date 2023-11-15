@@ -4,18 +4,19 @@ import Button from "../../Component/button/Button";
 import Input from "./../../Component/Input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createCampaign } from "../../ApiCalls/Campaign/Campaign";
 export default function Onboarding() {
   const navigate = useNavigate();
   const [onboardingType, setOnboardingType] = useState("");
   const [uploadedFile, setUploadedFile] = useState("");
   const [docLink, setDocLink] = useState("");
-  const [url, setUrl] = useState("");
+  const [campaignName, setCampaignName] = useState("");
 
   const completeOnboarding = () => {
     onboardingType === "upload" && (uploadedFile.name || docLink.length > 0)
       ? navigate("/leads")
-      : onboardingType === "generate" && url.length > 0
-      ? navigate("/form-setup")
+      : onboardingType === "generate" && campaignName.length > 0
+      ? createCampaign(campaignName, navigate)
       : "";
   };
   return (
@@ -87,8 +88,11 @@ export default function Onboarding() {
             {onboardingType === "generate" && (
               <div className="file-upload">
                 <div className="upload-option">
-                  <small>Input landing page url link</small>
-                  <Input placeholder="example" setValue={setUrl} />
+                  <small>Campaign Name</small>
+                  <Input
+                    placeholder="Campaign name goes here"
+                    setValue={setCampaignName}
+                  />
                 </div>
               </div>
             )}
