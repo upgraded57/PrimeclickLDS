@@ -6,6 +6,8 @@ import { CgSortAz } from "react-icons/cg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
+import moment from "moment";
+import Loader from "./../../Component/Loader/Loader";
 
 export default function Leads() {
   const navigate = useNavigate();
@@ -24,169 +26,178 @@ export default function Leads() {
   };
 
   // fetch all campaigns
-  const { data: campaigns } = useFetchCampaigns();
-  console.log(campaigns);
+  const { data: campaigns, isLoading } = useFetchCampaigns();
 
   return (
     <div className="leads">
-      <div className="leads__top">
-        <div className="title">
-          <h3 className="h-100">Leads</h3>
-          <Button
-            variant="pill"
-            icon={<AiOutlinePlus />}
-            text="Add new Leads"
-            clickEvent={() => navigate("/new")}
-          />
-        </div>
-        <div className="cards">
-          <Card qty="3000" text="Total Leads" />
-          <Card qty="3000" text="Total Leads" />
-          <Card qty="3000" text="Total Leads" />
-        </div>
-      </div>
-      <div className="leads__center">
-        <div className="sort">
-          <p className="text-body">Sort by:</p>
-          <div className="sort-select">
-            <div className="select">
-              <div className="select selected">
-                <p
-                  className="text-body"
-                  onClick={() => setFilterOptionActive(!filterOptionActive)}
-                >
-                  {filterOption === "" ? "All" : filterOption}
-                </p>
-              </div>
-              {filterOptionActive && (
-                <div className="select options">
-                  <p
-                    className="text-body"
-                    data-value="All"
-                    onClick={(e) => pickFilterOption(e)}
-                  >
-                    All
-                  </p>
-                  <p
-                    className="text-body"
-                    data-value="Contacted"
-                    onClick={(e) => pickFilterOption(e)}
-                  >
-                    Contacted
-                  </p>
-                  <p
-                    className="text-body"
-                    data-value="Converted"
-                    onClick={(e) => pickFilterOption(e)}
-                  >
-                    Converted
-                  </p>
-                  <p
-                    className="text-body"
-                    data-value="Rejected"
-                    onClick={(e) => pickFilterOption(e)}
-                  >
-                    Rejected
-                  </p>
-                </div>
-              )}
+      {isLoading ? (
+        <Loader type="spinner" />
+      ) : (
+        <>
+          <div className="leads__top">
+            <div className="title">
+              <h3 className="h-100">Campaigns</h3>
+              <Button
+                variant="pill"
+                icon={<AiOutlinePlus />}
+                text="Add Campaign"
+                clickEvent={() => navigate("/new")}
+              />
             </div>
-            <span>
-              <CgSortAz />
-            </span>
+            <div className="cards">
+              <Card qty={campaigns?.length} text="Total Campaigns" />
+            </div>
           </div>
-        </div>
-        <div className="search-filter">
-          <div className="search-filter-group">
-            <div className="search-options">
-              <div className="select">
-                <div className="select selected">
-                  <p
-                    className="text-body"
-                    onClick={() => setSearchOptionActive(!searchOptionActive)}
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    {searchOption === "" ? "Search Option" : searchOption}
-                  </p>
-                </div>
-                {searchOptionActive && (
-                  <div className="select options">
+          <div className="leads__center">
+            <div className="sort">
+              <p className="text-body" style={{ whiteSpace: "nowrap" }}>
+                Sort by:
+              </p>
+              <div className="sort-select">
+                <div className="select">
+                  <div className="select selected">
                     <p
                       className="text-body"
-                      data-value="Option One"
-                      onClick={(e) => pickSearchOption(e)}
+                      onClick={() => setFilterOptionActive(!filterOptionActive)}
                     >
-                      Option One
-                    </p>
-                    <p
-                      className="text-body"
-                      data-value="Option Two"
-                      onClick={(e) => pickSearchOption(e)}
-                    >
-                      Option Two
-                    </p>
-                    <p
-                      className="text-body"
-                      data-value="Option Three"
-                      onClick={(e) => pickSearchOption(e)}
-                    >
-                      Option Three
-                    </p>
-                    <p
-                      className="text-body"
-                      data-value="Option Four"
-                      onClick={(e) => pickSearchOption(e)}
-                    >
-                      Option Four
+                      {filterOption === "" ? "All" : filterOption}
                     </p>
                   </div>
-                )}
+                  {filterOptionActive && (
+                    <div className="select options">
+                      <p
+                        className="text-body"
+                        data-value="All"
+                        onClick={(e) => pickFilterOption(e)}
+                      >
+                        All
+                      </p>
+                      <p
+                        className="text-body"
+                        data-value="Contacted"
+                        onClick={(e) => pickFilterOption(e)}
+                      >
+                        Contacted
+                      </p>
+                      <p
+                        className="text-body"
+                        data-value="Converted"
+                        onClick={(e) => pickFilterOption(e)}
+                      >
+                        Converted
+                      </p>
+                      <p
+                        className="text-body"
+                        data-value="Rejected"
+                        onClick={(e) => pickFilterOption(e)}
+                      >
+                        Rejected
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <span>
+                  <CgSortAz />
+                </span>
               </div>
-              <span onClick={() => setSearchOptionActive(!searchOptionActive)}>
-                <AiOutlineCaretDown />
-              </span>
             </div>
-            <div className="search-input">
-              <input type="text" placeholder="Search" />
+            <div className="search-filter">
+              <div className="search-filter-group">
+                <div className="search-options">
+                  <div className="select">
+                    <div className="select selected">
+                      <p
+                        className="text-body"
+                        onClick={() =>
+                          setSearchOptionActive(!searchOptionActive)
+                        }
+                        style={{ whiteSpace: "nowrap" }}
+                      >
+                        {searchOption === "" ? "Search Option" : searchOption}
+                      </p>
+                    </div>
+                    {searchOptionActive && (
+                      <div className="select options">
+                        <p
+                          className="text-body"
+                          data-value="Option One"
+                          onClick={(e) => pickSearchOption(e)}
+                        >
+                          Option One
+                        </p>
+                        <p
+                          className="text-body"
+                          data-value="Option Two"
+                          onClick={(e) => pickSearchOption(e)}
+                        >
+                          Option Two
+                        </p>
+                        <p
+                          className="text-body"
+                          data-value="Option Three"
+                          onClick={(e) => pickSearchOption(e)}
+                        >
+                          Option Three
+                        </p>
+                        <p
+                          className="text-body"
+                          data-value="Option Four"
+                          onClick={(e) => pickSearchOption(e)}
+                        >
+                          Option Four
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <span
+                    onClick={() => setSearchOptionActive(!searchOptionActive)}
+                  >
+                    <AiOutlineCaretDown />
+                  </span>
+                </div>
+                <div className="search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+              </div>
+              <Button variant="pill" text="Search" />
             </div>
           </div>
-          <Button variant="pill" text="Search" />
-        </div>
-      </div>
-      <div className="leads__table">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Leads</th>
-              <th>Created date/time</th>
-              <th>Contacted</th>
-              <th>Type</th>
-              <th>Converted</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {campaigns?.slice(0, 10).map((campaign) => (
-              <tr key={campaign.id}>
-                <td>{campaign.id}</td>
-                <td>{campaign.title}</td>
-                <td>{campaign.leads}</td>
-                <td>{campaign.created}</td>
-                <td>{campaign.contacted || "N/A"}</td>
-                <td>{campaign.type_of}</td>
-                <td>{campaign.converted || "N/A"}</td>
-                <td>
-                  <button onClick={() => navigate(`/leads/${campaign.id}`)}>
-                    View more
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          <div className="leads__table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Leads</th>
+                  <th>Created date/time</th>
+                  <th>Contacted</th>
+                  <th>Type</th>
+                  <th>Converted</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {campaigns?.map((campaign) => (
+                  <tr key={campaign.id}>
+                    <td>{campaign.id}</td>
+                    <td>{campaign.title}</td>
+                    <td>{campaign.leads}</td>
+                    <td>{moment(campaign.created).format("lll")}</td>
+                    <td>{campaign.contacted || "N/A"}</td>
+                    <td>{campaign.type_of}</td>
+                    <td>{campaign.converted || "N/A"}</td>
+                    <td>
+                      <button onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        View more
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
   );
 }

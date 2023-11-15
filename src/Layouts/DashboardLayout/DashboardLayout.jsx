@@ -34,7 +34,7 @@ export default function DashboardLayout({ children }) {
               <span className="icon">
                 <BsFillFileEarmarkSpreadsheetFill />
               </span>
-              <p>Leads</p>
+              <p>Campaigns</p>
             </NavLink>
             <NavLink to="/report" className="link">
               <span className="icon">

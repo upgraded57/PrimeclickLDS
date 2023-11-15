@@ -1,4 +1,5 @@
 import "./button.css";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 export default function Button({ variant, type, text, icon, clickEvent }) {
   switch (variant) {
@@ -47,6 +48,16 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
         >
           <span>{icon}</span>
           {text}
+        </button>
+      );
+
+    case "back":
+      return (
+        <button type="button" className="back-btn" onClick={clickEvent}>
+          <span>
+            <TiArrowBackOutline />
+          </span>
+          <p>Back</p>
         </button>
       );
 

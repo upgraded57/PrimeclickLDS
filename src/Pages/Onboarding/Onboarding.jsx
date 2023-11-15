@@ -4,17 +4,20 @@ import Button from "../../Component/button/Button";
 import Input from "./../../Component/Input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createCampaign } from "../../ApiCalls/Campaign/Campaign";
+import {
+  createCampaign,
+  uploadCampaign,
+} from "../../ApiCalls/Campaign/Campaign";
 export default function Onboarding() {
   const navigate = useNavigate();
   const [onboardingType, setOnboardingType] = useState("");
-  const [uploadedFile, setUploadedFile] = useState("");
+  const [uploadedFile, setUploadedFile] = useState(null);
   const [docLink, setDocLink] = useState("");
   const [campaignName, setCampaignName] = useState("");
 
   const completeOnboarding = () => {
     onboardingType === "upload" && (uploadedFile.name || docLink.length > 0)
-      ? navigate("/leads")
+      ? uploadCampaign(uploadedFile)
       : onboardingType === "generate" && campaignName.length > 0
       ? createCampaign(campaignName, navigate)
       : "";
@@ -55,12 +58,13 @@ export default function Onboarding() {
                     type="file"
                     id="file-upload"
                     style={{ display: "none" }}
+                    accept=".xlsx, .xls, .csv"
                     onChange={(e) => setUploadedFile(e.target.files[0])}
                   />
                   <label htmlFor="file-upload" className="file-upload-label">
                     <span>Upload file</span>
                     <p className="text-body">
-                      {uploadedFile === ""
+                      {uploadedFile === null
                         ? "No file chosen"
                         : uploadedFile.name}
                     </p>

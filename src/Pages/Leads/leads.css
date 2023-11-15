@@ -1,5 +1,11 @@
 .leads {
   width: 100%;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  -webkit-scrollbar-width: thin;
+  padding-bottom: 16px;
+  padding-right: 10px;
 }
 
 .leads__top .title {
@@ -14,7 +20,6 @@
   gap: 20px;
   align-items: center;
   margin-bottom: 20px;
-  /* overflow: hidden; */
 }
 
 .leads__center .sort,

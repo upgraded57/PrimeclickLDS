@@ -28,6 +28,28 @@ export const createCampaign = async (name, navigate) => {
     });
 };
 
+// create campaign by upload
+export const uploadCampaign = async (file) => {
+  const toastId = toast.loading("Uploading File...");
+  const data = new FormData();
+  data.append("campaign", file);
+  await axiosInstance({
+    method: "post",
+    url: `${baseURL}/campaign/upload/${businessId}/`,
+    data,
+  })
+    .then((res) => {
+      toast.success("File uploaded successfully", {
+        id: toastId,
+      });
+    })
+    .catch((err) => {
+      toast.error("Please check the file and retry", {
+        id: toastId,
+      });
+    });
+};
+
 // fetch all campaigns
 const fetchCampaigns = () => {
   return axiosInstance({

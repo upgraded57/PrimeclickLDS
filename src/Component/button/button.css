@@ -68,3 +68,19 @@ button span {
   font-size: 18px;
   display: flex;
 }
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pry-clr);
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.back-btn p {
+  font-weight: 70;
+  font-size: 20px;
+}
