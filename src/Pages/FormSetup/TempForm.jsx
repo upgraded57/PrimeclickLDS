@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./formsetup.css";
 import Input from "../../Component/Input/Input";
 import Button from "../../Component/button/Button";
-import { createLead } from "../../ApiCalls/Lead/lead";
+import { createLead } from "./../../ApiCalls/Lead/Lead";
 import { useNavigate } from "react-router-dom";
 
 export default function TempForm() {
