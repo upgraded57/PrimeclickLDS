@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
-import { useFetchLeads } from "../../ApiCalls/Lead/lead";
+import { useFetchLeads } from "./../../ApiCalls/Lead/Lead";
 
 export default function Lead() {
   const [start, setStart] = useState(1);
