@@ -23,9 +23,11 @@ export default function Lead() {
 
   // fetch lead
   const { data: leads, isLoading } = useFetchLeads(id);
+
+  // show tooltip
+  const [tooltipActive, setTooltipActive] = useState(false);
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
-  const [tooltipActive, setTooltipActive] = useState(false);
 
   const increaseCount = () => {
     if (end < leads?.leads?.length) {
@@ -203,17 +205,19 @@ export default function Lead() {
                     <td>
                       <span
                         className="tooltip"
-                        onClick={() => setTooltipActive(!tooltipActive)}
+                        id={`${lead.id}-tooltip`}
+                        onClick={() => setTooltipActive((prev) => !prev)}
                       >
                         <PiDotsThreeOutlineVerticalDuotone />
                       </span>
                       <Tooltip
-                        anchorSelect=".tooltip"
+                        anchorSelect={`#${lead.id}-tooltip`}
                         place="bottom-end"
                         offset={20}
                         noArrow
                         clickable
-                        isOpen={tooltipActive}
+                        // isOpen={tooltipActive}
+                        openOnClick
                         style={{
                           padding: "0",
                           background: "transparent",

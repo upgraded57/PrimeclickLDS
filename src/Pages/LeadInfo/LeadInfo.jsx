@@ -1,5 +1,5 @@
 import "./leadinfo.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { RiQuillPenLine } from "react-icons/ri";
 import { useState } from "react";
@@ -14,8 +14,10 @@ import "react-h5-audio-player/lib/styles.css";
 export default function LeadInfo() {
   const { id } = useParams();
   const user = users[0];
-  const [inputPlaceholder, setInputPlaceholder] = useState(true);
+  const navigate = useNavigate();
 
+  // control visibility of note placeholder
+  const [inputPlaceholder, setInputPlaceholder] = useState(true);
   const blurTextarea = (e) => {
     console.log(e.target.value);
     if (e.target.value === "") {
@@ -27,7 +29,7 @@ export default function LeadInfo() {
     <>
       <div className="leadinfo-head">
         <h3 className="h-100">Form Details</h3>
-        <span>
+        <span onClick={() => navigate(-1)}>
           <TiArrowBackOutline style={{ fontSize: "30px" }} />
           <p className="text-body">Back</p>
         </span>

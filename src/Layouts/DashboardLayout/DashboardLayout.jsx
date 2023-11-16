@@ -79,9 +79,6 @@ export default function DashboardLayout({ children }) {
             <span>
               <PiBellLight />
             </span>
-            <span>
-              <AiOutlineUser />
-            </span>
           </div>
           <div className="dashboard-layout__children">{children}</div>
         </div>
