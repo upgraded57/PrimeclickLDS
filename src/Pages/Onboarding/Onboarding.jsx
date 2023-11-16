@@ -17,7 +17,7 @@ export default function Onboarding() {
 
   const completeOnboarding = () => {
     onboardingType === "upload" && (uploadedFile.name || docLink.length > 0)
-      ? uploadCampaign(uploadedFile)
+      ? uploadCampaign(uploadedFile, navigate)
       : onboardingType === "generate" && campaignName.length > 0
       ? createCampaign(campaignName, navigate)
       : "";

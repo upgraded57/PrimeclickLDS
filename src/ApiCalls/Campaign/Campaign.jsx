@@ -29,7 +29,7 @@ export const createCampaign = async (name, navigate) => {
 };
 
 // create campaign by upload
-export const uploadCampaign = async (file) => {
+export const uploadCampaign = async (file, navigate) => {
   const toastId = toast.loading("Uploading File...");
   const data = new FormData();
   data.append("campaign", file);
@@ -38,12 +38,13 @@ export const uploadCampaign = async (file) => {
     url: `${baseURL}/campaign/upload/${businessId}/`,
     data,
   })
-    .then((res) => {
+    .then(() => {
       toast.success("File uploaded successfully", {
         id: toastId,
       });
+      navigate("/dashboard");
     })
-    .catch((err) => {
+    .catch(() => {
       toast.error("Please check the file and retry", {
         id: toastId,
       });

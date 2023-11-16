@@ -28,7 +28,7 @@ export default function Lead() {
   const [tooltipActive, setTooltipActive] = useState(false);
 
   const increaseCount = () => {
-    if (end < leads?.length) {
+    if (end < leads?.leads?.length) {
       setStart((prev) => prev + 10);
       setEnd((prev) => prev + 10);
     }
@@ -69,12 +69,12 @@ export default function Lead() {
               justifyContent: "space-between",
             }}
           >
-            <h3 className="h-100">Grapes Landing Page</h3>
+            <h3 className="h-100">{leads?.campaign_name}</h3>
             <Button variant="back" clickEvent={() => navigate(-1)} />
           </div>
 
           <div className="lead__top cards">
-            <Card text="Total Leads" qty={leads?.length} />
+            <Card text="Total Leads" qty={leads?.leads?.length} />
             <Card text="Total Converted" qty="3000" />
             <Card text="Total Converted" qty="3000" />
           </div>
@@ -154,7 +154,7 @@ export default function Lead() {
               <h3 className="h-100">Lead List</h3>
 
               <div className="pagination">
-                <p>{`${start} - ${end} of ${leads?.length}`}</p>
+                <p>{`${start} - ${end} of ${leads?.leads?.length}`}</p>
                 <span onClick={decreaseCount}>
                   <AiOutlineLeft
                     style={{ opacity: start === 1 ? "0.5" : "1" }}
@@ -162,7 +162,9 @@ export default function Lead() {
                 </span>
                 <span onClick={increaseCount}>
                   <AiOutlineRight
-                    style={{ opacity: end === leads?.length ? "0.5" : 1 }}
+                    style={{
+                      opacity: end === leads?.leads?.length ? "0.5" : 1,
+                    }}
                   />
                 </span>
               </div>
@@ -179,7 +181,7 @@ export default function Lead() {
                 </tr>
               </thead>
               <tbody>
-                {leads?.slice(start - 1, end).map((lead) => (
+                {leads?.leads?.slice(start - 1, end).map((lead) => (
                   <tr key={lead.id}>
                     <td>{lead.full_name}</td>
                     <td>{lead.email}</td>

@@ -56,10 +56,9 @@ export default function Dashboard() {
           <Button
             variant="pill"
             icon={<FaPlus />}
-            text="Add New Leads"
+            text="Add New Campaign"
             clickEvent={() => navigate("/new")}
           />
-          <Button variant="pill" icon={<FaPlus />} text="Add New Forms" />
         </div>
       </div>
 
