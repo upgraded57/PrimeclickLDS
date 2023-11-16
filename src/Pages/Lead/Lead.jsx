@@ -24,8 +24,7 @@ export default function Lead() {
   // fetch lead
   const { data: leads, isLoading } = useFetchLeads(id);
 
-  // show tooltip
-  const [tooltipActive, setTooltipActive] = useState(false);
+  // table data pagination
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
 
@@ -203,21 +202,17 @@ export default function Lead() {
                       </span>
                     </td>
                     <td>
-                      <span
-                        className="tooltip"
-                        id={`${lead.id}-tooltip`}
-                        onClick={() => setTooltipActive((prev) => !prev)}
-                      >
+                      <span className="tooltip" data-tooltip-id={lead.id}>
                         <PiDotsThreeOutlineVerticalDuotone />
                       </span>
                       <Tooltip
-                        anchorSelect={`#${lead.id}-tooltip`}
+                        id={lead.id}
                         place="bottom-end"
                         offset={20}
                         noArrow
                         clickable
-                        // isOpen={tooltipActive}
                         openOnClick
+                        globalCloseEvents="clickOutsideAnchor"
                         style={{
                           padding: "0",
                           background: "transparent",
