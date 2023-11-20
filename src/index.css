@@ -60,6 +60,12 @@ a:hover {
   font-family: "DM Sans", sans-serif;
 }
 
+.h-50 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
+}
+
 a {
   color: var(--pry-clr);
   font-weight: 700;

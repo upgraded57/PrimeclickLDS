@@ -1,0 +1,132 @@
+.user {
+  min-width: 1022px;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+  padding-right: 10px;
+  padding-bottom: 14px;
+  scrollbar-width: thin;
+}
+
+.user-box {
+  background: white;
+  border-radius: 16px;
+  margin-top: 30px;
+  overflow: hidden;
+  box-shadow: 3px 0 9px 0 #82828215;
+}
+
+.user-box__head,
+.user-box__profile,
+.user-box__company {
+  border-bottom: 1px solid #ced4da;
+}
+
+.user-box__head {
+  padding-inline: 50px;
+  padding-block: 50px 20px;
+}
+
+.user-box__head-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-box__head-top-avatar {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-box__head-top-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-box__head-top-detail h2 {
+  font-size: 48px;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+}
+
+.user-box__head-bottom {
+  margin-top: 20px;
+}
+
+.user-box__profile,
+.user-box__company,
+.user-box__mail {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+}
+
+.user-box__profile-left,
+.user-box__company-left,
+.user-box__mail-left {
+  flex-basis: 40%;
+  padding-right: 50px;
+}
+
+.user-box__profile-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-box__company-right {
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-box__company-right-img {
+  min-width: 95px;
+  height: 95px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-box__company-right-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-box__company-right-upload {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 50px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.user-box__company-right-upload label {
+  cursor: pointer;
+}
+
+.user-box__company-right-upload .upload-icon {
+  font-size: 30px;
+  color: #ced4da;
+}
+
+.user-box__mail-right {
+  flex-basis: 60%;
+}
+
+.user-box-btns {
+  padding: 20px 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
