@@ -111,3 +111,9 @@
   height: 44px !important;
   padding-inline: 20px !important;
 }
+
+.btn-group {
+  display: flex !important;
+  align-items: center;
+  gap: 20px;
+}

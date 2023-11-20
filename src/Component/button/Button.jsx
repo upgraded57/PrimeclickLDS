@@ -53,7 +53,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
 
     case "back":
       return (
-        <button type="button" className="back-btn" onClick={clickEvent}>
+        <button type="button" className="button-back-btn" onClick={clickEvent}>
           <span>
             <TiArrowBackOutline />
           </span>

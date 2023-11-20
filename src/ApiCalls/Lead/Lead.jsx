@@ -3,7 +3,7 @@ import { axiosInstance } from "../../Utils/AxiosInstance";
 import { baseURL } from "../baseUrl";
 import { useQuery } from "react-query";
 
-const new_campaign_id = JSON.parse(localStorage.getItem("campaign_id"));
+// const new_campaign_id = JSON.parse(localStorage.getItem("campaign_id"));
 
 // fetch all leads
 const fetchLeads = (campaign_id) => {
@@ -20,11 +20,11 @@ export const useFetchLeads = (campaign_id) => {
 };
 
 // create new lead
-export const createLead = async (data, navigate) => {
+export const createLead = async (data, campaign_id, navigate) => {
   const toastId = toast.loading("Creating lead...");
   await axiosInstance({
     method: "post",
-    url: `${baseURL}/lead/create/${new_campaign_id}/`,
+    url: `${baseURL}/lead/create/${campaign_id}/`,
     data,
   })
     .then((res) => {

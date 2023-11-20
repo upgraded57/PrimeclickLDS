@@ -3,10 +3,12 @@ import "./formsetup.css";
 import Input from "../../Component/Input/Input";
 import Button from "../../Component/button/Button";
 import { createLead } from "./../../ApiCalls/Lead/Lead";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function TempForm() {
   const navigate = useNavigate();
+  const { campaign_id } = useParams();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +22,7 @@ export default function TempForm() {
       phone_number: phone,
     };
 
-    createLead(data, navigate);
+    createLead(data, campaign_id, navigate);
   };
 
   return (

@@ -9,6 +9,7 @@ import {
   AiOutlineLeft,
   AiOutlineRight,
 } from "react-icons/ai";
+import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "./LeadTooltip";
@@ -19,10 +20,10 @@ import Loader from "./../../Component/Loader/Loader";
 
 export default function Lead() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id: campaign_id } = useParams();
 
   // fetch lead
-  const { data: leads, isLoading } = useFetchLeads(id);
+  const { data: leads, isLoading } = useFetchLeads(campaign_id);
 
   // table data pagination
   const [start, setStart] = useState(1);
@@ -71,7 +72,15 @@ export default function Lead() {
             }}
           >
             <h3 className="h-100">{leads?.campaign_name}</h3>
-            <Button variant="back" clickEvent={() => navigate(-1)} />
+            <div className="btn-group">
+              <Button
+                variant="pill"
+                text="Add new lead"
+                icon={<FaPlus />}
+                clickEvent={() => navigate(`/temp-form/${campaign_id}`)}
+              />
+              <Button variant="back" clickEvent={() => navigate(-1)} />
+            </div>
           </div>
 
           <div className="lead__top cards">

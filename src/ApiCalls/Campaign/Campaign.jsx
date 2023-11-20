@@ -17,8 +17,7 @@ export const createCampaign = async (name, navigate) => {
       toast.success("Campaign name created", {
         id: toastId,
       });
-      localStorage.setItem("campaign_id", JSON.stringify(res.data.campaign_id));
-      navigate("/temp-form");
+      navigate(`/temp-form/${res.data.campaign_id}`);
     })
     .catch((err) => {
       console.log(err);
