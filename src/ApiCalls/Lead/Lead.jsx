@@ -31,7 +31,7 @@ export const createLead = async (data, campaign_id, navigate) => {
       toast.success(res.data.message, {
         id: toastId,
       });
-      navigate("/leads");
+      navigate(`/leads/${campaign_id}`);
     })
     .catch((err) => {
       toast.error("Something went wrong. Please retry", {
