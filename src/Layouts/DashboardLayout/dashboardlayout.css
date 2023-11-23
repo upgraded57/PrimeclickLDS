@@ -14,7 +14,7 @@
   background: white;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 0 5px 3px rgba(7, 42, 200, 0.15);
+  box-shadow: 0 3px 9px 0 #82828220;
 }
 
 .dashboard-layout__sidebar .logo {

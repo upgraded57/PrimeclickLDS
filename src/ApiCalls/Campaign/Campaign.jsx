@@ -58,8 +58,9 @@ const fetchCampaigns = () => {
   });
 };
 
-export const useFetchCampaigns = () => {
+export const useFetchCampaigns = (setFilteredCampaign) => {
   return useQuery(["Campaigns", businessId], fetchCampaigns, {
     select: (data) => data.data,
+    onSuccess: (data) => setFilteredCampaign(data),
   });
 };

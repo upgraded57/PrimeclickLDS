@@ -13,9 +13,10 @@ const fetchLeads = (campaign_id) => {
   });
 };
 
-export const useFetchLeads = (campaign_id) => {
+export const useFetchLeads = (campaign_id, setFilteredLeads) => {
   return useQuery(["leads", campaign_id], () => fetchLeads(campaign_id), {
     select: (data) => data.data,
+    onSuccess: (data) => setFilteredLeads(data.leads),
   });
 };
 

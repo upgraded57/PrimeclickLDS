@@ -73,11 +73,21 @@ button span {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--pry-clr);
   border: none;
   outline: none;
   background: transparent;
   cursor: pointer;
+}
+
+.button-back-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 5px 3px #072ac815;
 }
 
 .button-back-btn p {

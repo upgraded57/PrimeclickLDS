@@ -72,6 +72,11 @@ a {
   font-family: serif;
 }
 
+select {
+  outline: none !important;
+  cursor: pointer;
+}
+
 .text-body {
   font-family: "DM Sans", sans-serif;
   font-size: 18px;
@@ -122,6 +127,7 @@ a {
   border-radius: 16px;
   padding: 20px;
   min-width: 1020px;
+  box-shadow: 0 3px 9px 0 #82828220;
 }
 
 .leads__table table {

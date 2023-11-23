@@ -23,14 +23,18 @@ export default function Lead() {
   const { id: campaign_id } = useParams();
 
   // fetch lead
-  const { data: leads, isLoading } = useFetchLeads(campaign_id);
+  const [filteredLeads, setFilteredLeads] = useState([]);
+  const { data: leads, isLoading } = useFetchLeads(
+    campaign_id,
+    setFilteredLeads
+  );
 
   // table data pagination
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
 
   const increaseCount = () => {
-    if (end < leads?.leads?.length) {
+    if (end < filteredLeads?.length) {
       setStart((prev) => prev + 10);
       setEnd((prev) => prev + 10);
     }
@@ -43,18 +47,27 @@ export default function Lead() {
     }
   };
 
-  const [filterOption, setFilterOption] = useState("All");
-  const [filterOptionActive, setFilterOptionActive] = useState(false);
-  const pickFilterOption = (e) => {
-    setFilterOption(e.target.dataset.value);
-    setFilterOptionActive(false);
-  };
+  // filter values
+  const [filterValue, setFilterValue] = useState("all");
+  const [searchValue, setSearchValue] = useState("");
 
-  const [searchOption, setSearchOption] = useState("");
-  const [searchOptionActive, setSearchOptionActive] = useState(false);
-  const pickSearchOption = (e) => {
-    setSearchOption(e.target.dataset.value);
-    setSearchOptionActive(false);
+  // filter leads
+  const filterLeads = () => {
+    if (filterValue === "all") {
+      setFilteredLeads(
+        leads.leads.filter((lead) =>
+          lead.full_name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredLeads(
+        leads.leads.filter(
+          (lead) =>
+            lead.full_name.toLowerCase().includes(searchValue.toLowerCase()) &&
+            lead.status.toLowerCase() === filterValue.toLowerCase()
+        )
+      );
+    }
   };
 
   return (
@@ -92,62 +105,22 @@ export default function Lead() {
             <div className="search-filter">
               <div className="search-filter-group">
                 <div className="search-options">
-                  <div className="select">
-                    <div className="select selected">
-                      <p
-                        className="text-body"
-                        onClick={() =>
-                          setSearchOptionActive(!searchOptionActive)
-                        }
-                        style={{ whiteSpace: "nowrap" }}
-                      >
-                        {searchOption === "" ? "Search Option" : searchOption}
-                      </p>
-                    </div>
-                    {searchOptionActive && (
-                      <div className="select options">
-                        <p
-                          className="text-body"
-                          data-value="Option One"
-                          onClick={(e) => pickSearchOption(e)}
-                        >
-                          Option One
-                        </p>
-                        <p
-                          className="text-body"
-                          data-value="Option Two"
-                          onClick={(e) => pickSearchOption(e)}
-                        >
-                          Option Two
-                        </p>
-                        <p
-                          className="text-body"
-                          data-value="Option Three"
-                          onClick={(e) => pickSearchOption(e)}
-                        >
-                          Option Three
-                        </p>
-                        <p
-                          className="text-body"
-                          data-value="Option Four"
-                          onClick={(e) => pickSearchOption(e)}
-                        >
-                          Option Four
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                  <span
-                    onClick={() => setSearchOptionActive(!searchOptionActive)}
-                  >
-                    <AiOutlineCaretDown />
-                  </span>
+                  <select onChange={(e) => setFilterValue(e.target.value)}>
+                    <option value="all">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="converted">Converted</option>
+                    <option value="rejected">Rejected</option>
+                  </select>
                 </div>
                 <div className="search-input">
-                  <input type="text" placeholder="Search" />
+                  <input
+                    type="text"
+                    placeholder="Search by full name ..."
+                    onChange={(e) => setSearchValue(e.target.value)}
+                  />
                 </div>
               </div>
-              <Button variant="pill" text="Search" />
+              <Button variant="pill" text="Search" clickEvent={filterLeads} />
 
               <div className="lead__export-btn">
                 <Button
@@ -164,7 +137,7 @@ export default function Lead() {
               <h3 className="h-100">Lead List</h3>
 
               <div className="pagination">
-                <p>{`${start} - ${end} of ${leads?.leads?.length}`}</p>
+                <p>{`${start} - ${end} of ${filteredLeads?.length}`}</p>
                 <span onClick={decreaseCount}>
                   <AiOutlineLeft
                     style={{ opacity: start === 1 ? "0.5" : "1" }}
@@ -173,7 +146,7 @@ export default function Lead() {
                 <span onClick={increaseCount}>
                   <AiOutlineRight
                     style={{
-                      opacity: end === leads?.leads?.length ? "0.5" : 1,
+                      opacity: end === filteredLeads?.length ? "0.5" : 1,
                     }}
                   />
                 </span>
@@ -191,7 +164,7 @@ export default function Lead() {
                 </tr>
               </thead>
               <tbody>
-                {leads?.leads?.slice(start - 1, end).map((lead) => (
+                {filteredLeads?.slice(start - 1, end).map((lead) => (
                   <tr key={lead.id}>
                     <td>{lead.full_name}</td>
                     <td>{lead.email}</td>

@@ -1,5 +1,5 @@
 import "./button.css";
-import { TiArrowBackOutline } from "react-icons/ti";
+import { GoChevronLeft } from "react-icons/go";
 
 export default function Button({ variant, type, text, icon, clickEvent }) {
   switch (variant) {
@@ -55,7 +55,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
       return (
         <button type="button" className="button-back-btn" onClick={clickEvent}>
           <span>
-            <TiArrowBackOutline />
+            <GoChevronLeft />
           </span>
           <p>Back</p>
         </button>
