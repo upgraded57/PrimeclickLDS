@@ -1,0 +1,98 @@
+.reports {
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.report__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.report__card {
+  padding: 20px;
+  border-radius: var(--box-radius);
+  background: white;
+  box-shadow: 3px 3px 9px 0 #82828215;
+}
+
+.report__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.report__card-top-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.report__card-top-sort select {
+  padding: 5px;
+  background: white;
+  border: 1px solid var(--neutral-clr-light-grey);
+  border-radius: var(--input-radius);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.report__card-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.report__card-body .pie,
+.report__card-body .legends {
+  flex-basis: 50%;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legend:not(.legend:last-child) {
+  margin-bottom: 10px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend span .marker {
+  width: 17px;
+  height: 17px;
+  background: var(--accent-clr);
+}
+
+.report__card-leads {
+  width: 100%;
+  padding-inline: 10px;
+}
+
+.report__card-lead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.report__card-lead:not(.report__card-lead:last-child) {
+  margin-bottom: 10px;
+}
+
+.report__card-lead span {
+  padding: 5px 12px;
+  border-radius: 2px;
+  background: #eaeaea;
+}
