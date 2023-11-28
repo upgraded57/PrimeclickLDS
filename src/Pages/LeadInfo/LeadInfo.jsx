@@ -10,23 +10,32 @@ import { users } from "../../Data/data";
 // Audio player
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { useFetchLeadInfo } from "../../ApiCalls/Lead/Lead";
+import Loader from "./../../Component/Loader/Loader";
 
 export default function LeadInfo() {
   const { id } = useParams();
   const user = users[0];
   const navigate = useNavigate();
 
+  // Fetch lead info
+  const { isLoading, data: leadInfo } = useFetchLeadInfo(id);
+
   // control visibility of note placeholder
   const [inputPlaceholder, setInputPlaceholder] = useState(true);
   const blurTextarea = (e) => {
-    console.log(e.target.value);
     if (e.target.value === "") {
       setInputPlaceholder(true);
     }
   };
 
+  const initials =
+    leadInfo?.full_name.split(" ")[0].split("")[0] +
+    leadInfo?.full_name.split(" ")[1].split("")[0];
+
   return (
     <>
+      {isLoading && <Loader type="placeholder" />}
       <div className="leadinfo-head">
         <h3 className="h-100">Form Details</h3>
         <span onClick={() => navigate(-1)}>
@@ -38,7 +47,7 @@ export default function LeadInfo() {
         <div className="leadinfo-left">
           <div className="leadinfo-left__user">
             <div className="leadinfo-left__user-avatar">
-              <h2 className="h-200">AO</h2>
+              <h2 className="h-200">{initials}</h2>
             </div>
 
             <div className="leadinfo-left__user-status">
@@ -49,17 +58,17 @@ export default function LeadInfo() {
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">First Name: </p>
-              <p className="text-body text-bold">{user.fullName}</p>
+              <p className="text-body text-bold">{leadInfo?.full_name}</p>
             </div>
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">Email: </p>
-              <p className="text-body text-bold">{user.Email}</p>
+              <p className="text-body text-bold">{leadInfo?.email}</p>
             </div>
 
             <div className="leadinfo-left__user-info">
               <p className="text-small">Phone: </p>
-              <p className="text-body text-bold">{user.Phone}</p>
+              <p className="text-body text-bold">{leadInfo?.phone_number}</p>
             </div>
 
             <div className="leadinfo-left__user-info">

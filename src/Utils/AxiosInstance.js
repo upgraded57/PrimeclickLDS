@@ -1,7 +1,9 @@
+import { baseURL } from "../ApiCalls/baseUrl";
+
 import axios from "axios";
 const tokens = JSON.parse(localStorage.getItem("tokens"));
 export const axiosInstance = axios.create({
-  baseURL: "https://dolphin-app-lg4zj.ondigitalocean.app",
+  baseURL,
 });
 
 axiosInstance.interceptors.request.use((config) => {

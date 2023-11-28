@@ -41,3 +41,16 @@ export const createLead = async (data, campaign_id, navigate) => {
       console.log(err);
     });
 };
+
+// fetch lead info
+const fetchLeadInfo = (lead_id) => {
+  return axiosInstance({
+    url: `/leads/detail/${lead_id}/`,
+  });
+};
+
+export const useFetchLeadInfo = (lead_id) => {
+  return useQuery(["leadInfo", lead_id], () => fetchLeadInfo(lead_id), {
+    select: (data) => data.data,
+  });
+};
