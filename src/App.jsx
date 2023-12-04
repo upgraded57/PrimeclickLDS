@@ -25,8 +25,12 @@ const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
 const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
 const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
+const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
 const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
+const Notifications = React.lazy(() =>
+  import("./Pages/Notifications/Notifications")
+);
 
 function App() {
   return (
@@ -120,6 +124,16 @@ function App() {
                 <DashboardLayout>
                   <Suspense fallback={<Loader />}>
                     <Support />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+            <Route
+              path="/notifications"
+              element={
+                <DashboardLayout>
+                  <Suspense fallback={<Loader />}>
+                    <Notifications />
                   </Suspense>
                 </DashboardLayout>
               }

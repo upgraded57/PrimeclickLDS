@@ -1,11 +1,20 @@
 import "./button.css";
 import { GoChevronLeft } from "react-icons/go";
 
-export default function Button({ variant, type, text, icon, clickEvent }) {
+export default function Button({
+  variant,
+  type,
+  text,
+  icon,
+  clickEvent,
+  bgColor,
+  textClr,
+}) {
   switch (variant) {
     case "solid":
       return (
         <button
+          style={{ backgroundColor: bgColor, color: textClr }}
           type={type ? type : "button"}
           className="btn-tp solid-btn"
           onClick={clickEvent}
@@ -18,6 +27,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
     case "accent":
       return (
         <button
+          style={{ backgroundColor: bgColor, color: textClr }}
           type={type ? type : "button"}
           className="btn-tp solid-btn accent"
           onClick={clickEvent}
@@ -30,6 +40,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
     case "outline":
       return (
         <button
+          style={{ backgroundColor: bgColor, color: textClr }}
           type={type ? type : "button"}
           className="btn-tp outline-btn"
           onClick={clickEvent}
@@ -42,6 +53,7 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
     case "pill":
       return (
         <button
+          style={{ backgroundColor: bgColor, color: textClr }}
           type={type ? type : "button"}
           className="btn-tp pill-btn"
           onClick={clickEvent}
@@ -53,7 +65,12 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
 
     case "back":
       return (
-        <button type="button" className="button-back-btn" onClick={clickEvent}>
+        <button
+          style={{ backgroundColor: bgColor, color: textClr }}
+          type="button"
+          className="button-back-btn"
+          onClick={clickEvent}
+        >
           <span>
             <GoChevronLeft />
           </span>
@@ -63,7 +80,11 @@ export default function Button({ variant, type, text, icon, clickEvent }) {
 
     default:
       return (
-        <button type={type ? type : "button"} onClick={clickEvent}>
+        <button
+          style={{ backgroundColor: bgColor, color: textClr }}
+          type={type ? type : "button"}
+          onClick={clickEvent}
+        >
           Default Button
         </button>
       );

@@ -9,10 +9,14 @@ export default function Input({
   required,
   minLength,
   maxlength,
+  bgColor,
+  textClr,
 }) {
   return (
     <div className="input">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} style={{ color: textClr }}>
+        {label}
+      </label>
       <input
         type={type ? type : "text"}
         id={name}
@@ -21,6 +25,7 @@ export default function Input({
         required={required}
         minLength={minLength}
         maxLength={maxlength}
+        style={{ backgroundColor: bgColor, color: textClr }}
       />
     </div>
   );

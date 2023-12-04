@@ -76,7 +76,7 @@ export default function DashboardLayout({ children }) {
         </div>
         <div className="dashboard-layout__main">
           <div className="dashboard-layout__main-top">
-            <span>
+            <span onClick={() => navigate("/notifications")}>
               <PiBellLight />
             </span>
           </div>

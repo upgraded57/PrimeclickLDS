@@ -66,6 +66,12 @@ a:hover {
   font-family: "DM Sans", sans-serif;
 }
 
+.h-50-alt {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+}
+
 a {
   color: var(--pry-clr);
   font-weight: 700;
@@ -98,8 +104,15 @@ select {
 .text-link {
   font-weight: 700;
   font-family: "IBM Plex Sans", sans-serif;
-  color: VAR(--pry-clr);
-  font-size: 18px;
+  color: var(--pry-clr);
+  font-size: inherit;
+}
+
+.text-link-alt {
+  font-weight: 500;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--accent-clr);
+  font-size: inherit;
 }
 
 .text-bold {
@@ -184,6 +197,10 @@ select {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-block: 20px;
+}
+
+.lead-delete-icon:hover {
+  color: red !important;
 }
 
 .rhap_container {

@@ -12,6 +12,7 @@ import { Tooltip } from "react-tooltip";
 
 import pieImg from "../../assets/images/pie.png";
 import lineImg from "../../assets/images/line.png";
+import { IoTrashOutline } from "react-icons/io5";
 
 export default function Reports() {
   const navigate = useNavigate();
@@ -276,13 +277,10 @@ export default function Reports() {
                   </span>
                 </td>
                 <td>
-                  <span
-                    className="tooltip"
-                    onClick={() => setTooltipActive(!tooltipActive)}
-                  >
-                    <PiDotsThreeOutlineVerticalDuotone />
+                  <span className="tooltip lead-delete-icon">
+                    <IoTrashOutline />
                   </span>
-                  <Tooltip
+                  {/* <Tooltip
                     anchorSelect=".tooltip"
                     place="bottom-end"
                     offset={20}
@@ -295,7 +293,7 @@ export default function Reports() {
                     }}
                   >
                     <LeadTooltip id={user.id} />
-                  </Tooltip>
+                  </Tooltip> */}
                 </td>
               </tr>
             ))}

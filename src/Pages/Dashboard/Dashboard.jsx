@@ -4,17 +4,14 @@ import Button from "./../../Component/button/Button";
 import Card from "./../../Component/Card/Card";
 import { useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import {
-  AiOutlineCaretDown,
-  AiOutlineLeft,
-  AiOutlineRight,
-} from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import LeadTooltip from "../Lead/LeadTooltip";
 import { users } from "../../Data/data";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
+import { IoTrashOutline } from "react-icons/io5";
 
 export default function Dashboard() {
   const user = localStorage.getItem("user")
@@ -207,13 +204,10 @@ export default function Dashboard() {
                   </span>
                 </td>
                 <td>
-                  <span
-                    className="tooltip"
-                    onClick={() => setTooltipActive(!tooltipActive)}
-                  >
-                    <PiDotsThreeOutlineVerticalDuotone />
+                  <span className="tooltip lead-delete-icon">
+                    <IoTrashOutline />
                   </span>
-                  <Tooltip
+                  {/* <Tooltip
                     anchorSelect=".tooltip"
                     place="bottom-end"
                     offset={20}
@@ -226,7 +220,7 @@ export default function Dashboard() {
                     }}
                   >
                     <LeadTooltip id={user.id} />
-                  </Tooltip>
+                  </Tooltip> */}
                 </td>
               </tr>
             ))}

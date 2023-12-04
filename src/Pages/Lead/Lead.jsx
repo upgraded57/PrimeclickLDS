@@ -3,16 +3,10 @@ import "../Leads/leads.css";
 import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
-import {
-  AiOutlineCaretDown,
-  AiOutlineLeft,
-  AiOutlineRight,
-} from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { IoTrashOutline } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
-import { Tooltip } from "react-tooltip";
-import LeadTooltip from "./LeadTooltip";
 import { useFetchLeads } from "./../../ApiCalls/Lead/Lead";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment/moment";
@@ -99,10 +93,10 @@ export default function Lead() {
           <div className="lead__top cards">
             <Card text="Total Leads" qty={leads?.leads?.length} />
             <Card text="Total Converted" qty="3000" />
-            <Card text="Total Converted" qty="3000" />
+            <Card text="Total Converted" qty="30" />
           </div>
-          <div className="leads__center">
-            <div className="search-filter">
+          <div className="leads__center" style={{ width: "100%" }}>
+            <div className="search-filter" style={{ width: "100%" }}>
               <div className="search-filter-group">
                 <div className="search-options">
                   <select onChange={(e) => setFilterValue(e.target.value)}>
@@ -166,11 +160,19 @@ export default function Lead() {
               <tbody>
                 {filteredLeads?.slice(start - 1, end).map((lead) => (
                   <tr key={lead.id}>
-                    <td>{lead.full_name}</td>
-                    <td>{lead.email}</td>
-                    <td>{lead.phone_number}</td>
-                    <td>{moment(lead.created).format("lll")}</td>
-                    <td>
+                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                      {lead.full_name}
+                    </td>
+                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                      {lead.email}
+                    </td>
+                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                      {lead.phone_number}
+                    </td>
+                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                      {moment(lead.created).format("lll")}
+                    </td>
+                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
                       <span
                         className={
                           lead.status === "Pending"
@@ -184,10 +186,10 @@ export default function Lead() {
                       </span>
                     </td>
                     <td>
-                      <span className="tooltip" data-tooltip-id={lead.id}>
-                        <PiDotsThreeOutlineVerticalDuotone />
+                      <span className="tooltip lead-delete-icon">
+                        <IoTrashOutline />
                       </span>
-                      <Tooltip
+                      {/* <Tooltip
                         id={lead.id}
                         place="bottom-end"
                         offset={20}
@@ -201,7 +203,7 @@ export default function Lead() {
                         }}
                       >
                         <LeadTooltip id={lead.id} />
-                      </Tooltip>
+                      </Tooltip> */}
                     </td>
                   </tr>
                 ))}

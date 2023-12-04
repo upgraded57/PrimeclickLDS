@@ -1,10 +1,5 @@
 .user {
-  min-width: 1022px;
-  max-height: calc(100vh - 120px);
-  overflow-y: scroll;
-  padding-right: 10px;
-  padding-bottom: 14px;
-  scrollbar-width: thin;
+  width: 100%;
 }
 
 .user-box {

@@ -4,6 +4,7 @@
   gap: 20px;
   padding-block: 10px;
   height: calc(100vh - 10px);
+  overflow-y: hidden;
   width: 100%;
 }
 
@@ -68,7 +69,19 @@
 }
 
 .dashboard-layout__main {
-  width: 100%;
+  min-width: 1020px;
+  overflow-y: scroll;
+  max-height: 100vh;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+
+.dashboard-layout__main::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dashboard-layout__main::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .dashboard-layout__main-top {
