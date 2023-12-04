@@ -12,6 +12,7 @@ import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { useFetchLeadInfo } from "../../ApiCalls/Lead/Lead";
 import Loader from "./../../Component/Loader/Loader";
+import Button from "../../Component/button/Button";
 
 export default function LeadInfo() {
   const { id } = useParams();
@@ -38,10 +39,7 @@ export default function LeadInfo() {
       {isLoading && <Loader type="placeholder" />}
       <div className="leadinfo-head">
         <h3 className="h-100">Form Details</h3>
-        <span onClick={() => navigate(-1)}>
-          <TiArrowBackOutline style={{ fontSize: "30px" }} />
-          <p className="text-body">Back</p>
-        </span>
+        <Button variant="back" clickEvent={() => navigate(-1)} />
       </div>
       <div className="leadinfo">
         <div className="leadinfo-left">
