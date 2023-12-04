@@ -164,13 +164,21 @@
 }
 
 .leadinfo-log hr {
-  border-color: var(--neutral-clr-light-grey);
+  border: none;
+  border-bottom: 1px solid var(--neutral-clr-light-grey);
 }
 
 .leadinfo-log .logs {
   max-height: 612px;
   overflow-y: scroll;
-  scrollbar-width: thin;
+}
+
+.leadinfo-log .logs::-webkit-scrollbar {
+  width: 5px;
+}
+
+.leadinfo-log .logs::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .leadinfo-log .log {
@@ -218,7 +226,14 @@
   padding: 10px 20px;
   max-height: 500px;
   overflow-y: scroll;
-  scrollbar-width: thin;
+}
+
+.leadinfo-audio__transcriptions::-webkit-scrollbar {
+  width: 5px;
+}
+
+.leadinfo-audio__transcriptions::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .leadinfo-audio__transcriptions span {
