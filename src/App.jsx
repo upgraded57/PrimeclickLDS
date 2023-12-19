@@ -24,10 +24,9 @@ const Support = React.lazy(() => import("./Pages/Support/Support"));
 const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
 const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
-const FormSetup = React.lazy(() => import("./Pages/FormSetup/FormSetup"));
 const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
-const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
+const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const Notifications = React.lazy(() =>
   import("./Pages/Notifications/Notifications")
 );
@@ -147,19 +146,23 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
-              path="/form-setup"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <FormSetup />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/temp-form/:campaign_id"
+              path="/temp-form/:id"
               element={
                 <Suspense fallback={<Loader />}>
                   <TempForm />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/form/:id/wizard"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <DashboardLayout>
+                    <FormWizard />
+                  </DashboardLayout>
                 </Suspense>
               }
             />

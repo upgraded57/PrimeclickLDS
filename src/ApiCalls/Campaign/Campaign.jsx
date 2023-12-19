@@ -17,7 +17,7 @@ export const createCampaign = async (name, navigate) => {
       toast.success("Campaign name created", {
         id: toastId,
       });
-      navigate(`/temp-form/${res.data.campaign_id}`);
+      navigate(`/form/${res.data.campaign_id}/wizard`);
     })
     .catch((err) => {
       console.log(err);

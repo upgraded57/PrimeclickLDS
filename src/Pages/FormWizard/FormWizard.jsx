@@ -3,174 +3,120 @@ import Input from "./../../Component/Input/Input";
 import Button from "./../../Component/button/Button";
 import { useState } from "react";
 
-import { LuSettings2 } from "react-icons/lu";
-
 export default function FormWizard() {
-  const [formTitle, setFormTitle] = useState("Your form header");
-  const [btnText, setBtnText] = useState("Your button text");
-  const [formBG, setFormBg] = useState("");
-  const [textClr, setTextClr] = useState("");
-  const [inputBGColor, setInputBGColor] = useState("");
-  const [settingsActive, setSettingsActive] = useState(false);
-  const [btnBG, setBtnBG] = useState("");
-  const [btnTxtClr, setBtnTxtClr] = useState("");
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : "";
 
   return (
-    <div className="FormWizard">
-      <h2 className="h-200">Customize your form</h2>
-      <div className="formspace" style={{ backgroundColor: formBG }}>
-        <h3 className="h-100" style={{ color: textClr }}>
-          {formTitle.length > 0 ? formTitle : "Your Form Title"}
-        </h3>
-        <div className="formInputs">
-          <Input
-            type="text"
-            label="First Name"
-            placeholder="e.g. John"
-            name="firstName"
-            textClr={textClr}
-            bgColor={inputBGColor}
-          />
-          <Input
-            type="text"
-            label="Last Name"
-            placeholder="e.g. Doe"
-            name="lastName"
-            textClr={textClr}
-            bgColor={inputBGColor}
-          />
-          <Input
-            type="email"
-            label="Email Address"
-            placeholder="e.g. sample@mail.com"
-            name="email"
-            textClr={textClr}
-            bgColor={inputBGColor}
-          />
-          <Input
-            type="text"
-            label="Phone Number"
-            placeholder="e.g. 08012345678"
-            name="phone"
-            textClr={textClr}
-            bgColor={inputBGColor}
-          />
-          <Input
-            type="text"
-            label="Location"
-            placeholder="e.g. Lagos, Nigeria"
-            name="location"
-            textClr={textClr}
-            bgColor={inputBGColor}
-          />
-          <Button
-            type="button"
-            text={btnText.length > 0 ? btnText : "Your button text"}
-            variant="accent"
-            bgColor={btnBG}
-            textClr={btnTxtClr}
-          />
+    <div className="formwizard">
+      <div className="formwizard-top">
+        <h3 className="h-100">Customize your form</h3>
+        <p className="text-body">
+          Welcome {`${user.first_name} ${user.last_name}`}
+        </p>
+      </div>
+
+      <div className="wizard">
+        <div className="wizard-form-container">
+          <div className="wizard-form">
+            <h3 className="h-100">FORM TITLE</h3>
+            <Input
+              name="wizard-firstName"
+              label="First Name"
+              placeholder="e.g John"
+              type="text"
+            />
+            <Input
+              name="wizard-lastName"
+              label="Last Name"
+              placeholder="e.g Doe"
+              type="text"
+            />
+            <Input
+              name="wizard-email"
+              label="Email Address"
+              placeholder="e.g sample@mail.com"
+              type="email"
+            />
+            <Input
+              name="wizard-phone"
+              label="Phone Number"
+              placeholder="e.g 09011223344"
+              type="text"
+            />
+            <Input
+              name="wizard-location"
+              label="Location"
+              placeholder="e.g Lagos, Nigeria"
+              type="text"
+            />
+            <Button variant="solid" text="CALL ME" />
+          </div>
+          <Button variant="accent" text="Save Form" />
+
+          <div className="wizard-control">
+            <h5 className="h-50">Form Settings</h5>
+            <div className="wizard-control-texts">
+              <label htmlFor="wizard-control-title">
+                <p>Form Title</p>
+                <input type="text" id="wizard-control-title" />
+              </label>
+              <label htmlFor="wizard-control-btn-text">
+                <p>Button Text</p>
+                <input type="text" id="wizard-control-btn-text" />
+              </label>
+            </div>
+
+            <div className="wizard-control-checks">
+              <p>Check the options below for fields to display</p>
+              <label htmlFor="wizard-control-check-firstName">
+                <input type="checkbox" id="wizard-control-check-firstName" />
+                <p>First Name</p>
+              </label>
+              <label htmlFor="wizard-control-check-lastName">
+                <input type="checkbox" id="wizard-control-check-lastName" />
+                <p>Last Name</p>
+              </label>
+              <label htmlFor="wizard-control-check-email">
+                <input type="checkbox" id="wizard-control-check-email" />
+                <p>Email Address</p>
+              </label>
+              <label htmlFor="wizard-control-check-phone">
+                <input type="checkbox" id="wizard-control-check-phone" />
+                <p>Phone Number</p>
+              </label>
+              <label htmlFor="wizard-control-check-location">
+                <input type="checkbox" id="wizard-control-check-location" />
+                <p>Location</p>
+              </label>
+            </div>
+
+            <div className="wizard-control-colors">
+              <p>Edit and customize form aesthetics with the options below </p>
+              <label htmlFor="wizard-control-color-bg">
+                <p>Background Color</p>
+                <input type="color" id="wizard-control-color-bg" />
+              </label>
+              <label htmlFor="wizard-control-color-input-bg">
+                <p>Input Field Background</p>
+                <input type="color" id="wizard-control-color-input-bg" />
+              </label>
+              <label htmlFor="wizard-control-color-text">
+                <p>Text Color</p>
+                <input type="color" id="wizard-control-color-text" />
+              </label>
+              <label htmlFor="wizard-control-color-btn-bg">
+                <p>Button Color</p>
+                <input type="color" id="wizard-control-color-btn-bg" />
+              </label>
+              <label htmlFor="wizard-control-color-btn-text-clr">
+                <p>Button Text Color</p>
+                <input type="color" id="wizard-control-color-btn-text-clr" />
+              </label>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={settingsActive ? "formSettings active" : "formSettings"}>
-        <Input
-          type="text"
-          name="setting_title"
-          label="Form Title"
-          placeholder="Enter your form title here"
-          setValue={setFormTitle}
-        />
-
-        <Input
-          type="text"
-          name="setting_btn-text"
-          label="Button Text"
-          placeholder="Enter your button text"
-          setValue={setBtnText}
-        />
-
-        <div className="formSettings_checkboxes">
-          <p className="text-body text-bold">
-            Check the options for fields to display
-          </p>
-          <label htmlFor="settings_firstName">
-            <input type="checkbox" id="settings_firstName" />
-            <p className="text-body">First Name</p>
-          </label>
-          <label htmlFor="settings_lastName">
-            <input type="checkbox" id="settings_lastName" />
-            <p className="text-body">Last Name</p>
-          </label>
-          <label htmlFor="settings_email">
-            <input type="checkbox" id="settings_email" />
-            <p className="text-body">Email Address</p>
-          </label>
-          <label htmlFor="settings_phone">
-            <input type="checkbox" id="settings_phone" />
-            <p className="text-body">Phone Number</p>
-          </label>
-          <label htmlFor="settings_location">
-            <input type="checkbox" id="settings_location" />
-            <p className="text-body">Location</p>
-          </label>
-
-          <label htmlFor="settings_bg">
-            <p className="text-body">Background Color:</p>
-            <input
-              type="color"
-              id="settings_bg"
-              onChange={(e) => setFormBg(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="input_bg">
-            <p className="text-body">Input Field Background:</p>
-            <input
-              type="color"
-              id="input_bg"
-              onChange={(e) => setInputBGColor(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="text_clr">
-            <p className="text-body">Text Color</p>
-            <input
-              type="color"
-              id="text_clr"
-              onChange={(e) => setTextClr(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="settings_btn-clr">
-            <p className="text-body">Button Background Color:</p>
-            <input
-              type="color"
-              id="settings_btn-clr"
-              onChange={(e) => setBtnBG(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="settings_btn-clr">
-            <p className="text-body">Button Text Color:</p>
-            <input
-              type="color"
-              id="settings_btn-clr"
-              onChange={(e) => setBtnTxtClr(e.target.value)}
-            />
-          </label>
-        </div>
-      </div>
-
-      <div className="save-btn" style={{ width: "50%", marginInline: "auto" }}>
-        <Button variant="solid" text="Save form" />
-      </div>
-
-      <div
-        className="toggleSettingsTab"
-        onClick={() => setSettingsActive((prev) => !prev)}
-      >
-        <LuSettings2 />
       </div>
     </div>
   );

@@ -1,87 +1,95 @@
-.FormWizard {
-  padding-top: 5vh;
+.wizard {
+  padding: 20px 40px;
+  border-radius: 16px;
+  border: 1px solid #ced4da;
+  overflow: hidden;
   position: relative;
+  margin-top: 20px;
 }
 
-.FormWizard h2 {
-  text-align: center;
+.wizard-form-container {
+  width: 70%;
 }
 
-.formspace {
+.wizard-form {
   width: 100%;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 3px 9px 3px #82828215;
   padding: 20px;
-  border: 1px solid lightgrey;
-  margin-block: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.formInputs {
-  width: 50%;
-  margin-inline: auto;
-  text-align: left;
-}
-
-.formInputs input {
   margin-bottom: 20px;
 }
 
-.formSettings {
-  width: 500px;
-  height: 100dvh;
+.wizard-form h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wizard-form input {
+  margin-bottom: 10px;
+}
+
+.wizard-control {
+  background: white;
+  padding: 20px;
+  max-width: 290px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.wizard-control::-webkit-scrollbar {
+  width: 5px;
+}
+
+.wizard-control::-webkit-scrollbar-thumb {
+  background: #ced4da;
+}
+
+.wizard-control h5 {
+  font-size: 20px !important;
+}
+
+.wizard-control-texts,
+.wizard-control-checks,
+.wizard-control-colors {
+  padding-block: 20px;
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  border-bottom: 1px solid #ced4da;
+}
+
+.wizard-control-colors {
+  border-bottom: none;
+}
+
+.wizard-control-texts label input {
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #000;
+}
+
+.wizard-control-checks label {
+  display: flex;
   gap: 20px;
-  position: fixed;
-  right: -100%;
-  top: 0;
-  padding: 50px;
-  background: var(--accent-clr);
-  color: white;
-  transition: 0.3s linear;
+  cursor: pointer;
 }
 
-.formSettings.active {
-  right: 0;
-}
-
-.formSettings_checkboxes {
-  margin-top: 20px;
-}
-
-.formSettings_checkboxes label {
+.wizard-control-colors label {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-  max-width: max-content;
+  justify-content: space-between;
 }
 
-.formSettings_checkboxes label input[type="color"] {
-  background: transparent;
+.wizard-control-colors label input {
+  background: none;
   border: none;
-  cursor: pointer;
-}
-
-.formSettings_checkboxes label p,
-.formSettings_checkboxes p {
-  color: white !important;
-}
-
-.toggleSettingsTab {
-  width: 40px;
-  height: 40px;
-  background: var(--accent-clr);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 20px;
-  right: 0;
-  cursor: pointer;
-  border: 2px solid var(--bg-clr-blue);
-  border-radius: 5px;
+  outline: none;
+  height: 18px;
+  width: 48px;
 }
