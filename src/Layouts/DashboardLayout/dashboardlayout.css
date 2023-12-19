@@ -113,6 +113,7 @@
   max-height: 100vh;
   scrollbar-width: thin;
   padding-bottom: 30px;
+  padding-right: 10px;
 }
 
 .dashboard-layout__main::-webkit-scrollbar {
