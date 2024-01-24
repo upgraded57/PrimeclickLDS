@@ -92,6 +92,30 @@ export default function FormWizard() {
               </label>
             </div>
 
+            <div className="contact-method">
+              <p className="text-body">Contact Via</p>
+              <div className="contact-method-options">
+                <span>
+                  <input type="radio" name="contact-method" id="call" />
+                  <label htmlFor="call">
+                    <p className="text-body">Call</p>
+                  </label>
+                </span>
+                <span>
+                  <input type="radio" name="contact-method" id="text" />
+                  <label htmlFor="text">
+                    <p className="text-body">Text Message</p>
+                  </label>
+                </span>
+                <span>
+                  <input type="radio" name="contact-method" id="whatsapp" />
+                  <label htmlFor="whatsapp">
+                    <p className="text-body">Whatsapp Message</p>
+                  </label>
+                </span>
+              </div>
+            </div>
+
             <div className="wizard-control-colors">
               <p>Edit and customize form aesthetics with the options below </p>
               <label htmlFor="wizard-control-color-bg">

@@ -93,3 +93,20 @@
   height: 18px;
   width: 48px;
 }
+
+.contact-method {
+  padding-block: 20px;
+}
+
+.contact-method-options {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-block: 10px;
+}
+
+.contact-method-options span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
