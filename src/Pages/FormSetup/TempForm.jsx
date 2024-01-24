@@ -4,6 +4,7 @@ import Input from "../../Component/Input/Input";
 import Button from "../../Component/button/Button";
 import { createLead } from "./../../ApiCalls/Lead/Lead";
 import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function TempForm() {
   const navigate = useNavigate();
@@ -16,6 +17,15 @@ export default function TempForm() {
   const [location, setLocation] = useState("");
 
   const create = () => {
+    if (
+      firstName.length < 1 ||
+      lastName.length < 1 ||
+      email.length < 1 ||
+      phone.length < 1
+    ) {
+      toast.error("One or more required field is empty");
+      return;
+    }
     const data = {
       full_name: `${firstName} ${lastName}`,
       email,

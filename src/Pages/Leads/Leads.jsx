@@ -3,10 +3,11 @@ import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";
+import emptyTable from "../../assets/images/empty-table.png";
 
 export default function Leads() {
   const navigate = useNavigate();
@@ -99,38 +100,51 @@ export default function Leads() {
                 />
               </div>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Leads</th>
-                  <th>Created date/time</th>
-                  <th>Contacted</th>
-                  <th>Type</th>
-                  <th>Converted</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredCampaign?.map((campaign) => (
-                  <tr key={campaign.id}>
-                    <td>{campaign.id}</td>
-                    <td>{campaign.title}</td>
-                    <td>{campaign.leads}</td>
-                    <td>{moment(campaign.created).format("lll")}</td>
-                    <td>{campaign.contacted || "N/A"}</td>
-                    <td>{campaign.type_of}</td>
-                    <td>{campaign.converted || "N/A"}</td>
-                    <td>
-                      <button onClick={() => navigate(`/leads/${campaign.id}`)}>
-                        View more
-                      </button>
-                    </td>
+            {filteredCampaign?.length > 0 ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Leads</th>
+                    <th>Created date/time</th>
+                    <th>Contacted</th>
+                    <th>Type</th>
+                    <th>Converted</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {filteredCampaign?.map((campaign) => (
+                    <tr key={campaign.id}>
+                      <td>{campaign.id}</td>
+                      <td>{campaign.title}</td>
+                      <td>{campaign.leads}</td>
+                      <td>{moment(campaign.created).format("lll")}</td>
+                      <td>{campaign.contacted || "N/A"}</td>
+                      <td>{campaign.type_of}</td>
+                      <td>{campaign.converted || "N/A"}</td>
+                      <td>
+                        <button
+                          onClick={() => navigate(`/leads/${campaign.id}`)}
+                        >
+                          View more
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              // empty state
+              <div className="empty">
+                <img src={emptyTable} alt="empty table state" />
+                <p className="text-body">
+                  Nothing here yet! <Link to="/new">Click here</Link> to Add
+                  Leads and get started
+                </p>
+              </div>
+            )}
           </div>
         </>
       )}

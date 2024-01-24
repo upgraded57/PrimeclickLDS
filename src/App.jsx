@@ -148,7 +148,7 @@ function App() {
             />
 
             <Route
-              path="/temp-form/:id"
+              path="/temp-form/:campaign_id"
               element={
                 <Suspense fallback={<Loader />}>
                   <TempForm />

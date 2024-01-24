@@ -249,20 +249,31 @@ export default function Reports() {
           <thead>
             <tr>
               <th>Full Name</th>
-              <th>Email Address</th>
-              <th>Phone number</th>
-              <th>Created Date</th>
+              <th>Date/Time Contacted</th>
+              <th>Contact Method</th>
+              <th>Feedback</th>
               <th>Status</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.slice(start, end).map((user) => (
               <tr key={user.id}>
                 <td>{user.fullName}</td>
-                <td>{user.Email}</td>
-                <td>{user.Phone}</td>
                 <td>{user.created}</td>
+                <td>
+                  {user.Status === "Called"
+                    ? "Phone Call"
+                    : user.Status === "Converted"
+                    ? "Chatbot"
+                    : "Text Message"}
+                </td>
+                <td>
+                  {user.Status === "Called"
+                    ? "Audio File"
+                    : user.Status === "Converted"
+                    ? "Whatsapp Body"
+                    : "Text Body"}
+                </td>
                 <td>
                   <span
                     className={
@@ -275,25 +286,6 @@ export default function Reports() {
                   >
                     {user.Status}
                   </span>
-                </td>
-                <td>
-                  <span className="tooltip lead-delete-icon">
-                    <IoTrashOutline />
-                  </span>
-                  {/* <Tooltip
-                    anchorSelect=".tooltip"
-                    place="bottom-end"
-                    offset={20}
-                    noArrow
-                    clickable
-                    isOpen={tooltipActive}
-                    style={{
-                      padding: "0",
-                      background: "transparent",
-                    }}
-                  >
-                    <LeadTooltip id={user.id} />
-                  </Tooltip> */}
                 </td>
               </tr>
             ))}
