@@ -41,7 +41,7 @@ export const uploadCampaign = async (file, navigate) => {
       toast.success("File uploaded successfully", {
         id: toastId,
       });
-      navigate("/dashboard");
+      navigate("/leads");
     })
     .catch(() => {
       toast.error("Please check the file and retry", {
