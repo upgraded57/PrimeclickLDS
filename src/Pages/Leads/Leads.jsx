@@ -1,9 +1,8 @@
 import "./leads.css";
-import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";

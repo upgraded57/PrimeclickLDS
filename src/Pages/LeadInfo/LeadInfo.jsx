@@ -1,8 +1,8 @@
 import "./leadinfo.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { TiArrowBackOutline } from "react-icons/ti";
 import { RiQuillPenLine } from "react-icons/ri";
 import { useState } from "react";
+import sampleAudio from "../../assets/audio/sample-audio.mp3";
 
 // data
 import { users } from "../../Data/data";
@@ -102,7 +102,7 @@ export default function LeadInfo() {
         <div className="leadinfo-audio">
           <div className="leadinfo-audio__top">
             <AudioPlayer
-              src="http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3"
+              src={sampleAudio}
               layout="horizontal-reverse"
               showJumpControls={false}
               customVolumeControls={[]}

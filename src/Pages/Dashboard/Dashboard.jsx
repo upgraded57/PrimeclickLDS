@@ -2,16 +2,14 @@ import "./dashboard.css";
 import { FaPlus } from "react-icons/fa6";
 import Button from "./../../Component/button/Button";
 import Card from "./../../Component/Card/Card";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
 import { useState } from "react";
-import { Tooltip } from "react-tooltip";
-import LeadTooltip from "../Lead/LeadTooltip";
 import { users } from "../../Data/data";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
 import { IoTrashOutline } from "react-icons/io5";
+import emptyTable from "../../assets/images/empty-table.png";
 
 export default function Dashboard() {
   const user = localStorage.getItem("user")
@@ -72,10 +70,10 @@ export default function Dashboard() {
         </div>
 
         <div className="dashboard-summary__card">
-          <Card text="Total Leads Reached" qty="3000" />
-          <Card text="Total Leads Reached" qty="3000" />
-          <Card text="Total Leads Reached" qty="3000" />
-          <Card text="Total Leads Reached" qty="3000" />
+          <Card text="Total Leads Reached" qty="0" />
+          <Card text="Total Leads Reached" qty="0" />
+          <Card text="Total Leads Reached" qty="0" />
+          <Card text="Total Leads Reached" qty="0" />
         </div>
       </div>
 
@@ -94,7 +92,7 @@ export default function Dashboard() {
           </div>
 
           <div className="table">
-            <table>
+            {/* <table>
               <thead>
                 <tr>
                   <th>Title</th>
@@ -136,7 +134,15 @@ export default function Dashboard() {
                   <td>Upload</td>
                 </tr>
               </tbody>
-            </table>
+            </table> */}
+
+            <div className="empty">
+              <img src={emptyTable} alt="empty table state" />
+              <p className="text-body">
+                Nothing here yet! <Link to="/new">Click here</Link> to Create a
+                form and get started
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -183,7 +189,7 @@ export default function Dashboard() {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {users.slice(start, end).map((user) => (
               <tr key={user.id}>
                 <td>{user.fullName}</td>
@@ -207,25 +213,19 @@ export default function Dashboard() {
                   <span className="tooltip lead-delete-icon">
                     <IoTrashOutline />
                   </span>
-                  {/* <Tooltip
-                    anchorSelect=".tooltip"
-                    place="bottom-end"
-                    offset={20}
-                    noArrow
-                    clickable
-                    isOpen={tooltipActive}
-                    style={{
-                      padding: "0",
-                      background: "transparent",
-                    }}
-                  >
-                    <LeadTooltip id={user.id} />
-                  </Tooltip> */}
+                  
                 </td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </table>
+        <div className="empty">
+          <img src={emptyTable} alt="empty table state" />
+          <p className="text-body">
+            Nothing here yet! <Link to="/new">Click here</Link> to Add Leads and
+            get started
+          </p>
+        </div>
       </div>
     </div>
   );

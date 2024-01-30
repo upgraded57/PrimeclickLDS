@@ -24,6 +24,9 @@ const Support = React.lazy(() => import("./Pages/Support/Support"));
 const Reports = React.lazy(() => import("./Pages/Reports/Reports"));
 const Settings = React.lazy(() => import("./Pages/Settings/Settings"));
 const Onboarding = React.lazy(() => import("./Pages/Onboarding/Onboarding"));
+const FollowUp = React.lazy(() => import("./Pages/FollowUp/FollowUp"));
+const Calls = React.lazy(() => import("./Pages/FollowUp/Calls"));
+const Text = React.lazy(() => import("./Pages/FollowUp/Text"));
 const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
 const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
@@ -143,6 +146,33 @@ function App() {
               element={
                 <Suspense fallback={<Loader />}>
                   <Onboarding />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/new/follow-up-method"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <FollowUp />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/new/follow-up-method/call"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Calls />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/new/follow-up-method/text"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Text />
                 </Suspense>
               }
             />

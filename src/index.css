@@ -244,3 +244,13 @@ select {
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
 }
+
+.empty {
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-block: 50px;
+}
