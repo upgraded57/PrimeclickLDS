@@ -37,11 +37,11 @@ export const uploadCampaign = async (file, navigate) => {
     url: `${baseURL}/campaign/upload/${businessId}/`,
     data,
   })
-    .then(() => {
+    .then((res) => {
       toast.success("File uploaded successfully", {
         id: toastId,
       });
-      navigate("/new/follow-up-method");
+      navigate(`/new/${res.data.campaign_id}/follow-up-method`);
     })
     .catch(() => {
       toast.error("Please check the file and retry", {
@@ -63,4 +63,61 @@ export const useFetchCampaigns = (setFilteredCampaign) => {
     select: (data) => data.data,
     onSuccess: (data) => (setFilteredCampaign ? setFilteredCampaign(data) : ""),
   });
+};
+
+// set campaign follow up method
+export const chooseFollowUpOption = async (
+  campaign_id,
+  followUpOption,
+  navigate
+) => {
+  const toastId = toast.loading("Setting up follow up option");
+  // contact_option: call | sms
+  await axiosInstance
+    .put(`${baseURL}/campaign/add/contact/${campaign_id}/`, {
+      contact_option: followUpOption,
+    })
+    .then((res) => {
+      toast.success("Follow up method set", { id: toastId });
+      navigate(`/new/${campaign_id}/follow-up-method/call`);
+    })
+    .catch((err) => {
+      toast.error("Something went wrong. Please retry", { id: toastId });
+      console.log(err);
+    });
+};
+
+// add audio files to campaign with calls follow up method
+export const addCampaignAudios = async (audios, campaign_id, navigate) => {
+  const toastId = toast.loading("Assigning audios to call");
+
+  await axiosInstance
+    .put(`campaign/call/create/${campaign_id}/`, {
+      audio_link_1: audios[0],
+      audio_link_2: audios[1],
+      audio_link_3: audios[2],
+    })
+    .then((res) => {
+      toast.success("Audios assigned to calls", { id: toastId });
+      navigate("/leads");
+    })
+    .catch((err) => {
+      toast.error("Something went wrong. Please retry", { id: toastId });
+      console.log(err);
+    });
+};
+
+// launch campaign
+export const launchCampaign = async (campaign_id) => {
+  const toastId = toast.loading("Launching Campaigns");
+
+  await axiosInstance
+    .post(`${baseURL}/campaign/call/launch/${campaign_id}/`)
+    .then((res) => {
+      toast.success("Campaign Started", { id: toastId });
+    })
+    .catch((err) => {
+      toast.error("Something went wrong. Please retry", { id: toastId });
+      console.log(err);
+    });
 };

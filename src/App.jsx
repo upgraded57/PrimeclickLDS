@@ -151,7 +151,7 @@ function App() {
             />
 
             <Route
-              path="/new/follow-up-method"
+              path="/new/:campaign_id/follow-up-method"
               element={
                 <Suspense fallback={<Loader />}>
                   <FollowUp />
@@ -160,7 +160,7 @@ function App() {
             />
 
             <Route
-              path="/new/follow-up-method/call"
+              path="/new/:campaign_id/follow-up-method/call"
               element={
                 <Suspense fallback={<Loader />}>
                   <Calls />
@@ -169,7 +169,7 @@ function App() {
             />
 
             <Route
-              path="/new/follow-up-method/text"
+              path="/new/:campaign_id/follow-up-method/text"
               element={
                 <Suspense fallback={<Loader />}>
                   <Text />

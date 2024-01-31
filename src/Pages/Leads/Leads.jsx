@@ -3,7 +3,10 @@ import Button from "../../Component/button/Button";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
+import {
+  launchCampaign,
+  useFetchCampaigns,
+} from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";
 import emptyTable from "../../assets/images/empty-table.png";
@@ -116,18 +119,30 @@ export default function Leads() {
                 <tbody>
                   {filteredCampaign?.map((campaign) => (
                     <tr key={campaign.id}>
-                      <td>{campaign.id}</td>
-                      <td>{campaign.title}</td>
-                      <td>{campaign.leads}</td>
-                      <td>{moment(campaign.created).format("lll")}</td>
-                      <td>{campaign.contacted || "N/A"}</td>
-                      <td>{campaign.type_of}</td>
-                      <td>{campaign.converted || "N/A"}</td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.id}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.title}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.leads}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {moment(campaign.created).format("lll")}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.contacted || "N/A"}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.type_of}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${campaign.id}`)}>
+                        {campaign.converted || "N/A"}
+                      </td>
                       <td>
-                        <button
-                          onClick={() => navigate(`/leads/${campaign.id}`)}
-                        >
-                          View more
+                        <button onClick={() => launchCampaign(campaign.id)}>
+                          Launch Campaign
                         </button>
                       </td>
                     </tr>

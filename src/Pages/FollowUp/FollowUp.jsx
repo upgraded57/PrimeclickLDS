@@ -1,17 +1,20 @@
 import Topbar from "../../Component/Topbar/Topbar";
 import "../Onboarding/onboarding.css";
 import Button from "./../../Component/button/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import { chooseFollowUpOption } from "../../ApiCalls/Campaign/Campaign";
 
 export default function FollowUp() {
+  const { campaign_id } = useParams();
   const [followUpOption, setFollowUpOption] = useState("");
   const navigate = useNavigate();
-  const chooseFollowUpOption = () => {
+  const FollowUp = () => {
     if (followUpOption.length < 1) {
       return;
     }
-    navigate(`/new/follow-up-method/${followUpOption}`);
+
+    chooseFollowUpOption(campaign_id, followUpOption, navigate);
   };
   return (
     <>
@@ -36,10 +39,10 @@ export default function FollowUp() {
             </p>
           </div>
           <div className="onboarding-box-radios">
-            <label htmlFor="text">
+            <label htmlFor="Sms">
               <input
                 type="radio"
-                id="text"
+                id="Sms"
                 name="follow-up-method"
                 onChange={(e) => setFollowUpOption(e.target.id)}
               />
@@ -47,10 +50,10 @@ export default function FollowUp() {
                 Text Message
               </p>
             </label>
-            <label htmlFor="call">
+            <label htmlFor="CALL">
               <input
                 type="radio"
-                id="call"
+                id="CALL"
                 name="follow-up-method"
                 onChange={(e) => setFollowUpOption(e.target.id)}
               />
@@ -63,7 +66,7 @@ export default function FollowUp() {
             variant="solid"
             type="button"
             text="Continue"
-            clickEvent={chooseFollowUpOption}
+            clickEvent={FollowUp}
           />
         </div>
       </div>
