@@ -17,7 +17,8 @@ export const createCampaign = async (name, navigate) => {
       toast.success("Campaign name created", {
         id: toastId,
       });
-      navigate(`/form/${res.data.campaign_id}/wizard`);
+      // navigate(`/form/${res.data.campaign_id}/wizard`);
+      navigate(`/new/form/${res.data.campaign_id}/follow-up-method`);
     })
     .catch((err) => {
       console.log(err);
@@ -41,7 +42,7 @@ export const uploadCampaign = async (file, navigate) => {
       toast.success("File uploaded successfully", {
         id: toastId,
       });
-      navigate(`/new/${res.data.campaign_id}/follow-up-method`);
+      navigate(`/new/upload/${res.data.campaign_id}/follow-up-method`);
     })
     .catch(() => {
       toast.error("Please check the file and retry", {
@@ -69,7 +70,8 @@ export const useFetchCampaigns = (setFilteredCampaign) => {
 export const chooseFollowUpOption = async (
   campaign_id,
   followUpOption,
-  navigate
+  navigate,
+  type
 ) => {
   const toastId = toast.loading("Setting up follow up option");
   // contact_option: call | sms
@@ -79,7 +81,7 @@ export const chooseFollowUpOption = async (
     })
     .then((res) => {
       toast.success("Follow up method set", { id: toastId });
-      navigate(`/new/${campaign_id}/follow-up-method/call`);
+      navigate(`/new/${type}/${campaign_id}/follow-up-method/call`);
     })
     .catch((err) => {
       toast.error("Something went wrong. Please retry", { id: toastId });
@@ -88,7 +90,12 @@ export const chooseFollowUpOption = async (
 };
 
 // add audio files to campaign with calls follow up method
-export const addCampaignAudios = async (audios, campaign_id, navigate) => {
+export const addCampaignAudios = async (
+  audios,
+  campaign_id,
+  navigate,
+  type
+) => {
   const toastId = toast.loading("Assigning audios to call");
 
   await axiosInstance
@@ -99,7 +106,9 @@ export const addCampaignAudios = async (audios, campaign_id, navigate) => {
     })
     .then((res) => {
       toast.success("Audios assigned to calls", { id: toastId });
-      navigate("/leads");
+      type === "upload"
+        ? navigate("/leads")
+        : navigate(`/form/${campaign_id}/wizard`);
     })
     .catch((err) => {
       toast.error("Something went wrong. Please retry", { id: toastId });

@@ -80,12 +80,6 @@ export default function Lead() {
           >
             <h3 className="h-100">{leads?.campaign_name}</h3>
             <div className="btn-group">
-              <Button
-                variant="pill"
-                text="Add new lead"
-                icon={<FaPlus />}
-                clickEvent={() => navigate(`/temp-form/${campaign_id}`)}
-              />
               <Button variant="back" clickEvent={() => navigate(-1)} />
             </div>
           </div>

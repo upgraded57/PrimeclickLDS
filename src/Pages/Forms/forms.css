@@ -1,0 +1,44 @@
+.forms {
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10px;
+}
+
+.forms form {
+  background: transparent;
+  text-align: center;
+  width: min(100%, 500px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.forms form p {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.form__body label {
+  display: block;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form__body label input,
+.form__body button {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  outline-width: 1px;
+  outline-color: grey;
+}
+
+.form__body button {
+  cursor: pointer;
+  background-color: var(--pry-clr);
+  color: white;
+}

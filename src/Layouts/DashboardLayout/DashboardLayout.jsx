@@ -99,6 +99,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -117,6 +118,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -135,6 +137,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -153,6 +156,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -174,6 +178,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -192,6 +197,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",
@@ -213,6 +219,7 @@ export default function DashboardLayout({ children }) {
                 place="right"
                 offset="30"
                 style={{
+                  zIndex: "1000000 !important",
                   background: "white",
                   color: "var(--neutral-clr-dark)",
                   boxShadow: "0 0 3px 2px rgba(7, 42, 200, 0.15)",

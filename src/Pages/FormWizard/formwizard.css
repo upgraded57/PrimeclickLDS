@@ -5,6 +5,7 @@
   overflow: hidden;
   position: relative;
   margin-top: 20px;
+  min-height: 530px;
 }
 
 .wizard-form-container {
@@ -109,4 +110,49 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.iframe_modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transform: scale(0);
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.iframe_modal.active {
+  transform: scale(1);
+  pointer-events: all;
+  opacity: 1;
+}
+
+.iframe_modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: #000000d1;
+  z-index: -1;
+}
+
+.iframe_modal__content {
+  max-width: 500px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: var(--box-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.iframe_modal__code {
+  background: black;
+  color: white;
+  font-family: monospace;
+  padding: 10px;
+  border-radius: 10px;
 }

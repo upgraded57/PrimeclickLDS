@@ -16,7 +16,11 @@ export default function Leads() {
 
   // fetch all campaigns
   const [filteredCampaign, setFilteredCampaign] = useState([]);
-  const { data: campaigns, isLoading } = useFetchCampaigns(setFilteredCampaign);
+  const {
+    data: campaigns,
+    isLoading,
+    isFetching,
+  } = useFetchCampaigns(setFilteredCampaign);
 
   // filter values
   const [sortValue, setSortValue] = useState("");
@@ -44,7 +48,7 @@ export default function Leads() {
 
   return (
     <div className="leads">
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <Loader type="spinner" />
       ) : (
         <>
@@ -69,7 +73,7 @@ export default function Leads() {
             <div className="leads__center">
               <div className="sort">
                 <p className="text-body" style={{ whiteSpace: "nowrap" }}>
-                  Sort by:
+                  Filter by:
                 </p>
                 <select onChange={(e) => setSortValue(e.target.value)}>
                   <option value="all">All</option>

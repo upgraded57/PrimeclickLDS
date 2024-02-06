@@ -6,7 +6,7 @@ import { useState } from "react";
 import { chooseFollowUpOption } from "../../ApiCalls/Campaign/Campaign";
 
 export default function FollowUp() {
-  const { campaign_id } = useParams();
+  const { campaign_id, type } = useParams();
   const [followUpOption, setFollowUpOption] = useState("");
   const navigate = useNavigate();
   const FollowUp = () => {
@@ -14,7 +14,7 @@ export default function FollowUp() {
       return;
     }
 
-    chooseFollowUpOption(campaign_id, followUpOption, navigate);
+    chooseFollowUpOption(campaign_id, followUpOption, navigate, type);
   };
   return (
     <>

@@ -11,6 +11,7 @@ export default function Input({
   maxlength,
   bgColor,
   textClr,
+  disabled,
 }) {
   return (
     <div className="input">
@@ -20,6 +21,7 @@ export default function Input({
       <input
         type={type ? type : "text"}
         id={name}
+        disabled={disabled}
         placeholder={placeholder}
         onChange={(e) => setValue(e.target.value)}
         required={required}

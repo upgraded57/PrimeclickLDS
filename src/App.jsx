@@ -30,6 +30,7 @@ const Text = React.lazy(() => import("./Pages/FollowUp/Text"));
 const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
 const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
+const Forms = React.lazy(() => import("./Pages/Forms/Forms"));
 const Notifications = React.lazy(() =>
   import("./Pages/Notifications/Notifications")
 );
@@ -151,7 +152,7 @@ function App() {
             />
 
             <Route
-              path="/new/:campaign_id/follow-up-method"
+              path="/new/:type/:campaign_id/follow-up-method"
               element={
                 <Suspense fallback={<Loader />}>
                   <FollowUp />
@@ -160,7 +161,7 @@ function App() {
             />
 
             <Route
-              path="/new/:campaign_id/follow-up-method/call"
+              path="/new/:type/:campaign_id/follow-up-method/call"
               element={
                 <Suspense fallback={<Loader />}>
                   <Calls />
@@ -169,7 +170,7 @@ function App() {
             />
 
             <Route
-              path="/new/:campaign_id/follow-up-method/text"
+              path="/new/:type/:campaign_id/follow-up-method/text"
               element={
                 <Suspense fallback={<Loader />}>
                   <Text />
@@ -187,7 +188,7 @@ function App() {
             />
 
             <Route
-              path="/form/:id/wizard"
+              path="/form/:campaign_id/wizard"
               element={
                 <Suspense fallback={<Loader />}>
                   <DashboardLayout>
@@ -199,6 +200,14 @@ function App() {
           </Route>
 
           {/* Public Routes */}
+          <Route
+            path="/forms/:campaign_id"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Forms />
+              </Suspense>
+            }
+          />
           <Route
             path="/auth"
             element={

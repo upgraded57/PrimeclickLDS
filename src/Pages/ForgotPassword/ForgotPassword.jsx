@@ -34,7 +34,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      {loading && <Loader type="spinner" />}
+      {/* {loading && <Loader type="spinner" />} */}
       <div className="auth">
         <div className="auth-right">
           <div className="auth-right__logo">

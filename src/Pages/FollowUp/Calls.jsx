@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { addCampaignAudios } from "../../ApiCalls/Campaign/Campaign";
 
 export default function Calls() {
-  const { campaign_id } = useParams();
+  const { campaign_id, type } = useParams();
   const navigate = useNavigate();
   const [audio1Link, setAudio1Link] = useState("");
   const [audio2Link, setAudio2Link] = useState("");
@@ -23,7 +23,7 @@ export default function Calls() {
     }
     const audios = [audio1Link, audio2Link, audio3Link];
 
-    addCampaignAudios(audios, campaign_id, navigate);
+    addCampaignAudios(audios, campaign_id, navigate, type);
   };
   return (
     <>
