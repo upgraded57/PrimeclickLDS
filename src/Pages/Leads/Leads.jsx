@@ -16,11 +16,7 @@ export default function Leads() {
 
   // fetch all campaigns
   const [filteredCampaign, setFilteredCampaign] = useState([]);
-  const {
-    data: campaigns,
-    isLoading,
-    isFetching,
-  } = useFetchCampaigns(setFilteredCampaign);
+  const { data: campaigns, isLoading } = useFetchCampaigns(setFilteredCampaign);
 
   // filter values
   const [sortValue, setSortValue] = useState("");
@@ -48,7 +44,7 @@ export default function Leads() {
 
   return (
     <div className="leads">
-      {isLoading || isFetching ? (
+      {isLoading ? (
         <Loader type="spinner" />
       ) : (
         <>
@@ -144,11 +140,13 @@ export default function Leads() {
                       <td onClick={() => navigate(`/leads/${campaign.id}`)}>
                         {campaign.converted || "N/A"}
                       </td>
-                      <td>
-                        <button onClick={() => launchCampaign(campaign.id)}>
-                          Launch Campaign
-                        </button>
-                      </td>
+                      {campaign.type_of === "UPLOAD" && (
+                        <td>
+                          <button onClick={() => launchCampaign(campaign.id)}>
+                            Launch Campaign
+                          </button>
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>

@@ -139,9 +139,11 @@
 }
 
 .iframe_modal__content {
+  position: relative;
   max-width: 500px;
   background: white;
   padding: 20px;
+  padding-top: 40px;
   text-align: center;
   border-radius: var(--box-radius);
   display: flex;
@@ -155,4 +157,22 @@
   font-family: monospace;
   padding: 10px;
   border-radius: 10px;
+}
+
+.iframe_modal__close-btn {
+  position: absolute;
+  padding: 5px;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ghostwhite;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.iframe_modal__close-btn:hover {
+  color: red;
 }

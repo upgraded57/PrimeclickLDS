@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance } from "./../../Utils/AxiosInstance";
 import { baseURL } from "../../ApiCalls/baseUrl";
 import toast from "react-hot-toast";
+import { IoClose } from "react-icons/io5";
 
 export default function FormWizard() {
   const user = localStorage.getItem("user")
@@ -33,109 +34,110 @@ export default function FormWizard() {
     inputBgColor ? inputBgColor : "inherit"
   }; width: 100%; height: 50px; padding-inline: 10px; border: 1px solid grey; border-radius: 10px;"`;
 
-  const form = `
-    <section style= "background-color: ${
-      bgColor ? bgColor : "inherit"
-    }; display: flex; flex-direction-column; justify-content: center; align-items: center; gap: 20px; width: 100%; padding-block: 50px; padding-inline: 20px; color: ${
-    textColor ? textColor : "inherit"
-  }; ">
+  // const form = `
+  //   <section style= "background-color: ${
+  //     bgColor ? bgColor : "inherit"
+  //   }; display: flex; flex-direction-column; justify-content: center; align-items: center; gap: 20px; width: 100%; padding-block: 50px; padding-inline: 20px; color: ${
+  //   textColor ? textColor : "inherit"
+  // }; ">
 
-    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-    <form action = "https://jsonplaceholder.typicode.com/users/1" method = "GET" target = "dummyframe" onsubmit = "submitform()" style = "width: 100%"> 
-    
-      <h2 style = "text-align: center">
-        ${title ? title : "CONTACT ME"} 
-      </h2>
+  //   <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+  //   <form action = "https://jsonplaceholder.typicode.com/users/1" method = "GET" target = "dummyframe" onsubmit = "submitform()" style = "width: 100%">
 
-      ${
-        fullNameInput
-          ? `<label for = "fullName">
-        <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-          textColor ? textColor : "inherit"
-        };"> Full Name</p> 
-        <input type = "text" name = fullName id = fullName placeholder = "e.g. John Doe" style =${inputStyle} required/>
-      </label>`
-          : ""
-      }
+  //     <h2 style = "text-align: center">
+  //       ${title ? title : "CONTACT ME"}
+  //     </h2>
 
-      ${
-        emailInput
-          ? `<label for = "email">
-        <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-          textColor ? textColor : "inherit"
-        };"> Email Address</p> 
-        <input type = "email" name = email id = email placeholder = "e.g. johndoe@email.com" style =${inputStyle} required/>
-      </label>`
-          : ""
-      }
+  //     ${
+  //       fullNameInput
+  //         ? `<label for = "fullName">
+  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
+  //         textColor ? textColor : "inherit"
+  //       };"> Full Name</p>
+  //       <input type = "text" name = fullName id = fullName placeholder = "e.g. John Doe" style =${inputStyle} required/>
+  //     </label>`
+  //         : ""
+  //     }
 
-      ${
-        phoneInput
-          ? `<label for = "phone">
-        <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-          textColor ? textColor : "inherit"
-        };"> Phone Number</p> 
-        <input type = "text" input-mode = "numeric" name = phone id = phone placeholder = "e.g. 08011122233" style =${inputStyle} required/>
-      </label>`
-          : ""
-      }
+  //     ${
+  //       emailInput
+  //         ? `<label for = "email">
+  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
+  //         textColor ? textColor : "inherit"
+  //       };"> Email Address</p>
+  //       <input type = "email" name = email id = email placeholder = "e.g. johndoe@email.com" style =${inputStyle} required/>
+  //     </label>`
+  //         : ""
+  //     }
 
-      ${
-        locationInput
-          ? `<label for = "location">
-        <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-          textColor ? textColor : "inherit"
-        };"> Location</p> 
-        <input type = "text" name = location id = location placeholder = "e.g. Lagos, Nigeria" style =${inputStyle}/>
-      </label>`
-          : ""
-      }
-      
-      <button type = submit style = "font-family: inherit; font-size: inherit; background-color: ${
-        btnBgColor ? btnBgColor : "inherit"
-      }; height: 50px; width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid transparent; color: ${
-    btnTextColor ? btnTextColor : "inherit"
-  }"> 
-        ${btnText ? btnText : "CONTACT ME"}
-      </button>
-    </form>
-    
-    </section>
+  //     ${
+  //       phoneInput
+  //         ? `<label for = "phone">
+  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
+  //         textColor ? textColor : "inherit"
+  //       };"> Phone Number</p>
+  //       <input type = "text" input-mode = "numeric" name = phone id = phone placeholder = "e.g. 08011122233" style =${inputStyle} required/>
+  //     </label>`
+  //         : ""
+  //     }
 
-    <script>
-      function submitform(){
-        alert("Data received. You will be contacted soon")
-      } 
-    </script>
-      `;
+  //     ${
+  //       locationInput
+  //         ? `<label for = "location">
+  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
+  //         textColor ? textColor : "inherit"
+  //       };"> Location</p>
+  //       <input type = "text" name = location id = location placeholder = "e.g. Lagos, Nigeria" style =${inputStyle}/>
+  //     </label>`
+  //         : ""
+  //     }
+
+  //     <button type = submit style = "font-family: inherit; font-size: inherit; background-color: ${
+  //       btnBgColor ? btnBgColor : "inherit"
+  //     }; height: 50px; width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid transparent; color: ${
+  //   btnTextColor ? btnTextColor : "inherit"
+  // }">
+  //       ${btnText ? btnText : "CONTACT ME"}
+  //     </button>
+  //   </form>
+
+  //   </section>
+
+  //   <script>
+  //     function submitform(){
+  //       alert("Data received. You will be contacted soon")
+  //     }
+  //   </script>
+  //     `;
 
   const design = {
     styles: {
-      input: `background-color: ${inputBgColor || "inherit"}; color: ${
-        textColor || "inherit"
-      };`,
-      button: `text: ${btnText}; color: ${btnTextColor}; background-color: ${btnBgColor}`,
+      textClr: textColor,
+      bodyClr: bgColor,
+      btnBG: btnBgColor,
+      btnTextClr: btnTextColor,
+      bgClr: bgColor,
+      inputBG: inputBgColor,
+    },
+    texts: {
       title,
       subtitle: formSubtitle,
-      body: `background-color: ${bgColor}`,
-      fields: [
-        emailInput ? "email" : "",
-        fullNameInput ? "fullName" : "",
-        phoneInput ? "phone" : "",
-        locationInput ? "location" : "",
-      ],
+      btnText,
     },
+    fields: [
+      emailInput ? "email" : "",
+      fullNameInput ? "fullName" : "",
+      phoneInput ? "phone" : "",
+      locationInput ? "location" : "",
+    ],
   };
 
   const createForm = async () => {
     const toastId = toast.loading("Creating form");
     await axiosInstance
-      .post(
-        `https://coral-app-kajof.ondigitalocean.app/campaign/BPJV/form-design/`,
-        {
-          design: JSON.stringify(design),
-        }
-      )
+      .post(`${baseURL}/campaign/${campaign_id}/form-design/`, {
+        design: JSON.stringify(design),
+      })
       .then((res) => {
         console.log(res.data);
         toast.success("Form created successully", { id: toastId });
@@ -158,8 +160,8 @@ export default function FormWizard() {
       .writeText(modalCode)
       .then(() => {
         toast.success("Code copied to clipboard");
-        setModalActive(false);
-        navigate("/leads");
+        // setModalActive(false);
+        // navigate("/leads");
       })
       .catch(() => toast.error("Something went wrong. Unable to copy code"));
   };
@@ -179,10 +181,16 @@ export default function FormWizard() {
             className="wizard-form"
             style={{ background: bgColor || "inherit" }}
           >
-            <h3 className="h-100">{title || "FORM TITLE"}</h3>
+            <h3 className="h-100" style={{ color: textColor || "inherit" }}>
+              {title || "FORM TITLE"}
+            </h3>
             <p
               className="text-body"
-              style={{ marginBottom: "30px", textAlign: "center" }}
+              style={{
+                marginBottom: "30px",
+                textAlign: "center",
+                color: textColor || "inherit",
+              }}
             >
               {formSubtitle || "Enter your contact information below"}
             </p>
@@ -399,13 +407,24 @@ export default function FormWizard() {
       <div className={modalActive ? "iframe_modal active" : "iframe_modal"}>
         <div className="iframe_modal__backdrop"></div>
         <div className="iframe_modal__content">
+          <div
+            className="iframe_modal__close-btn"
+            onClick={() => setModalActive(false)}
+          >
+            <IoClose />
+          </div>
           <h3 className="h-50">FORM CREATED SUCCESSFULLY</h3>
           <p className="text-body">
             Copy the code below and paste into your website to display the
             contact form. Website reload required
           </p>
           <div className="iframe_modal__code">{modalCode}</div>
-          <Button variant="solid" text="COPY CODE" clickEvent={copyCode} />
+          <Button variant="accent" text="COPY CODE" clickEvent={copyCode} />
+          <Button
+            variant="solid"
+            text="GO TO CAMPAIGNS PAGE"
+            clickEvent={() => navigate("/leads")}
+          />
         </div>
       </div>
     </div>
