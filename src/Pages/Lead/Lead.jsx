@@ -64,6 +64,18 @@ export default function Lead() {
     }
   };
 
+  const pendingLeads = leads?.leads?.filter((lead) => {
+    return lead.status === "Pending";
+  });
+
+  const convertedLeads = leads?.leads?.filter((lead) => {
+    return lead.status === "Converted";
+  });
+
+  const rejectedLeads = leads?.leads?.filter((lead) => {
+    return lead.status === "Rejected";
+  });
+
   return (
     <div className="lead">
       {isLoading ? (
@@ -86,8 +98,8 @@ export default function Lead() {
 
           <div className="lead__top cards">
             <Card text="Total Leads" qty={leads?.leads?.length} />
-            <Card text="Total Converted" qty="3000" />
-            <Card text="Total Converted" qty="30" />
+            <Card text="Total Converted" qty={convertedLeads.length} />
+            <Card text="Total Rejected" qty={rejectedLeads.length} />
           </div>
           <div className="leads__center" style={{ width: "100%" }}>
             <div className="search-filter" style={{ width: "100%" }}>
