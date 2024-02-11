@@ -157,8 +157,15 @@
   font-family: monospace;
   padding: 10px;
   border-radius: 10px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
+.iframe_modal__code::-webkit-scrollbar {
+  width: 5px;
+}
 .iframe_modal__close-btn {
   position: absolute;
   padding: 5px;

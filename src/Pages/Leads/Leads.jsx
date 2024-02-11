@@ -2,14 +2,15 @@ import "./leads.css";
 import Button from "../../Component/button/Button";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   launchCampaign,
   useFetchCampaigns,
 } from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";
-import emptyTable from "../../assets/images/empty-table.png";
+import { copyCode } from "../../ApiCalls/Lead/Lead";
+import EmptyState from "../../Component/emptyState/EmptyState";
 
 export default function Leads() {
   const navigate = useNavigate();
@@ -140,10 +141,16 @@ export default function Leads() {
                       <td onClick={() => navigate(`/leads/${campaign.id}`)}>
                         {campaign.converted || "N/A"}
                       </td>
-                      {campaign.type_of === "UPLOAD" && (
+                      {campaign.type_of === "UPLOAD" ? (
                         <td>
                           <button onClick={() => launchCampaign(campaign.id)}>
                             Launch Campaign
+                          </button>
+                        </td>
+                      ) : (
+                        <td>
+                          <button onClick={() => copyCode(campaign.id)}>
+                            Copy Code
                           </button>
                         </td>
                       )}
@@ -153,13 +160,7 @@ export default function Leads() {
               </table>
             ) : (
               // empty state
-              <div className="empty">
-                <img src={emptyTable} alt="empty table state" />
-                <p className="text-body">
-                  Nothing here yet! <Link to="/new">Click here</Link> to Add
-                  Leads and get started
-                </p>
-              </div>
+              <EmptyState />
             )}
           </div>
         </>

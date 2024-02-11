@@ -8,8 +8,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { useState } from "react";
 import { users } from "../../Data/data";
 import { useFetchCampaigns } from "../../ApiCalls/Campaign/Campaign";
-import { IoTrashOutline } from "react-icons/io5";
-import emptyTable from "../../assets/images/empty-table.png";
+import EmptyState from "./../../Component/emptyState/EmptyState";
 
 export default function Dashboard() {
   const user = localStorage.getItem("user")
@@ -92,57 +91,7 @@ export default function Dashboard() {
           </div>
 
           <div className="table">
-            {/* <table>
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Leads</th>
-                  <th>Created Date/Time</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>Grapes Form</td>
-                  <td>2300</td>
-                  <td>Feb 2, 2019 / 19:28</td>
-                  <td>Upload</td>
-                </tr>
-                <tr>
-                  <td>Grapes Form</td>
-                  <td>2300</td>
-                  <td>Feb 2, 2019 / 19:28</td>
-                  <td>Upload</td>
-                </tr>
-                <tr>
-                  <td>Grapes Form</td>
-                  <td>2300</td>
-                  <td>Feb 2, 2019 / 19:28</td>
-                  <td>Upload</td>
-                </tr>
-                <tr>
-                  <td>Grapes Form</td>
-                  <td>2300</td>
-                  <td>Feb 2, 2019 / 19:28</td>
-                  <td>Upload</td>
-                </tr>
-                <tr>
-                  <td>Grapes Form</td>
-                  <td>2300</td>
-                  <td>Feb 2, 2019 / 19:28</td>
-                  <td>Upload</td>
-                </tr>
-              </tbody>
-            </table> */}
-
-            <div className="empty">
-              <img src={emptyTable} alt="empty table state" />
-              <p className="text-body">
-                Nothing here yet! <Link to="/new">Click here</Link> to Create a
-                form and get started
-              </p>
-            </div>
+            <EmptyState />
           </div>
         </div>
       </div>
@@ -219,13 +168,7 @@ export default function Dashboard() {
             ))}
           </tbody> */}
         </table>
-        <div className="empty">
-          <img src={emptyTable} alt="empty table state" />
-          <p className="text-body">
-            Nothing here yet! <Link to="/new">Click here</Link> to Add Leads and
-            get started
-          </p>
-        </div>
+        <EmptyState />
       </div>
     </div>
   );

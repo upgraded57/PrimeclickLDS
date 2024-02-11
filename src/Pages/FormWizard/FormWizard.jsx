@@ -7,6 +7,8 @@ import { axiosInstance } from "./../../Utils/AxiosInstance";
 import { baseURL } from "../../ApiCalls/baseUrl";
 import toast from "react-hot-toast";
 import { IoClose } from "react-icons/io5";
+import { modalCode } from "../../ApiCalls/modalCode";
+import { copyCode } from "../../ApiCalls/Lead/Lead";
 
 export default function FormWizard() {
   const user = localStorage.getItem("user")
@@ -139,7 +141,6 @@ export default function FormWizard() {
         design: JSON.stringify(design),
       })
       .then((res) => {
-        console.log(res.data);
         toast.success("Form created successully", { id: toastId });
         setModalActive(true);
       })
@@ -149,22 +150,7 @@ export default function FormWizard() {
       });
   };
 
-  const origin = `${window.location.origin}/forms/${campaign_id}`;
-
-  const modalCode = `<iframe sandbox="allow-scripts allow-popups allow-forms allow-same-origin" width="100%" height="430px" style="border: 0; overflow: hidden; overflow-x: auto" src="${origin}">
-  Your browser does not allow embedded content.
-  </iframe>`;
-
-  const copyCode = () => {
-    navigator.clipboard
-      .writeText(modalCode)
-      .then(() => {
-        toast.success("Code copied to clipboard");
-        // setModalActive(false);
-        // navigate("/leads");
-      })
-      .catch(() => toast.error("Something went wrong. Unable to copy code"));
-  };
+  const codeToCopy = modalCode(campaign_id);
 
   return (
     <div className="formwizard">
@@ -334,30 +320,6 @@ export default function FormWizard() {
               </label>
             </div>
 
-            {/* <div className="contact-method">
-              <p className="text-body">Contact Via</p>
-              <div className="contact-method-options">
-                <span>
-                  <input type="radio" name="contact-method" id="call" />
-                  <label htmlFor="call">
-                    <p className="text-body">Call</p>
-                  </label>
-                </span>
-                <span>
-                  <input type="radio" name="contact-method" id="text" />
-                  <label htmlFor="text">
-                    <p className="text-body">Text Message</p>
-                  </label>
-                </span>
-                <span>
-                  <input type="radio" name="contact-method" id="whatsapp" />
-                  <label htmlFor="whatsapp">
-                    <p className="text-body">Whatsapp Message</p>
-                  </label>
-                </span>
-              </div>
-            </div> */}
-
             <div className="wizard-control-colors">
               <p>Edit and customize form aesthetics with the options below </p>
               <label htmlFor="wizard-control-color-bg">
@@ -418,8 +380,12 @@ export default function FormWizard() {
             Copy the code below and paste into your website to display the
             contact form. Website reload required
           </p>
-          <div className="iframe_modal__code">{modalCode}</div>
-          <Button variant="accent" text="COPY CODE" clickEvent={copyCode} />
+          <div className="iframe_modal__code">{codeToCopy}</div>
+          <Button
+            variant="accent"
+            text="COPY CODE"
+            clickEvent={() => copyCode(campaign_id)}
+          />
           <Button
             variant="solid"
             text="GO TO CAMPAIGNS PAGE"

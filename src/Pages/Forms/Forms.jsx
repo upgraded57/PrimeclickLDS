@@ -4,6 +4,7 @@ import { baseURL } from "./../../ApiCalls/baseUrl";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Forms() {
   const { campaign_id } = useParams();
@@ -37,6 +38,12 @@ export default function Forms() {
       return toast.error("Please fill the required fields");
     }
 
+    // const formattedPhone = () => {
+    //   if(phone.split[0] === "+"){
+
+    //   }
+    // }
+
     const userData = {
       full_name: fullName,
       email,
@@ -51,7 +58,7 @@ export default function Forms() {
     })
       .then((res) => {
         console.log(res.data);
-        toast.success("You will be contacted soon", {
+        toast.success("You will be contacted within five minutes", {
           id: toastId,
         });
       })
@@ -62,11 +69,15 @@ export default function Forms() {
         console.log(err);
       });
   };
+
   return (
     <div
       className="forms"
       style={{ backgroundColor: styles?.bgClr || "inherit" }}
     >
+      <div className="form-close-msg">
+        <p>*Click outside to close form</p>
+      </div>
       <form onSubmit={submitForm} id="form">
         <h2 className="h-100" style={{ color: styles?.textClr || "inherit" }}>
           {texts?.title}

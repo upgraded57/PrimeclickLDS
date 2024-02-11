@@ -5,12 +5,12 @@ import Button from "../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { IoTrashOutline } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import { useFetchLeads } from "./../../ApiCalls/Lead/Lead";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment/moment";
 import Loader from "./../../Component/Loader/Loader";
+import EmptyState from "../../Component/emptyState/EmptyState";
 
 export default function Lead() {
   const navigate = useNavigate();
@@ -97,9 +97,9 @@ export default function Lead() {
           </div>
 
           <div className="lead__top cards">
-            <Card text="Total Leads" qty={leads?.leads?.length} />
-            <Card text="Total Converted" qty={convertedLeads.length} />
-            <Card text="Total Rejected" qty={rejectedLeads.length} />
+            <Card text="Total Leads" qty={leads?.leads?.length || "0"} />
+            <Card text="Total Converted" qty={convertedLeads?.length || "0"} />
+            <Card text="Total Rejected" qty={rejectedLeads?.length || "0"} />
           </div>
           <div className="leads__center" style={{ width: "100%" }}>
             <div className="search-filter" style={{ width: "100%" }}>
@@ -137,7 +137,7 @@ export default function Lead() {
               <h3 className="h-100">Lead List</h3>
 
               <div className="pagination">
-                <p>{`${start} - ${end} of ${filteredLeads?.length}`}</p>
+                <p>{`${start} - ${end} of ${filteredLeads?.length || "0"}`}</p>
                 <span onClick={decreaseCount}>
                   <AiOutlineLeft
                     style={{ opacity: start === 1 ? "0.5" : "1" }}
@@ -152,69 +152,58 @@ export default function Lead() {
                 </span>
               </div>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Full Name</th>
-                  <th>Email Address</th>
-                  <th>Phone number</th>
-                  <th>Created Date</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredLeads?.slice(start - 1, end).map((lead) => (
-                  <tr key={lead.id}>
-                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
-                      {lead.full_name}
-                    </td>
-                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
-                      {lead.email}
-                    </td>
-                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
-                      {lead.phone_number}
-                    </td>
-                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
-                      {moment(lead.created).format("lll")}
-                    </td>
-                    <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
-                      <span
-                        className={
-                          lead.status === "Pending"
-                            ? "called"
-                            : lead.status === "Converted"
-                            ? "converted"
-                            : "rejected"
-                        }
-                      >
-                        {lead.status}
-                      </span>
-                    </td>
-                    <td>
-                      <span className="tooltip lead-delete-icon">
-                        <IoTrashOutline />
-                      </span>
-                      {/* <Tooltip
-                        id={lead.id}
-                        place="bottom-end"
-                        offset={20}
-                        noArrow
-                        clickable
-                        openOnClick
-                        globalCloseEvents="clickOutsideAnchor"
-                        style={{
-                          padding: "0",
-                          background: "transparent",
-                        }}
-                      >
-                        <LeadTooltip id={lead.id} />
-                      </Tooltip> */}
-                    </td>
+            {filteredLeads?.length > 0 ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Email Address</th>
+                    <th>Phone number</th>
+                    <th>Created Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {filteredLeads?.slice(start - 1, end).map((lead) => (
+                    <tr key={lead.id}>
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        {lead.full_name}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        {lead.email}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        {lead.phone_number}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        {moment(lead.created).format("lll")}
+                      </td>
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        <span
+                          className={
+                            lead.status === "Pending"
+                              ? "called"
+                              : lead.status === "Converted"
+                              ? "converted"
+                              : "rejected"
+                          }
+                        >
+                          {lead.status}
+                        </span>
+                      </td>
+                      <td>
+                        <span className="tooltip lead-delete-icon">
+                          <IoTrashOutline />
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <EmptyState />
+            )}
           </div>
         </>
       )}
