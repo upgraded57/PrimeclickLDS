@@ -17,6 +17,8 @@
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 3px 9px 0 #82828220;
+  position: sticky;
+  left: 0;
 }
 
 .dashboard-layout__sidebar-sm {
@@ -109,7 +111,7 @@
 }
 
 .dashboard-layout__main {
-  min-width: 900px;
+  min-width: max-content;
   width: 100%;
   overflow-y: scroll;
   max-height: 100vh;

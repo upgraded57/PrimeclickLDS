@@ -36,7 +36,7 @@ a:hover {
 }
 
 .container {
-  width: min(1440px, 100vw);
+  width: 100%;
   min-height: 100vh;
   margin-inline: auto;
   padding-inline: 20px;
@@ -154,7 +154,9 @@ select {
   padding-inline: 12px;
   padding-block: 10px 20px;
   border-bottom: 1px solid var(--neutral-clr-light-grey);
+  overflow: hidden;
   white-space: no-wrap;
+  text-overflow: ellipsis;
 }
 
 .leads__table table tbody tr {
