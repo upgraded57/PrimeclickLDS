@@ -3,6 +3,7 @@
 }
 
 .user-box {
+  max-width: 1300px;
   background: white;
   border-radius: 16px;
   margin-top: 30px;

@@ -30,9 +30,9 @@ export default function LeadInfo() {
     }
   };
 
-  const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0];
+  const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0] || "";
 
-  const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0];
+  const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0] || "";
 
   return (
     <>
