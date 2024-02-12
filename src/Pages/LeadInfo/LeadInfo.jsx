@@ -30,9 +30,9 @@ export default function LeadInfo() {
     }
   };
 
-  const initials =
-    leadInfo?.full_name.split(" ")[0].split("")[0] +
-    leadInfo?.full_name.split(" ")[1].split("")[0];
+  const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0];
+
+  const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0];
 
   return (
     <>
@@ -45,13 +45,31 @@ export default function LeadInfo() {
         <div className="leadinfo-left">
           <div className="leadinfo-left__user">
             <div className="leadinfo-left__user-avatar">
-              <h2 className="h-200">{initials}</h2>
+              <h2 className="h-200">
+                {initials1 && initials1 + initials2 && initials1}
+              </h2>
             </div>
 
             <div className="leadinfo-left__user-status">
               <p className="text-small text-bold">Status: </p>
-              <span className="status called">Called</span>
-              <span className="status converted">Converted</span>
+              <span
+                className={`status ${
+                  leadInfo?.status === "Pending" ? "" : "pending"
+                }`}
+              >
+                {leadInfo?.status}
+              </span>
+              <span
+                className={`status ${
+                  leadInfo?.contacted_status === "Converted"
+                    ? "converted"
+                    : leadInfo?.contacted_status === "Rejected"
+                    ? "rejected"
+                    : ""
+                }`}
+              >
+                {leadInfo?.contacted_status || "NIL"}
+              </span>
             </div>
 
             <div className="leadinfo-left__user-info">

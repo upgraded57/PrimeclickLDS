@@ -64,7 +64,7 @@ export default function Lead() {
   };
 
   const convertedLeads = leads?.leads?.filter((lead) => {
-    return lead.status === "Converted";
+    return lead.contacted_status === "Converted";
   });
 
   const rejectedLeads = leads?.leads?.filter((lead) => {
@@ -72,10 +72,8 @@ export default function Lead() {
   });
 
   const calledLeads = leads?.leads?.filter((lead) => {
-    return lead.contact_status === "Called";
+    return lead.contacted_status !== null;
   });
-
-  console.log(filteredLeads);
 
   return (
     <div className="lead">
@@ -183,13 +181,7 @@ export default function Lead() {
                       </td>
                       <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
                         <span
-                          className={
-                            lead.status === "Pending"
-                              ? "called"
-                              : lead.status === "Converted"
-                              ? "converted"
-                              : "rejected"
-                          }
+                          className={lead.status === "Pending" ? "" : "called"}
                         >
                           {lead.status}
                         </span>
@@ -198,16 +190,14 @@ export default function Lead() {
                       <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
                         <span
                           className={
-                            lead.contact_status === "Pending"
-                              ? "called"
-                              : lead.contact_status === "Converted"
+                            lead.contacted_status === "Converted"
                               ? "converted"
-                              : lead.contact_status === "Rejected"
-                              ? "rejected"
+                              : lead.contacted_status === "Rejected"
+                              ? "Rejected"
                               : ""
                           }
                         >
-                          {lead.contact_status || "NIL"}
+                          {lead.contacted_status || "NIL"}
                         </span>
                       </td>
                     </tr>
