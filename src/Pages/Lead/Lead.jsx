@@ -68,12 +68,14 @@ export default function Lead() {
   });
 
   const rejectedLeads = leads?.leads?.filter((lead) => {
-    return lead.status === "Rejected";
+    return lead.contacted_status === "Rejected";
   });
 
   const calledLeads = leads?.leads?.filter((lead) => {
     return lead.contacted_status !== null;
   });
+
+  console.log(leads);
 
   return (
     <div className="lead">
@@ -193,7 +195,7 @@ export default function Lead() {
                             lead.contacted_status === "Converted"
                               ? "converted"
                               : lead.contacted_status === "Rejected"
-                              ? "Rejected"
+                              ? "rejected"
                               : ""
                           }
                         >

@@ -46,7 +46,7 @@ export default function LeadInfo() {
           <div className="leadinfo-left__user">
             <div className="leadinfo-left__user-avatar">
               <h2 className="h-200">
-                {initials1 && initials1 + initials2 && initials1}
+                {`${initials1 && initials1}${initials2 && initials2}`}
               </h2>
             </div>
 

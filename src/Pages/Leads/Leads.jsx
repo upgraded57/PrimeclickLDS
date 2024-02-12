@@ -43,6 +43,8 @@ export default function Leads() {
     }
   };
 
+  console.log(filteredCampaign);
+
   return (
     <div className="leads">
       {isLoading ? (
@@ -139,7 +141,7 @@ export default function Leads() {
                         {campaign.type_of}
                       </td>
                       <td onClick={() => navigate(`/leads/${campaign.id}`)}>
-                        {campaign.converted || "N/A"}
+                        {campaign?.converted}
                       </td>
                       {campaign.type_of === "UPLOAD" ? (
                         <td>
