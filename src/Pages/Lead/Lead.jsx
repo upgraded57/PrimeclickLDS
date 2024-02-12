@@ -4,7 +4,6 @@ import Card from "../../Component/Card/Card";
 import Button from "../../Component/button/Button";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { IoTrashOutline } from "react-icons/io5";
 import { useState } from "react";
 import { useFetchLeads } from "./../../ApiCalls/Lead/Lead";
 import { useNavigate, useParams } from "react-router-dom";
@@ -64,10 +63,6 @@ export default function Lead() {
     }
   };
 
-  const pendingLeads = leads?.leads?.filter((lead) => {
-    return lead.status === "Pending";
-  });
-
   const convertedLeads = leads?.leads?.filter((lead) => {
     return lead.status === "Converted";
   });
@@ -75,6 +70,12 @@ export default function Lead() {
   const rejectedLeads = leads?.leads?.filter((lead) => {
     return lead.status === "Rejected";
   });
+
+  const calledLeads = leads?.leads?.filter((lead) => {
+    return lead.contact_status === "Called";
+  });
+
+  console.log(filteredLeads);
 
   return (
     <div className="lead">
@@ -98,6 +99,7 @@ export default function Lead() {
 
           <div className="lead__top cards">
             <Card text="Total Leads" qty={leads?.leads?.length || "0"} />
+            <Card text="Total Called" qty={calledLeads?.length || "0"} />
             <Card text="Total Converted" qty={convertedLeads?.length || "0"} />
             <Card text="Total Rejected" qty={rejectedLeads?.length || "0"} />
           </div>
@@ -161,7 +163,7 @@ export default function Lead() {
                     <th>Phone number</th>
                     <th>Created Date</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    <th>Feedback Quality</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -192,9 +194,20 @@ export default function Lead() {
                           {lead.status}
                         </span>
                       </td>
-                      <td>
-                        <span className="tooltip lead-delete-icon">
-                          <IoTrashOutline />
+
+                      <td onClick={() => navigate(`/leads/${lead.id}/info`)}>
+                        <span
+                          className={
+                            lead.contact_status === "Pending"
+                              ? "called"
+                              : lead.contact_status === "Converted"
+                              ? "converted"
+                              : lead.contact_status === "Rejected"
+                              ? "rejected"
+                              : ""
+                          }
+                        >
+                          {lead.contact_status || "NIL"}
                         </span>
                       </td>
                     </tr>
