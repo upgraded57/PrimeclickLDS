@@ -163,7 +163,7 @@ export default function Lead() {
                     <th>Phone number</th>
                     <th>Created Date</th>
                     <th>Status</th>
-                    <th>Feedback Quality</th>
+                    <th>Feedback</th>
                   </tr>
                 </thead>
                 <tbody>
