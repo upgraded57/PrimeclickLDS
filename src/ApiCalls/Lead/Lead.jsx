@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { axiosInstance } from "../../Utils/AxiosInstance";
 import { baseURL } from "../baseUrl";
 import { useQuery } from "react-query";
-import { modalCode } from "../modalCode";
+import { inlineCode, modalCode } from "../modalCode";
 
 // const new_campaign_id = JSON.parse(localStorage.getItem("campaign_id"));
 
@@ -57,9 +57,19 @@ export const useFetchLeadInfo = (lead_id) => {
 };
 
 // copy lead form code
-
-export const copyCode = (campaign_id) => {
+export const copyCodeAsPopup = (campaign_id) => {
   const code = modalCode(campaign_id);
+  navigator.clipboard
+    .writeText(code)
+    .then(() => {
+      toast.success("Code copied to clipboard");
+    })
+    .catch(() => toast.error("Something went wrong. Unable to copy code"));
+};
+
+// copy lead form code
+export const copyCodeAsInline = (campaign_id) => {
+  const code = inlineCode(campaign_id);
   navigator.clipboard
     .writeText(code)
     .then(() => {

@@ -75,3 +75,10 @@
   align-items: center;
   gap: 20px;
 }
+
+.copyCodeTooltipBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: transparent !important;
+}

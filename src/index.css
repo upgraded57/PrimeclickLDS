@@ -194,6 +194,99 @@ select {
   color: white;
 }
 
+.leads__table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.leads__table-head h3 {
+  font-size: 18px !important;
+}
+
+.leads__table-search {
+  display: flex;
+  align-items: center;
+}
+
+.leads__table-search select {
+  height: 30px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid var(--neutral-clr-light-grey);
+  background: transparent;
+  padding-inline: 10px;
+  font-family: inherit;
+}
+
+.leads__table-head form {
+  display: flex;
+  align-items: center;
+}
+
+.leads__table-head form input {
+  width: 266px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid var(--neutral-clr-light-grey);
+  outline: none;
+  color: var(--neutral-clr-dark);
+  font-family: inherit;
+}
+
+.leads__table-head form button {
+  margin: 0;
+  width: max-content;
+  min-width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  background: var(--pry-clr);
+  color: white;
+  cursor: pointer;
+}
+
+.leads__table-head .pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.leads__table-head .pagination span {
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(88, 88, 88, 0.15);
+  cursor: pointer;
+}
+
+.leads__table table span {
+  padding: 4px 8px;
+  background: var(--neutral-clr-light-grey);
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+}
+
+.leads__table table span.called {
+  background: rgba(242, 201, 76, 1);
+}
+
+.leads__table table span.converted {
+  background: rgba(111, 207, 151, 1);
+}
+
+.leads__table table span.rejected {
+  background: rgba(235, 87, 87, 1);
+}
+
 .cards {
   width: 94%;
   display: grid;

@@ -4,7 +4,6 @@ import { baseURL } from "./../../ApiCalls/baseUrl";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { AiOutlineClose } from "react-icons/ai";
 
 export default function Forms() {
   const { campaign_id } = useParams();
@@ -20,6 +19,12 @@ export default function Forms() {
     };
 
     getFormData();
+
+    // remove container class from iframe
+    document
+      .querySelector(".forms")
+      .parentElement.classList.remove("container");
+    console.log(document.querySelector(".forms").parentElement);
   }, []);
 
   const texts = formData?.texts;

@@ -157,7 +157,7 @@
   font-family: monospace;
   padding: 10px;
   border-radius: 10px;
-  max-height: 300px;
+  max-height: 150px;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -182,4 +182,24 @@
 
 .iframe_modal__close-btn:hover {
   color: red;
+}
+
+.iframe_modal__code-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid lightgrey;
+}
+
+.iframe_modal__code-btns button {
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: var(--input-radius);
+  cursor: pointer;
+  background-color: var(--accent-clr);
+  color: white;
+  border: none;
+  outline: none;
 }

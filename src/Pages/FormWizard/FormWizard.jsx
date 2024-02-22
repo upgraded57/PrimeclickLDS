@@ -8,7 +8,7 @@ import { baseURL } from "../../ApiCalls/baseUrl";
 import toast from "react-hot-toast";
 import { IoClose } from "react-icons/io5";
 import { modalCode } from "../../ApiCalls/modalCode";
-import { copyCode } from "../../ApiCalls/Lead/Lead";
+import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
 
 export default function FormWizard() {
   const user = localStorage.getItem("user")
@@ -31,86 +31,6 @@ export default function FormWizard() {
   const [btnBgColor, setBtnBgColor] = useState("");
   const [btnTextColor, setBtnTextColor] = useState("");
   const [modalActive, setModalActive] = useState(false);
-
-  const inputStyle = `"background-color: ${
-    inputBgColor ? inputBgColor : "inherit"
-  }; width: 100%; height: 50px; padding-inline: 10px; border: 1px solid grey; border-radius: 10px;"`;
-
-  // const form = `
-  //   <section style= "background-color: ${
-  //     bgColor ? bgColor : "inherit"
-  //   }; display: flex; flex-direction-column; justify-content: center; align-items: center; gap: 20px; width: 100%; padding-block: 50px; padding-inline: 20px; color: ${
-  //   textColor ? textColor : "inherit"
-  // }; ">
-
-  //   <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-  //   <form action = "https://jsonplaceholder.typicode.com/users/1" method = "GET" target = "dummyframe" onsubmit = "submitform()" style = "width: 100%">
-
-  //     <h2 style = "text-align: center">
-  //       ${title ? title : "CONTACT ME"}
-  //     </h2>
-
-  //     ${
-  //       fullNameInput
-  //         ? `<label for = "fullName">
-  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-  //         textColor ? textColor : "inherit"
-  //       };"> Full Name</p>
-  //       <input type = "text" name = fullName id = fullName placeholder = "e.g. John Doe" style =${inputStyle} required/>
-  //     </label>`
-  //         : ""
-  //     }
-
-  //     ${
-  //       emailInput
-  //         ? `<label for = "email">
-  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-  //         textColor ? textColor : "inherit"
-  //       };"> Email Address</p>
-  //       <input type = "email" name = email id = email placeholder = "e.g. johndoe@email.com" style =${inputStyle} required/>
-  //     </label>`
-  //         : ""
-  //     }
-
-  //     ${
-  //       phoneInput
-  //         ? `<label for = "phone">
-  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-  //         textColor ? textColor : "inherit"
-  //       };"> Phone Number</p>
-  //       <input type = "text" input-mode = "numeric" name = phone id = phone placeholder = "e.g. 08011122233" style =${inputStyle} required/>
-  //     </label>`
-  //         : ""
-  //     }
-
-  //     ${
-  //       locationInput
-  //         ? `<label for = "location">
-  //       <p style = "font-family: "inherit"; font-size: "inherit"; color: ${
-  //         textColor ? textColor : "inherit"
-  //       };"> Location</p>
-  //       <input type = "text" name = location id = location placeholder = "e.g. Lagos, Nigeria" style =${inputStyle}/>
-  //     </label>`
-  //         : ""
-  //     }
-
-  //     <button type = submit style = "font-family: inherit; font-size: inherit; background-color: ${
-  //       btnBgColor ? btnBgColor : "inherit"
-  //     }; height: 50px; width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid transparent; color: ${
-  //   btnTextColor ? btnTextColor : "inherit"
-  // }">
-  //       ${btnText ? btnText : "CONTACT ME"}
-  //     </button>
-  //   </form>
-
-  //   </section>
-
-  //   <script>
-  //     function submitform(){
-  //       alert("Data received. You will be contacted soon")
-  //     }
-  //   </script>
-  //     `;
 
   const design = {
     styles: {
@@ -378,14 +298,17 @@ export default function FormWizard() {
           <h3 className="h-50">FORM CREATED SUCCESSFULLY</h3>
           <p className="text-body">
             Copy the code below and paste into your website to display the
-            contact form. Website reload required
+            contact form as a popup. Website reload required
           </p>
           <div className="iframe_modal__code">{codeToCopy}</div>
-          <Button
-            variant="accent"
-            text="COPY CODE"
-            clickEvent={() => copyCode(campaign_id)}
-          />
+          <div className="iframe_modal__code-btns">
+            <button onClick={() => copyCodeAsPopup(campaign_id)}>
+              COPY POPUP CODE
+            </button>
+            <button onClick={() => copyCodeAsInline(campaign_id)}>
+              COPY INLINE FORM CODE
+            </button>
+          </div>
           <Button
             variant="solid"
             text="GO TO CAMPAIGNS PAGE"

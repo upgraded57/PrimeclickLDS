@@ -9,8 +9,9 @@ import {
 } from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";
-import { copyCode } from "../../ApiCalls/Lead/Lead";
+import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
 import EmptyState from "../../Component/emptyState/EmptyState";
+import { Tooltip } from "react-tooltip";
 
 export default function Leads() {
   const navigate = useNavigate();
@@ -42,8 +43,6 @@ export default function Leads() {
       );
     }
   };
-
-  console.log(filteredCampaign);
 
   return (
     <div className="leads">
@@ -151,9 +150,32 @@ export default function Leads() {
                         </td>
                       ) : (
                         <td>
-                          <button onClick={() => copyCode(campaign.id)}>
-                            Copy Code
-                          </button>
+                          <button id="copyCodeTooltipToggler">Copy Code</button>
+                          <Tooltip
+                            anchorSelect="#copyCodeTooltipToggler"
+                            clickable
+                            place="left"
+                            variant="light"
+                            opacity={1}
+                            border={"1px solid rgba(0,0,0,0.2)"}
+                            style={{
+                              boxShadow: "3px 3px 5px 0px rgba(0,0,0,0.2)",
+                              paddingBlock: "15px",
+                            }}
+                          >
+                            <span className="copyCodeTooltipBtns">
+                              <button
+                                onClick={() => copyCodeAsPopup(campaign.id)}
+                              >
+                                Copy code as popup
+                              </button>
+                              <button
+                                onClick={() => copyCodeAsInline(campaign.id)}
+                              >
+                                Copy code as inline form
+                              </button>
+                            </span>
+                          </Tooltip>
                         </td>
                       )}
                     </tr>

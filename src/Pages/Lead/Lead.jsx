@@ -75,8 +75,6 @@ export default function Lead() {
     return lead.contacted_status !== null;
   });
 
-  console.log(leads);
-
   return (
     <div className="lead">
       {isLoading ? (
