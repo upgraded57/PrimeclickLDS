@@ -24,13 +24,14 @@ export default function Forms() {
     document
       .querySelector(".forms")
       .parentElement.classList.remove("container");
-    console.log(document.querySelector(".forms").parentElement);
   }, []);
 
   const texts = formData?.texts;
   const styles = formData?.styles;
 
   const fields = formData?.fields;
+
+  const redirectPage = formData?.redirect?.url;
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,6 +67,8 @@ export default function Forms() {
         toast.success("You will be contacted within five minutes", {
           id: toastId,
         });
+        if (redirectPage && redirectPage.length > 0)
+          window.location = redirectPage;
       })
       .catch((err) => {
         toast.error("Something went wrong. Please retry", {

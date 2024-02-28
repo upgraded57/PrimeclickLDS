@@ -31,6 +31,7 @@ export default function FormWizard() {
   const [btnBgColor, setBtnBgColor] = useState("");
   const [btnTextColor, setBtnTextColor] = useState("");
   const [modalActive, setModalActive] = useState(false);
+  const [nextPageUrl, setNextPageUrl] = useState("");
 
   const design = {
     styles: {
@@ -52,6 +53,9 @@ export default function FormWizard() {
       phoneInput ? "phone" : "",
       locationInput ? "location" : "",
     ],
+    redirect: {
+      url: nextPageUrl || "",
+    },
   };
 
   const createForm = async () => {
@@ -179,6 +183,17 @@ export default function FormWizard() {
                   type="text"
                   id="wizard-control-btn-text"
                   onChange={(e) => setBtnText(e.target.value.toUpperCase())}
+                />
+              </label>
+              <label htmlFor="wizard-control-url">
+                <p>
+                  Thank you page URL (User will be redirected to this URLafter
+                  they fill the form)
+                </p>
+                <input
+                  type="text"
+                  id="wizard-control-url"
+                  onChange={(e) => setNextPageUrl(e.target.value)}
                 />
               </label>
             </div>

@@ -150,9 +150,11 @@ export default function Leads() {
                         </td>
                       ) : (
                         <td>
-                          <button id="copyCodeTooltipToggler">Copy Code</button>
+                          <button id={`copyCodeTooltipToggler${campaign.id}`}>
+                            Copy Code
+                          </button>
                           <Tooltip
-                            anchorSelect="#copyCodeTooltipToggler"
+                            anchorSelect={`#copyCodeTooltipToggler${campaign.id}`}
                             clickable
                             place="left"
                             variant="light"
