@@ -1,8 +1,5 @@
 import axios from "axios";
-import { axiosInstance } from "../../Utils/AxiosInstance";
-import { useMutation } from "react-query";
 import toast from "react-hot-toast";
-import { useState } from "react";
 import { baseURL } from "../baseUrl";
 
 // // forgot password
