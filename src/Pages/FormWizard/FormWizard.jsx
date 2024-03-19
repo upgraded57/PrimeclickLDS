@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance } from "./../../Utils/AxiosInstance";
 import { baseURL } from "../../ApiCalls/baseUrl";
 import toast from "react-hot-toast";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoExitOutline, IoCopyOutline } from "react-icons/io5";
 import { modalCode } from "../../ApiCalls/modalCode";
 import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
 
@@ -30,7 +30,7 @@ export default function FormWizard() {
   const [inputBgColor, setInputBgColor] = useState("");
   const [btnBgColor, setBtnBgColor] = useState("");
   const [btnTextColor, setBtnTextColor] = useState("");
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, setModalActive] = useState(true);
   const [nextPageUrl, setNextPageUrl] = useState("");
 
   const design = {
@@ -310,7 +310,7 @@ export default function FormWizard() {
           >
             <IoClose />
           </div>
-          <h3 className="h-50">FORM CREATED SUCCESSFULLY</h3>
+          <h3 className="h-50">View Code</h3>
           <p className="text-body">
             Copy the code below and paste into your website to display the
             contact form as a popup. Website reload required
@@ -318,17 +318,19 @@ export default function FormWizard() {
           <div className="iframe_modal__code">{codeToCopy}</div>
           <div className="iframe_modal__code-btns">
             <button onClick={() => copyCodeAsPopup(campaign_id)}>
-              COPY POPUP CODE
+              <IoCopyOutline className="copy-icon" /> Copy pop up Code
             </button>
             <button onClick={() => copyCodeAsInline(campaign_id)}>
-              COPY INLINE FORM CODE
+              <IoCopyOutline className="copy-icon" /> Copy In-line form code
+            </button>
+            <button
+              className="goto-campaign"
+              onClick={() => navigate("/leads")}
+            >
+              <IoExitOutline className="copy-icon" />
+              Go to Campaigns Page
             </button>
           </div>
-          <Button
-            variant="solid"
-            text="GO TO CAMPAIGNS PAGE"
-            clickEvent={() => navigate("/leads")}
-          />
         </div>
       </div>
     </div>

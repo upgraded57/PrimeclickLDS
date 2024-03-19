@@ -141,24 +141,28 @@
 
 .iframe_modal__content {
   position: relative;
-  max-width: 500px;
+  width: 700px;
   background: white;
   padding: 20px;
-  padding-top: 40px;
-  text-align: center;
-  border-radius: var(--box-radius);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+}
+
+.iframe_modal__content h3 {
+  color: var(--pry-clr) !important;
 }
 
 .iframe_modal__code {
-  background: black;
-  color: white;
-  font-family: monospace;
-  padding: 10px;
-  border-radius: 10px;
-  max-height: 150px;
+  background: #fafafa;
+  color: #545151;
+  font-family: inherit;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  height: 174px;
+  margin-block: 30px;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -169,38 +173,43 @@
 }
 .iframe_modal__close-btn {
   position: absolute;
-  padding: 5px;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
+  color: var(--pry-clr);
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
   display: flex;
   align-items: center;
+  border: 2px solid var(--pry-clr);
   justify-content: center;
-  background: ghostwhite;
+  background: transparent;
   border-radius: 15px;
   cursor: pointer;
-}
-
-.iframe_modal__close-btn:hover {
-  color: red;
 }
 
 .iframe_modal__code-btns {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid lightgrey;
 }
 
 .iframe_modal__code-btns button {
   padding: 10px 20px;
-  width: 100%;
-  border-radius: var(--input-radius);
+  width: max-content;
+  border-radius: 4px;
   cursor: pointer;
-  background-color: var(--accent-clr);
-  color: white;
-  border: none;
+  background-color: #e6eaf9;
+  color: var(--pry-clr);
+  border: 1px solid #ced4da;
   outline: none;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-icon {
+  font-size: 20px;
 }
