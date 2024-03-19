@@ -13,16 +13,9 @@ export default function Calls() {
   const [audio1Link, setAudio1Link] = useState("");
   const [audio2Link, setAudio2Link] = useState("");
   const [audio3Link, setAudio3Link] = useState("");
-  const chooseAudioLink = () => {
-    if (
-      audio1Link.length < 1 ||
-      audio2Link.length < 1 ||
-      audio3Link.length < 1
-    ) {
-      return toast.error("All fields are required!");
-    }
+  const chooseAudioLink = (e) => {
+    e.preventDefault();
     const audios = [audio1Link, audio2Link, audio3Link];
-
     addCampaignAudios(audios, campaign_id, navigate, type);
   };
   return (
@@ -30,7 +23,7 @@ export default function Calls() {
       <Topbar />
       <div className="onboarding">
         <h3 className="h-100">Upload audios to link to your campaign</h3>
-        <div className="onboarding-box">
+        <form className="onboarding-box" onSubmit={chooseAudioLink}>
           <div
             className="onboarding-box-top"
             style={{
@@ -50,24 +43,25 @@ export default function Calls() {
 
           <Input
             placeholder="Link to first audio file"
+            type="url"
+            required
             setValue={setAudio1Link}
           />
           <Input
             placeholder="Link to second audio file (If client responds positively)"
+            type="url"
+            required
             setValue={setAudio2Link}
           />
           <Input
             placeholder="Link to third audio file (If client responds negatively)"
+            type="url"
+            required
             setValue={setAudio3Link}
           />
 
-          <Button
-            variant="solid"
-            type="button"
-            text="Continue"
-            clickEvent={chooseAudioLink}
-          />
-        </div>
+          <Button variant="solid" type="submit" text="Continue" />
+        </form>
       </div>
     </>
   );
