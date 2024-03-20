@@ -5,6 +5,7 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 
 export default function Faqs() {
   const [currentFaq, setCurrentFaq] = useState(0);
+
   const faqs = [
     {
       id: 1,
@@ -23,7 +24,7 @@ export default function Faqs() {
     },
     {
       id: 4,
-      title: "Can i donate in honor of someone?",
+      title: "Can I donate in honor of someone?",
       text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque nisi optio, at fugit totam assumenda consequatur. Beatae cum consequatur dicta architecto aspernatur at numquam optio, quasi minima ex. Fuga optio saepe doloremque sapiente modi, deserunt iste ratione qui animi voluptatem alias nostrum commodi a labore! Cum omnis est, libero eius maiores excepturi quisquam quas nulla illum neque, molestiae voluptates ipsam perferendis accusamus odio possimus officiis dignissimos ad tempora, blanditiis natus ut illo soluta! Quae, saepe architecto! Minus quam deleniti, qui voluptatem nulla minima natus consectetur vel sapiente quis, nisi ipsam nihil architecto tenetur debitis rerum velit veritatis quasi impedit voluptates.",
     },
     {
@@ -32,6 +33,7 @@ export default function Faqs() {
       text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque nisi optio, at fugit totam assumenda consequatur. Beatae cum consequatur dicta architecto aspernatur at numquam optio, quasi minima ex. Fuga optio saepe doloremque sapiente modi, deserunt iste ratione qui animi voluptatem alias nostrum commodi a labore! Cum omnis est, libero eius maiores excepturi quisquam quas nulla illum neque, molestiae voluptates ipsam perferendis accusamus odio possimus officiis dignissimos ad tempora, blanditiis natus ut illo soluta! Quae, saepe architecto! Minus quam deleniti, qui voluptatem nulla minima natus consectetur vel sapiente quis, nisi ipsam nihil architecto tenetur debitis rerum velit veritatis quasi impedit voluptates.",
     },
   ];
+
   return (
     <div className="faqs">
       <small>Want to know more?</small>

@@ -10,6 +10,9 @@ import Input from "./../../Component/Input/Input";
 import Button from "../../Component/button/Button";
 
 export default function About() {
+  const submitMessage = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="about-pg">
       <Header />
@@ -113,7 +116,7 @@ export default function About() {
         <h1>Get in touch</h1>
         <p>We&apos;d love to hear from you, kindly fill out this form.</p>
 
-        <form>
+        <form onSubmit={submitMessage}>
           <span>
             <Input name="firstName" label="First Name" type="text" />
             <Input name="lastName" label="Last Name" type="text" />

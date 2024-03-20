@@ -28,8 +28,8 @@ export default function Header() {
         </ul>
       </nav>
       <div className="auth-links">
-        <button onClick={() => navigate("/auth")}>Log in</button>
-        <button onClick={() => navigate("/auth")}>Sign up</button>
+        <button onClick={() => navigate("/auth?type=login")}>Log in</button>
+        <button onClick={() => navigate("/auth?type=signUp")}>Sign up</button>
       </div>
     </header>
   );

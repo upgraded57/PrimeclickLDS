@@ -9,16 +9,18 @@ import authImg from "../../assets/images/authImg.png";
 import OTPModal from "../../Component/Modal/OTPModal";
 import SignupPage from "./SignupPage";
 import LoginPage from "./LoginPage";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Auth() {
-  const [authState, setAuthState] = useState("login");
+  const [param, setParam] = useSearchParams();
+  const [authState, setAuthState] = useState(param.get("type") || "login");
   const [otpModalActive, setOtpModalActive] = useState(false);
 
   // Sign up data
   const [cred, setCred] = useState({
     fullName: "",
     businessName: "",
-    email: "",
+    email: param.get("email") || "",
     phone: "",
     pass: "",
     confirmPass: "",
@@ -31,7 +33,9 @@ export default function Auth() {
       <div className="auth">
         <div className="auth__left">
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="texts">
             <h2 className="h-200">The simplest lead management solution</h2>

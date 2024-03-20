@@ -70,6 +70,7 @@ export default function SignupPage({
           type="email"
           id="email"
           name="email"
+          value={cred.email}
           onChange={setValue}
           required
         />
