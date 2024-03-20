@@ -19,11 +19,6 @@ export default function Forms() {
     };
 
     getFormData();
-
-    // remove container class from iframe
-    document
-      .querySelector(".forms")
-      .parentElement.classList.remove("container");
   }, []);
 
   const texts = formData?.texts;

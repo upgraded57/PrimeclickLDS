@@ -19,7 +19,7 @@ export default function Button({
           className="btn-tp solid-btn"
           onClick={clickEvent}
         >
-          <span>{icon}</span>
+          {icon && <span>{icon}</span>}
           {text}
         </button>
       );
@@ -32,7 +32,7 @@ export default function Button({
           className="btn-tp solid-btn accent"
           onClick={clickEvent}
         >
-          <span>{icon}</span>
+          {icon && <span>{icon}</span>}
           {text}
         </button>
       );
@@ -45,7 +45,7 @@ export default function Button({
           className="btn-tp outline-btn"
           onClick={clickEvent}
         >
-          <span>{icon}</span>
+          {icon && <span>{icon}</span>}
           {text}
         </button>
       );
@@ -58,7 +58,7 @@ export default function Button({
           className="btn-tp pill-btn"
           onClick={clickEvent}
         >
-          <span>{icon}</span>
+          {icon && <span>{icon}</span>}
           {text}
         </button>
       );

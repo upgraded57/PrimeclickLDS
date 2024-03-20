@@ -1,0 +1,22 @@
+.trustees {
+  text-align: center;
+  padding-inline: 4vw;
+}
+
+.trustees h1 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.trustees-imgs {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.trustees-imgs img {
+  max-width: 200px;
+}

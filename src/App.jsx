@@ -37,7 +37,7 @@ const Notifications = React.lazy(() =>
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Toaster />
       <BrowserRouter>
         <Routes>
@@ -258,7 +258,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

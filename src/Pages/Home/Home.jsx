@@ -1,33 +1,28 @@
 import "./home.css";
-import logo from "../../assets/images/logo.png";
-import progress from "../../assets/images/progress.jpg";
-import { Link } from "react-router-dom";
+import Header from "../../Component/header/Header";
+import Hero from "../../Component/hero/Hero";
+import Trustees from "../../Component/trustees/Trustees";
+import Offer from "../../Component/offer/Offer";
+import Features from "../../Component/features/Features";
+import Testimonials from "../../Component/testimonials/Testimonials";
+import Faqs from "../../Component/faqs/Faqs";
+import Solutions from "../../Component/solutions/Solutions";
+import Footer from "../../Component/footer/Footer";
 
 export default function Home() {
   return (
     <div className="home">
-      <div className="home__nav">
-        <div className="home__nav-logo">
-          <img src={logo} alt="" />
-        </div>
+      <div className="home-bg">
+        <Header />
+        <Hero />
       </div>
-      <div className="home__info">
-        <div className="home__info-header">
-          <img src={progress} alt="" />
-          <h2 className="h-200">WE'RE UNDER DEVELOPMENT!</h2>
-        </div>
-        <p className="text-body">
-          You can view the available pages while you're here
-        </p>
-        <div className="home__info-links">
-          <Link to="/auth">Login/Signup</Link>
-          <Link to="/forgot-password">Reset Password</Link>
-          <Link to="/dashboard">Dashboard Page</Link>
-          <Link to="/leads">Leads Page</Link>
-          <Link to="/report">Report Page</Link>
-          <Link to="/new">Onboarding Options Page</Link>
-        </div>
-      </div>
+      <Trustees />
+      <Offer />
+      <Features />
+      <Solutions />
+      <Testimonials />
+      <Faqs />
+      <Footer />
     </div>
   );
 }

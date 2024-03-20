@@ -1,50 +1,11 @@
 .home {
-  width: 100%;
+  background: #fafafa;
+  padding-inline: 2vw;
 }
 
-.home__nav {
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  background: var(--pry-clr);
-}
-
-.home__nav-logo {
-  height: 50px;
-}
-
-.home__nav-logo img {
-  height: 100%;
-}
-
-.home__info {
-  position: relative;
-  top: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.home__info-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.home__info-header img {
-  height: 100px;
-}
-
-.home__info-header h2 {
-  color: var(--pry-clr);
-}
-
-.home__info-links {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: center;
+.home-bg {
+  background-image: url("../../assets/images/herobg.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }

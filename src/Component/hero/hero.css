@@ -1,0 +1,48 @@
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block: 100px;
+  padding-inline: 4vw;
+}
+
+.hero .title {
+  max-width: 1072px;
+  text-align: center;
+}
+
+.hero .title h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 84px;
+  color: var(--pry-clr);
+}
+
+.hero .title p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.hero .title .search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-block: 50px;
+}
+
+.hero .title .search .input {
+  flex-basis: 85%;
+}
+
+.hero .title .search button {
+  flex-basis: 15%;
+}
+
+.hero .title .hero-snapshot img {
+  width: 100%;
+}

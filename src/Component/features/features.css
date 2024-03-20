@@ -1,0 +1,56 @@
+.features {
+  width: min(900px, 100%);
+  margin-inline: auto;
+  margin-top: 100px;
+}
+
+.features-highlight {
+  display: flex;
+  gap: 30px;
+}
+
+.features-highlight img {
+  width: 500px;
+}
+
+.features-highlight .highlights {
+  padding-block: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.features-highlight .highlights h4 {
+  font-size: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+
+.features-highlight .highlights h4:nth-child(2) {
+  font-weight: 500;
+}
+
+.features-highlight .highlights h4 span {
+  font-weight: 700;
+  color: var(--pry-clr);
+  text-decoration: underline;
+}
+
+.features-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.features-counts .count {
+  text-align: center;
+}
+
+.features-counts .count h1 {
+  color: var(--pry-clr);
+  font-size: 50px;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+}

@@ -1,0 +1,71 @@
+header {
+  width: 100%;
+  padding: 50px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  flex-basis: 30%;
+  overflow: hidden;
+}
+
+header .logo img {
+  max-width: 205px;
+}
+
+header .logo img {
+  width: 100%;
+}
+
+header nav {
+  flex-basis: 40%;
+  width: 100%;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav ul li a {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  color: #545151;
+  font-size: 16px;
+}
+
+header .auth-links {
+  flex-basis: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+header .auth-links button {
+  border-radius: 8px;
+  padding: 10px 30px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+header .auth-links button:first-child {
+  background: transparent;
+}
+
+header .auth-links button:first-child:hover {
+  background: lightgray;
+}
+
+header .auth-links button:last-child {
+  background: var(--pry-clr);
+  color: white;
+}

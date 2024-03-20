@@ -3,9 +3,6 @@
   display: flex;
   height: 100vh;
   background: #fafafa;
-  max-height: 96vh;
-  margin-top: 2vh;
-  border-radius: 20px;
   overflow: hidden;
 }
 

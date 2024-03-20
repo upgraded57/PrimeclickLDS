@@ -1,0 +1,48 @@
+.faqs {
+  width: min(900px, 100%);
+  margin-inline: auto;
+  margin-top: 100px;
+}
+
+.faqs h1 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.faq {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid lightgrey;
+  max-height: 40px;
+  overflow: hidden;
+  transition: 0.3s;
+  cursor: pointer;
+  transform-origin: top;
+}
+
+.faq.active {
+  max-height: 500px;
+}
+
+.faq span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+.faq span h4 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.faq span button {
+  display: flex;
+  border: none;
+  outline: none;
+  background: transparent;
+}
