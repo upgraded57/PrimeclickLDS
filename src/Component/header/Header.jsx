@@ -7,7 +7,9 @@ export default function Header() {
   return (
     <header>
       <div className="logo">
-        <img src={logo} alt="Primeclick logo" />
+        <Link to="/">
+          <img src={logo} alt="Primeclick logo" />
+        </Link>
       </div>
       <nav>
         <ul>
@@ -15,13 +17,13 @@ export default function Header() {
             <Link to="#">Resources</Link>
           </li>
           <li>
-            <Link to="#">Features</Link>
+            <Link to="/features">Features</Link>
           </li>
           <li>
-            <Link to="#">Pricing</Link>
+            <Link to="/pricing">Pricing</Link>
           </li>
           <li>
-            <Link to="#">About Us</Link>
+            <Link to="/about">About Us</Link>
           </li>
         </ul>
       </nav>

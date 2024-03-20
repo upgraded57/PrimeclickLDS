@@ -1,0 +1,124 @@
+.pricing-pg {
+  background: #fafafa;
+  padding-inline: 2vw;
+}
+
+.pricing {
+  padding-top: 100px;
+  width: min(900px, 100%);
+  text-align: center;
+  margin-inline: auto;
+  background-image: url("../../assets/images/herobg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.pricing-toggle {
+  display: flex;
+  margin-block: 50px;
+  width: max-content;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.toggle-container {
+  width: 80px;
+  height: 34px;
+  border-radius: 50px;
+  border: 2px solid #ced4da;
+  background: #fafafa;
+  position: relative;
+}
+
+.toggle-thumb {
+  width: 26px;
+  height: 26px;
+  background: var(--pry-clr);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s;
+}
+
+.toggle-thumb.left {
+  left: 3px;
+}
+
+.toggle-thumb.right {
+  left: 48px;
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.price {
+  text-align: left;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #ced4da;
+  background: #fafafa;
+}
+
+.price h5 {
+  margin-bottom: 15px;
+}
+
+.price span h1 {
+  font-size: 50px;
+}
+
+.price span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-block: 10px;
+}
+
+.price ul {
+  margin-top: 50px;
+  list-style: none;
+}
+
+.price ul li {
+  margin-block: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.price ul li .check-icon {
+  color: var(--pry-clr);
+}
+
+.price button {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.price.active {
+  background: var(--pry-clr);
+  color: white;
+}
+
+.price.active button {
+  color: var(--pry-clr);
+  background-color: #a2d6f9;
+}
+
+.price.active button:hover {
+  color: var(--pry-clr);
+  background-color: #6ec1f9;
+}
+
+.price.active ul li .check-icon {
+  color: #a2d6f9;
+}

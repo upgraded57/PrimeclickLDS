@@ -1,0 +1,43 @@
+.features-pg {
+  background: #fafafa;
+  padding-inline: 2vw;
+}
+
+.features-pg-section {
+  padding-top: 100px;
+  background-image: url("../../assets/images/herobg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.features-pg-texts {
+  text-align: center;
+}
+
+.features-pg-texts p {
+  text-wrap: balance;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.features-pg-cards {
+  margin-top: 50px;
+  width: min(900px, 100%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.features-pg-cards-left,
+.features-pg-cards-right {
+  padding-top: 70%;
+}
+
+.features-pg-cards-center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

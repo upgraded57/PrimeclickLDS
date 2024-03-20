@@ -1,5 +1,4 @@
 import "./offer.css";
-import offerbg from "../../assets/images/offerbg.png";
 import card1img from "../../assets/images/lead.png";
 import card2img from "../../assets/images/data.png";
 import card3img from "../../assets/images/auto.png";

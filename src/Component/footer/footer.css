@@ -2,12 +2,12 @@
 footer {
   margin-top: 100px;
   margin-bottom: 50px;
-  padding-bottom: 50px;
+  padding-block: 50px;
   display: flex;
   padding-inline: 4vw;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #eff0f6;
+  border-block: 2px solid #eff0f6;
 }
 
 .subfooter img {
@@ -71,4 +71,39 @@ footer .copyright .social {
   gap: 20px;
   font-size: 20px;
   color: var(--pry-clr);
+}
+
+@media screen and (max-width: 900px) {
+  .subfooter {
+    display: block;
+    text-align: center;
+  }
+
+  .subfooter p {
+    margin-inline: auto;
+    padding-top: 20px;
+  }
+
+  footer .links {
+    display: block;
+    text-align: center;
+  }
+
+  footer .links .link {
+    margin-bottom: 50px;
+  }
+
+  footer .links .link.newsletter span button {
+    margin-inline: auto;
+  }
+
+  footer .copyright {
+    display: block;
+    text-align: center;
+  }
+
+  footer .copyright .social {
+    margin-top: 20px;
+    justify-content: center;
+  }
 }

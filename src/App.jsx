@@ -6,6 +6,9 @@ import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 
 const Home = React.lazy(() => import("./Pages/Home/Home"));
+const Features = React.lazy(() => import("./Pages/Features/Features"));
+const Pricing = React.lazy(() => import("./Pages/Pricing/Pricing"));
+const About = React.lazy(() => import("./Pages/About/About"));
 const Auth = React.lazy(() => import("./Pages/Auth/Auth"));
 const ResetPassword = React.lazy(() =>
   import("./Pages/ResetPassword/ResetPassword")
@@ -43,14 +46,6 @@ function App() {
         <Routes>
           {/* Protected Routes */}
           <Route path="/" element={<ProtectedRoute />}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Home />
-                </Suspense>
-              }
-            />
             <Route
               path="/leads"
               element={
@@ -200,6 +195,38 @@ function App() {
           </Route>
 
           {/* Public Routes */}
+          <Route
+            index
+            element={
+              <Suspense fallback={<Loader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/features"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Features />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/pricing"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Pricing />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<Loader />}>
+                <About />
+              </Suspense>
+            }
+          />
           <Route
             path="/forms/:campaign_id"
             element={
