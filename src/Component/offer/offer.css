@@ -47,7 +47,8 @@
 
 @media screen and (max-width: 970px) {
   .offer {
-    padding: 50px 4vw;
+    padding-inline: 4vw;
+    padding-bottom: 20px;
   }
 
   .offer .offer-top {

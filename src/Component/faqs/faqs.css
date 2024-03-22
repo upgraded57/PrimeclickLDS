@@ -12,10 +12,10 @@
 }
 
 .faq {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 20px;
   border-bottom: 2px solid lightgrey;
-  max-height: 50px;
+  max-height: 35px;
   overflow: hidden;
   transition: 0.3s;
   cursor: pointer;
@@ -57,8 +57,12 @@
     font-size: 30px;
   }
 
+  .faq span h4 {
+    font-size: 18px;
+  }
+
   .faq span p {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
   }
 }

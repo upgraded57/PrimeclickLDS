@@ -24,7 +24,7 @@ export default function Hero() {
         <form className="search" onSubmit={signup}>
           <Input
             type="email"
-            placeholder="Your email address goes here"
+            placeholder="Your email address ..."
             setValue={setEmail}
           />
           <Button type="submit" variant="solid" text="Sign Up" />

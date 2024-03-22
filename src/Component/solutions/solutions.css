@@ -5,7 +5,7 @@
 }
 
 .solutions h1 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 40px;
   text-align: center;
@@ -35,11 +35,11 @@
 }
 
 .sol {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 2px solid #ced4da;
   padding-bottom: 10px;
   overflow: hidden;
-  max-height: 30px;
+  max-height: 35px;
   transform-origin: top;
   transition: 0.3s;
   cursor: pointer;
@@ -55,6 +55,10 @@
   align-items: center;
   justify-content: space-between;
   padding-right: 10px;
+}
+
+.sol span h3 {
+  font-family: "DM Sans", sans-serif;
 }
 
 .sol span button {
@@ -75,7 +79,6 @@
     padding-inline: 4vw;
   }
   .solutions h1 {
-    font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 30px;
     text-align: center;
@@ -88,12 +91,12 @@
   }
 
   .sol span h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
   }
 
   .sol p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
   }
 }
