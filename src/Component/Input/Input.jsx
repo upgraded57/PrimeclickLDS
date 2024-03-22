@@ -15,9 +15,11 @@ export default function Input({
 }) {
   return (
     <div className="input">
-      <label htmlFor={name} style={{ color: textClr }}>
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={name} style={{ color: textClr }}>
+          {label}
+        </label>
+      )}
       <input
         type={type ? type : "text"}
         id={name}
