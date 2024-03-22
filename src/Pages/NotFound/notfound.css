@@ -58,6 +58,11 @@
     font-size: 40px;
   }
 
+  .notfound-right {
+    margin-bottom: 50px;
+    padding: 30px;
+  }
+
   .notfound-right img {
     margin-top: 0;
   }
