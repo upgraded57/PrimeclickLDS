@@ -69,3 +69,31 @@
 .sol.active span button {
   transform: rotate(90deg);
 }
+
+@media screen and (max-width: 970px) {
+  .solutions {
+    padding-inline: 4vw;
+  }
+  .solutions h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .solution {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sol span h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .sol p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

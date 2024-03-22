@@ -122,3 +122,19 @@
 .price.active ul li .check-icon {
   color: #a2d6f9;
 }
+
+@media screen and (max-width: 700px) {
+  .pricing-pg {
+    padding-inline: 4vw;
+  }
+
+  .pricing {
+    padding-top: 30px;
+  }
+
+  .prices {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

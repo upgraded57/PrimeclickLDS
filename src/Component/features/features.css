@@ -54,3 +54,40 @@
   font-weight: 500;
   font-family: "DM Sans", sans-serif;
 }
+
+@media screen and (max-width: 970px) {
+  .features {
+    padding-inline: 4vw;
+  }
+
+  .features-highlight {
+    flex-direction: column;
+  }
+
+  .features-counts {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+  }
+
+  .features-counts .count h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .features-highlight img {
+    width: 100%;
+  }
+
+  .features-highlight .highlights {
+    padding-block: 0;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .features-highlight .highlights h4 {
+    margin-bottom: 20px;
+  }
+}

@@ -4,7 +4,7 @@
 }
 
 .trustees h1 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 40px;
 }
@@ -19,4 +19,16 @@
 
 .trustees-imgs img {
   max-width: 200px;
+}
+
+@media screen and (max-width: 970px) {
+  .trustees h1 {
+    font-size: 30px;
+  }
+
+  .trustees-imgs {
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+  }
 }

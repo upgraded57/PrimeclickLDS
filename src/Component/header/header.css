@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  padding: 50px 4vw;
+  padding: 20px 4vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,11 +20,16 @@ header .logo img {
 }
 
 header nav {
-  flex-basis: 40%;
+  flex-basis: 70%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1001;
 }
 
 header nav ul {
+  flex-basis: 60%;
   list-style: none;
   display: flex;
   align-items: center;
@@ -38,8 +43,8 @@ header nav ul li a {
   font-size: 16px;
 }
 
-header .auth-links {
-  flex-basis: 30%;
+header nav .auth-links {
+  flex-basis: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -68,4 +73,74 @@ header .auth-links button:first-child:hover {
 header .auth-links button:last-child {
   background: var(--pry-clr);
   color: white;
+}
+
+header .burger {
+  font-size: 30px;
+  display: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+@media screen and (max-width: 980px) {
+  header .burger {
+    display: block;
+  }
+
+  header nav {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: white;
+    overflow: hidden;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: 0.3s;
+  }
+
+  header nav.active {
+    transform: scaleY(1);
+  }
+
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  header nav ul li a {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  header nav .auth-links {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+  }
+
+  header nav .auth-links button {
+    width: 100%;
+  }
 }

@@ -48,3 +48,31 @@
 .hero .title .hero-snapshot img {
   width: 100%;
 }
+
+@media screen and (max-width: 970px) {
+  .hero {
+    margin-top: 20px;
+  }
+  .hero .title h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .hero .title p {
+    font-size: 16px;
+  }
+
+  .hero .title .search {
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+  }
+
+  .hero .title .search .input {
+    flex-basis: 70%;
+  }
+
+  .hero .title .search button {
+    flex-basis: 30%;
+  }
+}

@@ -43,3 +43,26 @@
   margin-bottom: 30px;
   width: 70px;
 }
+
+@media screen and (max-width: 970px) {
+  .offer {
+    padding: 50px 4vw;
+  }
+
+  .offer .offer-top {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .offer .offer-top p {
+    max-width: none;
+    margin-top: 10px;
+  }
+
+  .offer .offer-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}

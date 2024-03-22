@@ -41,3 +41,23 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media screen and (max-width: 700px) {
+  .features-pg {
+    padding-inline: 4vw;
+  }
+
+  .features-pg-section {
+    padding-top: 30px;
+  }
+
+  .features-pg-cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .features-pg-cards-left,
+  .features-pg-cards-right {
+    padding-top: 0;
+  }
+}

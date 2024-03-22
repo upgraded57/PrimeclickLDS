@@ -152,3 +152,33 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+@media screen and (max-width: 700px) {
+  .about-pg {
+    padding-inline: 4vw;
+  }
+
+  .about-pcm {
+    background-image: url("../../assets/images/aboutpcmimgmobile.png");
+    padding-block: 400px;
+  }
+
+  .globe-img {
+    width: 100%;
+  }
+
+  .about-points {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .members {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .teams {
+    padding-inline: 0;
+  }
+}

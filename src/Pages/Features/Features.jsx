@@ -7,7 +7,6 @@ import card1img from "../../assets/images/featureimg1.png";
 import card2img from "../../assets/images/featureimg2.png";
 import card3img from "../../assets/images/featureimg3.png";
 import card4img from "../../assets/images/featureimg4.png";
-import card5img from "../../assets/images/featureimg5.png";
 import Faqs from "../../Component/faqs/Faqs";
 
 export default function Features() {
