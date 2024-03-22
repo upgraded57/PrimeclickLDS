@@ -9,6 +9,7 @@ const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Features = React.lazy(() => import("./Pages/Features/Features"));
 const Pricing = React.lazy(() => import("./Pages/Pricing/Pricing"));
 const About = React.lazy(() => import("./Pages/About/About"));
+const NotFound = React.lazy(() => import("./Pages/NotFound/NotFound"));
 const Auth = React.lazy(() => import("./Pages/Auth/Auth"));
 const ResetPassword = React.lazy(() =>
   import("./Pages/ResetPassword/ResetPassword")
@@ -280,6 +281,14 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <Invalid />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <Suspense fallback={<Loader />}>
+                <NotFound />
               </Suspense>
             }
           />

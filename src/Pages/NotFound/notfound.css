@@ -1,0 +1,74 @@
+.notfound-pg {
+  background: #fafafa;
+  padding-inline: 10vw;
+  min-height: 100vh;
+}
+
+.notfound {
+  display: flex;
+  min-height: calc(100vh - 200px);
+  align-items: center;
+}
+
+.notfound-left {
+  flex-basis: 70%;
+}
+
+.notfound-left h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+}
+
+.notfound-left-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notfound-left-btn button {
+  font-weight: 700;
+  width: max-content;
+  padding-inline: 40px;
+  margin-inline: 0;
+  font-size: 16px;
+  height: 36px;
+}
+
+.notfound-right {
+  flex-basis: 30%;
+}
+
+.notfound-right img {
+  width: 100%;
+  margin-top: 300px;
+}
+
+@media screen and (max-width: 700px) {
+  .notfound-pg {
+    padding-inline: 4vw;
+  }
+
+  .notfound {
+    flex-direction: column-reverse;
+  }
+
+  .notfound-left h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .notfound-right img {
+    margin-top: 0;
+  }
+
+  .notfound-left-btn {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .notfound-left-btn button {
+    width: 100%;
+    height: 50px;
+  }
+}
