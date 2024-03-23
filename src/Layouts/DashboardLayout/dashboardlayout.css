@@ -10,8 +10,8 @@
 
 .dashboard-layout__sidebar,
 .dashboard-layout__sidebar-sm {
-  min-width: 315px;
-  max-width: 315px;
+  width: 20vw;
+  min-width: 200px;
   height: 100%;
   background: white;
   border-radius: 12px;
@@ -19,6 +19,7 @@
   box-shadow: 0 3px 9px 0 #82828220;
   position: sticky;
   left: 0;
+  margin-left: 10px;
 }
 
 .dashboard-layout__sidebar-sm {
@@ -111,7 +112,7 @@
 }
 
 .dashboard-layout__main {
-  min-width: max-content;
+  /* min-width: max-content; */
   width: 100%;
   overflow-y: scroll;
   max-height: 100vh;
@@ -155,7 +156,7 @@
   box-shadow: 0 0 5px 3px rgba(7, 42, 200, 0.15);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1230px) {
   .dashboard-layout__sidebar {
     display: none;
   }

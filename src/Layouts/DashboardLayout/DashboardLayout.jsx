@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }) {
             </NavLink>
           </div>
 
-          <div className="link-group">
+          {/* <div className="link-group">
             <NavLink to="/settings" className="link">
               <span className="icon">
                 <PiGearSixFill />
@@ -66,7 +66,7 @@ export default function DashboardLayout({ children }) {
               </span>
               <p>Support</p>
             </NavLink>
-          </div>
+          </div> */}
 
           <div className="link-group">
             <div className="link" onClick={() => logout(navigate)}>
@@ -167,7 +167,7 @@ export default function DashboardLayout({ children }) {
             </NavLink>
           </div>
 
-          <div className="link-group">
+          {/* <div className="link-group">
             <NavLink to="/settings" className="link" data-tooltip-id="settings">
               <span className="icon">
                 <PiGearSixFill />
@@ -206,7 +206,7 @@ export default function DashboardLayout({ children }) {
                 <p>Support</p>
               </Tooltip>
             </NavLink>
-          </div>
+          </div> */}
 
           <div className="link-group">
             <div className="link" onClick={() => logout(navigate)}>

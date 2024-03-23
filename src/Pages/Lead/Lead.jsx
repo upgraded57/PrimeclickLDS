@@ -72,7 +72,7 @@ export default function Lead() {
   });
 
   const calledLeads = leads?.leads?.filter((lead) => {
-    return lead.contacted_status !== null;
+    return lead.status !== "Pending";
   });
 
   return (

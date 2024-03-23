@@ -139,13 +139,14 @@ select {
   background: white;
   border-radius: 16px;
   padding: 20px;
+  min-width: max-content;
+  scrollbar-width: thin;
   box-shadow: 0 3px 9px 0 #82828220;
 }
 
 .leads__table table {
   width: 100%;
   border-collapse: collapse;
-  border-spacing: 100px;
 }
 
 .leads__table table thead tr th {

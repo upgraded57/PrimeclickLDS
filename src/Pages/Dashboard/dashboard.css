@@ -1,3 +1,7 @@
+.dashboard {
+  min-width: max-content;
+}
+
 .dashboard-top {
   display: flex;
   align-items: flex-end;
@@ -50,11 +54,11 @@
 }
 
 .dashboard-graph {
-  flex-basis: 61%;
+  flex-basis: 60%;
 }
 
 .dashboard-recent {
-  flex-basis: 39%;
+  flex-basis: 40%;
 }
 
 .dashboard-recent .top {
