@@ -108,3 +108,33 @@
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 300;
 }
+
+.onboarding-inputs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.onboarding-inputs .input {
+  width: 100%;
+}
+
+.onboarding-inputs .play-icon,
+.onboarding-inputs .loading-icon {
+  font-size: 30px;
+  color: var(--pry-clr);
+  cursor: pointer;
+}
+
+.onboarding-inputs .loading-icon {
+  animation: audioLoading 1s linear alternate infinite;
+}
+
+@keyframes audioLoading {
+  from {
+    transform: rotate(0deg) scale(0.8);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}

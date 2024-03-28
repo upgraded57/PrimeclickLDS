@@ -4,8 +4,9 @@ import Button from "../../Component/button/Button";
 import "../Onboarding/onboarding.css";
 import Input from "./../../Component/Input/Input";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { addCampaignAudios } from "../../ApiCalls/Campaign/Campaign";
+
+import { FaCirclePlay, FaSpinner } from "react-icons/fa6";
 
 export default function Calls() {
   const { campaign_id, type } = useParams();
@@ -17,6 +18,38 @@ export default function Calls() {
     e.preventDefault();
     const audios = [audio1Link, audio2Link, audio3Link];
     addCampaignAudios(audios, campaign_id, navigate, type);
+  };
+
+  const [isLoading, setIsLoading] = useState({
+    audio1: false,
+    audio2: false,
+    audio3: false,
+  });
+
+  const playAudio = (idx) => {
+    const audioURL =
+      idx === 1 ? audio1Link : idx === 2 ? audio2Link : audio3Link;
+
+    if (audioURL.length === 0) {
+      return alert(`Audio ${idx} URL empty or ${audioURL || "URL"} is invalid`);
+    }
+
+    const audio = new Audio();
+    audio[idx] = new Audio(audioURL);
+
+    setIsLoading((prev) => ({
+      ...prev,
+      [`audio${idx}`]: true,
+    }));
+
+    audio[idx].oncanplaythrough = () => {
+      setIsLoading((prev) => ({
+        ...prev,
+        [`audio${idx}`]: false,
+      }));
+
+      audio[idx].play();
+    };
   };
   return (
     <>
@@ -41,24 +74,59 @@ export default function Calls() {
             </p>
           </div>
 
-          <Input
-            placeholder="Link to first audio file"
-            type="url"
-            required
-            setValue={setAudio1Link}
-          />
-          <Input
-            placeholder="Link to second audio file (If client responds positively)"
-            type="url"
-            required
-            setValue={setAudio2Link}
-          />
-          <Input
-            placeholder="Link to third audio file (If client responds negatively)"
-            type="url"
-            required
-            setValue={setAudio3Link}
-          />
+          <div className="onboarding-inputs">
+            <Input
+              placeholder="Link to first audio file"
+              type="url"
+              required
+              setValue={setAudio1Link}
+            />
+            {isLoading.audio1 ? (
+              <FaSpinner className="loading-icon" />
+            ) : (
+              <FaCirclePlay
+                className="play-icon"
+                title="Play Audio"
+                onClick={() => playAudio(1)}
+              />
+            )}
+          </div>
+
+          <div className="onboarding-inputs">
+            <Input
+              placeholder="Link to second audio file (If client responds positively)"
+              type="url"
+              required
+              setValue={setAudio2Link}
+            />
+            {isLoading.audio2 ? (
+              <FaSpinner className="loading-icon" />
+            ) : (
+              <FaCirclePlay
+                className="play-icon"
+                title="Play Audio"
+                onClick={() => playAudio(2)}
+              />
+            )}
+          </div>
+
+          <div className="onboarding-inputs">
+            <Input
+              placeholder="Link to third audio file (If client responds negatively)"
+              type="url"
+              required
+              setValue={setAudio3Link}
+            />
+            {isLoading.audio3 ? (
+              <FaSpinner className="loading-icon" />
+            ) : (
+              <FaCirclePlay
+                className="play-icon"
+                title="Play Audio"
+                onClick={() => playAudio(3)}
+              />
+            )}
+          </div>
 
           <Button variant="solid" type="submit" text="Continue" />
         </form>

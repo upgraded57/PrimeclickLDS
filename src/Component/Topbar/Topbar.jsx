@@ -1,5 +1,5 @@
 import "./topbar.css";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-alt.png";
 
 export default function Topbar() {
   return (

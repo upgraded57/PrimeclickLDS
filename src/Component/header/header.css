@@ -79,18 +79,24 @@ header .burger {
   font-size: 30px;
   display: none;
   cursor: pointer;
-  z-index: 1002;
+  z-index: 1000;
 }
 
-.nav-backdrop {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+.nav-logo {
+  width: 180px;
+  display: none;
+  margin-bottom: 30px;
+}
+
+.nav-logo img {
+  width: 100%;
+}
+
+.nav-close-btn {
+  font-size: 30px;
+  position: absolute;
+  right: 4vw;
+  top: 20px;
 }
 
 @media screen and (max-width: 980px) {
@@ -100,18 +106,24 @@ header .burger {
 
   header nav {
     display: block;
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
     right: 0;
     background: white;
     overflow: hidden;
-    transform-origin: top;
-    transform: scaleY(0);
+    transform-origin: left;
+    transform: scaleX(0);
     transition: 0.3s;
+    padding: 50px 4vw;
   }
 
   header nav.active {
-    transform: scaleY(1);
+    transform: scaleX(1);
+  }
+
+  .nav-logo {
+    display: block;
   }
 
   header nav ul {
@@ -128,7 +140,7 @@ header .burger {
   }
 
   header nav ul li a {
-    text-align: center;
+    text-align: left;
     width: 100%;
     padding: 20px;
   }
@@ -138,9 +150,16 @@ header .burger {
     justify-content: center;
     padding: 20px;
     width: 100%;
+    margin-top: 20px;
   }
 
   header nav .auth-links button {
     width: 100%;
+    padding-block: 14px;
+  }
+
+  header nav .auth-links button:first-child {
+    border: 1px solid var(--pry-clr);
+    color: var(--pry-clr);
   }
 }
