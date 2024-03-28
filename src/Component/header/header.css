@@ -97,6 +97,7 @@ header .burger {
   position: absolute;
   right: 4vw;
   top: 20px;
+  display: none;
 }
 
 @media screen and (max-width: 980px) {
@@ -123,6 +124,10 @@ header .burger {
   }
 
   .nav-logo {
+    display: block;
+  }
+
+  .nav-close-btn {
     display: block;
   }
 
