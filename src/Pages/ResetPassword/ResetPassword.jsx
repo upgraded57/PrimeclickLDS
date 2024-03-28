@@ -5,7 +5,7 @@ import "../ForgotPassword/forgotpassword.css";
 import { useNavigate } from "react-router-dom";
 
 // images
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-alt.png";
 
 // icons
 import { BsArrowLeftCircle } from "react-icons/bs";
