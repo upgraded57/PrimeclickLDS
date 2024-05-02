@@ -9,7 +9,11 @@ import {
 } from "../../ApiCalls/Campaign/Campaign";
 import moment from "moment";
 import Loader from "./../../Component/Loader/Loader";
-import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
+import {
+  copyCodeAsInline,
+  copyCodeAsPopup,
+  editForm,
+} from "../../ApiCalls/Lead/Lead";
 import EmptyState from "../../Component/emptyState/EmptyState";
 import { Tooltip } from "react-tooltip";
 
@@ -175,6 +179,9 @@ export default function Leads() {
                                 onClick={() => copyCodeAsInline(campaign.id)}
                               >
                                 Copy code as inline form
+                              </button>
+                              <button onClick={() => editForm(campaign.id)}>
+                                Edit Form
                               </button>
                             </span>
                           </Tooltip>

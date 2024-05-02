@@ -77,3 +77,8 @@ export const copyCodeAsInline = (campaign_id) => {
     })
     .catch(() => toast.error("Something went wrong. Unable to copy code"));
 };
+
+// edit campaign form
+export const editForm = (campaign_id) => {
+  console.log(campaign_id);
+};

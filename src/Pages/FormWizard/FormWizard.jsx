@@ -30,7 +30,7 @@ export default function FormWizard() {
   const [inputBgColor, setInputBgColor] = useState("");
   const [btnBgColor, setBtnBgColor] = useState("");
   const [btnTextColor, setBtnTextColor] = useState("");
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
   const [nextPageUrl, setNextPageUrl] = useState("");
 
   const design = {
