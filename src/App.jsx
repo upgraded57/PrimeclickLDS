@@ -32,6 +32,7 @@ const FollowUp = React.lazy(() => import("./Pages/FollowUp/FollowUp"));
 const Calls = React.lazy(() => import("./Pages/FollowUp/Calls"));
 const Text = React.lazy(() => import("./Pages/FollowUp/Text"));
 const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
+const FormEdit = React.lazy(() => import("./Pages/FormWizard/FormEdit"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
 const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const Forms = React.lazy(() => import("./Pages/Forms/Forms"));
@@ -194,6 +195,17 @@ function App() {
               }
             />
           </Route>
+
+          <Route
+            path="/form/:campaign_id/edit"
+            element={
+              <Suspense fallback={<Loader />}>
+                <DashboardLayout>
+                  <FormEdit />
+                </DashboardLayout>
+              </Suspense>
+            }
+          />
 
           {/* Public Routes */}
           <Route

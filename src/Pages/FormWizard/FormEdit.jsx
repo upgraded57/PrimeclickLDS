@@ -1,7 +1,7 @@
 import "./formwizard.css";
 import Input from "./../../Component/Input/Input";
 import Button from "./../../Component/button/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance } from "./../../Utils/AxiosInstance";
 import { baseURL } from "../../ApiCalls/baseUrl";
@@ -9,8 +9,9 @@ import toast from "react-hot-toast";
 import { IoClose, IoExitOutline, IoCopyOutline } from "react-icons/io5";
 import { modalCode } from "../../ApiCalls/modalCode";
 import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
+import axios from "axios";
 
-export default function FormWizard() {
+export default function FormEdit() {
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : "";
@@ -32,6 +33,26 @@ export default function FormWizard() {
   const [btnTextColor, setBtnTextColor] = useState("");
   const [modalActive, setModalActive] = useState(false);
   const [nextPageUrl, setNextPageUrl] = useState("");
+
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    const getFormData = async () => {
+      await axios
+        .get(`${baseURL}/campaign/form-design/${campaign_id}/`)
+        .then((res) => setFormData(JSON.parse(res.data.design)))
+        .catch((err) => console.log(err));
+    };
+
+    getFormData();
+  }, []);
+
+  const texts = formData?.texts;
+  const styles = formData?.styles;
+
+  const fields = formData?.fields;
+
+  const redirectPage = formData?.redirect?.url;
 
   const design = {
     styles: {
@@ -58,14 +79,15 @@ export default function FormWizard() {
     },
   };
 
-  const createForm = async () => {
-    const toastId = toast.loading("Creating form");
+  const editForm = async () => {
+    const toastId = toast.loading("Updating form");
     await axiosInstance
-      .post(`${baseURL}/campaign/${campaign_id}/form-design/`, {
+      .patch(`${baseURL}/campaign/form-design/${campaign_id}/update/`, {
         design: JSON.stringify(design),
       })
       .then((res) => {
-        toast.success("Form created successully", { id: toastId });
+        console.log(res.data);
+        toast.success("Form edited successully", { id: toastId });
         setModalActive(true);
       })
       .catch((err) => {
@@ -79,7 +101,7 @@ export default function FormWizard() {
   return (
     <div className="formwizard">
       <div className="formwizard-top">
-        <h3 className="h-100">Customize your form</h3>
+        <h3 className="h-100">Edit your form</h3>
         <p className="text-body">
           Welcome {`${user.first_name} ${user.last_name}`}
         </p>
@@ -89,10 +111,12 @@ export default function FormWizard() {
         <div className="wizard-form-container">
           <div
             className="wizard-form"
-            style={{ background: bgColor || "inherit" }}
+            style={{
+              background: bgColor ? bgColor : styles?.bodyClr || "inherit",
+            }}
           >
             <h3 className="h-100" style={{ color: textColor || "inherit" }}>
-              {title || "FORM TITLE"}
+              {title ? title : texts?.title || "FORM TITLE"}
             </h3>
             <p
               className="text-body"
@@ -102,7 +126,9 @@ export default function FormWizard() {
                 color: textColor || "inherit",
               }}
             >
-              {formSubtitle || "Enter your contact information below"}
+              {formSubtitle
+                ? formSubtitle
+                : texts?.subtitle || "Enter your contact information below"}
             </p>
 
             {fullNameInput && (
@@ -151,12 +177,12 @@ export default function FormWizard() {
             )}
             <Button
               variant="solid"
-              text={btnText || "CALL ME"}
-              textClr={btnTextColor}
-              bgColor={btnBgColor}
+              text={btnText ? btnText : texts?.btnText || "CALL ME"}
+              textClr={btnTextColor ? btnTextColor : styles?.btnTextClr}
+              bgColor={btnBgColor ? btnBgColor : styles?.btnBG}
             />
           </div>
-          <Button variant="accent" text="CREATE FORM" clickEvent={createForm} />
+          <Button variant="accent" text="UPDATE FORM" clickEvent={editForm} />
 
           <div className="wizard-control">
             <h5 className="h-50">Form Settings</h5>
@@ -165,6 +191,7 @@ export default function FormWizard() {
                 <p>Form Title</p>
                 <input
                   type="text"
+                  defaultValue={texts?.title}
                   id="wizard-control-title"
                   onChange={(e) => setTitle(e.target.value.toUpperCase())}
                 />
@@ -173,6 +200,7 @@ export default function FormWizard() {
                 <p>Form Subtitle</p>
                 <input
                   type="text"
+                  defaultValue={texts?.subtitle}
                   id="wizard-control-subtitle"
                   onChange={(e) => setFormSubtitle(e.target.value)}
                 />
@@ -181,6 +209,7 @@ export default function FormWizard() {
                 <p>Button Text</p>
                 <input
                   type="text"
+                  defaultValue={texts?.btnText}
                   id="wizard-control-btn-text"
                   onChange={(e) => setBtnText(e.target.value.toUpperCase())}
                 />
@@ -193,6 +222,7 @@ export default function FormWizard() {
                 <input
                   type="text"
                   id="wizard-control-url"
+                  defaultValue={redirectPage || ""}
                   onChange={(e) => setNextPageUrl(e.target.value)}
                 />
               </label>
@@ -205,7 +235,9 @@ export default function FormWizard() {
                 <input
                   type="checkbox"
                   id="wizard-control-check-lastName"
-                  checked={fullNameInput}
+                  checked={
+                    fullNameInput ? fullNameInput : fields?.includes("fullName")
+                  }
                   onChange={(e) =>
                     e.target.checked
                       ? setFullNameInput(true)
@@ -218,7 +250,7 @@ export default function FormWizard() {
                 <input
                   type="checkbox"
                   id="wizard-control-check-email"
-                  checked={emailInput}
+                  checked={emailInput ? emailInput : fields?.includes("email")}
                   onChange={(e) =>
                     e.target.checked
                       ? setEmailInput(true)
@@ -231,7 +263,7 @@ export default function FormWizard() {
                 <input
                   type="checkbox"
                   id="wizard-control-check-phone"
-                  checked={phoneInput}
+                  checked={phoneInput ? phoneInput : fields?.includes("phone")}
                   onChange={(e) =>
                     e.target.checked
                       ? setPhoneInput(true)
@@ -244,7 +276,9 @@ export default function FormWizard() {
                 <input
                   type="checkbox"
                   id="wizard-control-check-location"
-                  checked={locationInput}
+                  checked={
+                    locationInput ? locationInput : fields?.includes("location")
+                  }
                   onChange={(e) =>
                     e.target.checked
                       ? setLocationInput(true)
@@ -262,6 +296,7 @@ export default function FormWizard() {
                 <input
                   type="color"
                   id="wizard-control-color-bg"
+                  value={styles?.bgClr || ""}
                   onChange={(e) => setBgColor(e.target.value)}
                 />
               </label>
@@ -270,6 +305,7 @@ export default function FormWizard() {
                 <input
                   type="color"
                   id="wizard-control-color-input-bg"
+                  value={styles?.inputBG || ""}
                   onChange={(e) => setInputBgColor(e.target.value)}
                 />
               </label>
@@ -278,6 +314,7 @@ export default function FormWizard() {
                 <input
                   type="color"
                   id="wizard-control-color-text"
+                  value={styles?.textClr || ""}
                   onChange={(e) => setTextColor(e.target.value)}
                 />
               </label>
@@ -286,6 +323,7 @@ export default function FormWizard() {
                 <input
                   type="color"
                   id="wizard-control-color-btn-bg"
+                  value={styles?.btnTextClr || ""}
                   onChange={(e) => setBtnTextColor(e.target.value)}
                 />
               </label>
@@ -294,6 +332,7 @@ export default function FormWizard() {
                 <input
                   type="color"
                   id="wizard-control-color-btn-text-clr"
+                  value={styles?.btnBG || ""}
                   onChange={(e) => setBtnBgColor(e.target.value)}
                 />
               </label>
