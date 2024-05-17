@@ -9,8 +9,8 @@ export default function Offer() {
       <div className="offer-top">
         <h1>What We Offer</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et.
+          We offer a seamless experience that prioritizes accurate data
+          recording and proper lead distribution
         </p>
       </div>
       <div className="offer-cards">
@@ -18,8 +18,9 @@ export default function Offer() {
           <img src={card1img} alt="image" />
           <h3>Lead Distribution</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et.
+            An effective lead management system that automatically categorizes 
+            leads or customer inquiries based on feedback to the most suitable
+            status
           </p>
         </div>
 
@@ -27,8 +28,8 @@ export default function Offer() {
           <img src={card2img} alt="image" />
           <h3>Data recording</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et.
+            Capture and record relevant information about customer interactions,
+            inquiries, complaints, and feedbacks.
           </p>
         </div>
 
@@ -36,8 +37,9 @@ export default function Offer() {
           <img src={card3img} alt="image" />
           <h3>Automated Follow up</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et.
+            Automate your customer follow up process with the use of automated
+            calls and save time forand improves overall customer satisfaction by
+            ensuring timely communication.
           </p>
         </div>
       </div>

@@ -10,6 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -17,8 +18,8 @@ export default function Footer() {
       <div className="subfooter">
         <img src={logo} alt="logo" />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt
+          Bid farewell to protracted wait times and Unreliable lead management,
+          and welcome to smooth, customized experiences for your clients.
         </p>
       </div>
 
@@ -26,16 +27,30 @@ export default function Footer() {
         <div className="links">
           <div className="link">
             <h5>Product</h5>
-            <p>Features</p>
-            <p>Pricing</p>
-            <p>Reviews</p>
-            <p>Updates</p>
+            <Link to="/features">
+              <p>Features</p>
+            </Link>
+            <Link to="/pricing">
+              <p>Pricing</p>
+            </Link>
+            <Link to="/#">
+              <p>Reviews</p>
+            </Link>
+            <Link to="/#">
+              <p>Updates</p>
+            </Link>
           </div>
           <div className="link">
             <h5>Company</h5>
-            <p>About</p>
-            <p>Contact Us</p>
-            <p>Careers</p>
+            <Link to="/about">
+              <p>About</p>
+            </Link>
+            <Link to="/contact">
+              <p>Contact Us</p>
+            </Link>
+            <Link to="/career">
+              <p>Careers</p>
+            </Link>
           </div>
           <div className="link">
             <h5>Support</h5>

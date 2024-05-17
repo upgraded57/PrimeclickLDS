@@ -64,9 +64,9 @@ export default function Pricing() {
           </div>
 
           <div className="price active">
-            <h5>Basic Plan</h5>
+            <h5>Business</h5>
             <span>
-              <h1>$10</h1>
+              <h1>$20</h1>
               <p>
                 Per User <br /> Per Month
               </p>
@@ -93,9 +93,9 @@ export default function Pricing() {
             <Button variant="solid" text="Get Started" />
           </div>
           <div className="price">
-            <h5>Basic Plan</h5>
+            <h5>Enterprise</h5>
             <span>
-              <h1>$10</h1>
+              <h1>$40</h1>
               <p>
                 Per User <br /> Per Month
               </p>

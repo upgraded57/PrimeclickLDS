@@ -19,9 +19,9 @@ export default function About() {
       <div className="about">
         <h1>We&apos;re a dedicated teams of achievers</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam.
+          We’re a team of experts who pride ourselves with crafting intuitive
+          and seamless products that meet the unique needs of users. we
+          prioritize accessible user centered products, and quality assurance.
         </p>
         <div className="globe-img">
           <img src={globeImg} alt="Globe" />
@@ -34,14 +34,14 @@ export default function About() {
             <Link to="#">support@autoleads.com</Link>
           </div>
           <div className="point">
-            <h2>Support</h2>
-            <p>We&apos;re here to help 24/7</p>
-            <Link to="#">support@autoleads.com</Link>
+            <h2>Sales</h2>
+            <p>Questions or queries? Get in touch!</p>
+            <Link to="#">sales@autoleads.com</Link>
           </div>
           <div className="point">
-            <h2>Support</h2>
-            <p>We&apos;re here to help 24/7</p>
-            <Link to="#">support@autoleads.com</Link>
+            <h2>Phone</h2>
+            <p>Mon-Fri from 9am to 5pm</p>
+            <Link to="#">+(234) 9876-54-3210</Link>
           </div>
         </div>
         <div className="about-pcm"></div>

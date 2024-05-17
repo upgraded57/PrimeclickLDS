@@ -25,6 +25,12 @@ footer {
   margin-block: 0;
 }
 
+footer a {
+  text-decoration: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
 footer .links {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

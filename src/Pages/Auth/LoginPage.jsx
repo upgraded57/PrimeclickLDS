@@ -29,7 +29,7 @@ export default function LoginPage({ setAuthState, cred, setCred }) {
 
   return (
     <form className="auth-form" onSubmit={login}>
-      <h2 className="h200">LOGIN</h2>
+      <h2 className="h-200">LOGIN</h2>
 
       <label htmlFor="email">
         <p>Email Address</p>

@@ -17,9 +17,8 @@ export default function Features() {
         <div className="features-pg-texts">
           <h1>Features</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
+            Our features are specially curated to help our users maximize lead
+            potentials so they never miss out on a conversion opportunity
           </p>
         </div>
 
@@ -29,8 +28,8 @@ export default function Features() {
               <img src={card1img} alt="image" />
               <h3>Scalable Infrastructure</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et.
+                Scalable Infrastructure allows you to maximize performance while
+                focusing on growing your business.
               </p>
             </div>
           </div>
@@ -40,8 +39,10 @@ export default function Features() {
               <img src={card2img} alt="image" />
               <h3>Real-time Analytics</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et.
+                Track lead engagement, conversion rates, and overall campaign
+                performance in real-time. An easy-to-use dashboard displays key
+                metrics such as lead source, response time, and follow-up
+                status.
               </p>
             </div>
 
@@ -49,8 +50,9 @@ export default function Features() {
               <img src={card3img} alt="image" />
               <h3>Intuitive Interface</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et.
+                Access and update lead information, all in just a few clicks
+                Track progress and prioritize follow-ups with all relevant data
+                in one place.
               </p>
             </div>
 
@@ -58,8 +60,9 @@ export default function Features() {
               <img src={card4img} alt="image" />
               <h3>24/7 Support</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et.
+                You'll never have to worry about being stuck or delayed in
+                achieving your goals due to lack of assistance, we're always
+                just a click or call away.
               </p>
             </div>
           </div>
@@ -69,8 +72,9 @@ export default function Features() {
               <img src={card2img} alt="image" />
               <h3>Automated Workflows</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et.
+                Focus on building relationships with qualified prospects while
+                leaving the administrative work in capable hands. Experience
+                enhanced productivity and higher conversion rates.
               </p>
             </div>
           </div>

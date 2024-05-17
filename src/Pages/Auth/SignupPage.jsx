@@ -39,8 +39,8 @@ export default function SignupPage({
   };
 
   return (
-    <form className="auth-form" onSubmit={signup}>
-      <h2 className="h200">SIGNUP</h2>
+    <form className="auth-form signup" onSubmit={signup}>
+      <h2 className="h-200">SIGNUP</h2>
 
       <label htmlFor="name">
         <p>Full Name</p>

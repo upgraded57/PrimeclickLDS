@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./auth.css";
 
 // images
@@ -50,6 +50,11 @@ export default function Auth() {
         </div>
 
         <div className="auth__right">
+          <div className="logo">
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
           {
             <AuthPage
               setAuthState={setAuthState}

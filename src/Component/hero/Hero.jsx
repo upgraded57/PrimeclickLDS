@@ -17,9 +17,9 @@ export default function Hero() {
       <div className="title">
         <h1>ALL YOUR FOLLOW UP NEEDS IN ONE PLACE</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam.
+          Introducing the future of customer follow up. Bid farewell to
+          protracted wait times and Unreliable lead management, and welcome to
+          smooth, customized experiences for your clients.
         </p>
         <form className="search" onSubmit={signup}>
           <Input

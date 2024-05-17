@@ -12,7 +12,7 @@ export default function Testimonials() {
       id: 0,
       img: testimonialImg,
       content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, iusto vel illum debitis quia optio, recusandae dicta expedita necessitatibus, repudiandae odio voluptates itaque error perspiciatis hic ducimus laudantium nobis sint.",
+        "I highly recommend the Autoleads follow up tool for anyone looking to streamline their communication processes and close deals faster. Trust me, you won't be disappointed!",
       user: "Sebastian Westergren",
       post: "Development Director",
     },
