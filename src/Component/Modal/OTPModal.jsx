@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./modal.css";
 import Button from "./../button/Button";
 import toast from "react-hot-toast";
 import { OTPVerify } from "../../ApiCalls/Auth/Auth";
 
 export default function OTPModal({ header, text, btnText }) {
-  const [otp, setOtp] = useState(
-    JSON.parse(localStorage.getItem("newUser")).otp || ""
-  );
+  const [otp, setOtp] = useState("");
 
   const user_id = JSON.parse(localStorage.getItem("newUser")).user_id;
 
@@ -18,6 +16,15 @@ export default function OTPModal({ header, text, btnText }) {
       OTPVerify({ otp, user_id });
     }
   };
+
+  useEffect(() => {
+    const otpFields = Array.from(document.querySelectorAll(".otpField"));
+
+    otpFields.forEach((field) => {
+      field?.classList?.remove("filled");
+      otpFields[otp.length]?.classList.add("filled");
+    });
+  }, [otp]);
 
   return (
     <div className="modal">
@@ -35,12 +42,24 @@ export default function OTPModal({ header, text, btnText }) {
             value={otp}
             required
           />
-          <label htmlFor="otpInput">{Array.from(otp)[0]}</label>
-          <label htmlFor="otpInput">{Array.from(otp)[1]}</label>
-          <label htmlFor="otpInput">{Array.from(otp)[2]}</label>
-          <label htmlFor="otpInput">{Array.from(otp)[3]}</label>
-          <label htmlFor="otpInput">{Array.from(otp)[4]}</label>
-          <label htmlFor="otpInput">{Array.from(otp)[5]}</label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[0]}
+          </label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[1]}
+          </label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[2]}
+          </label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[3]}
+          </label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[4]}
+          </label>
+          <label htmlFor="otpInput" className="otpField">
+            {Array.from(otp)[5]}
+          </label>
         </div>
         <Button
           variant="solid"

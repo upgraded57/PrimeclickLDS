@@ -55,3 +55,8 @@
   justify-content: center;
   font-size: 30px;
 }
+
+.otp-input label.filled {
+  border-color: var(--yellow-clr);
+  transform: scale(1.1);
+}
