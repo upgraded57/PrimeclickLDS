@@ -85,7 +85,7 @@ select {
 
 .text-body {
   font-family: "DM Sans", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--text-clr);
 }
@@ -133,6 +133,11 @@ select {
 
 .pointer {
   cursor: pointer;
+}
+
+table th,
+table td {
+  font-size: inherit;
 }
 
 .leads__table {

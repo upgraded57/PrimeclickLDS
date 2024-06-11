@@ -155,13 +155,14 @@
 }
 
 .iframe_modal__code {
+  width: 100%;
   background: #fafafa;
   color: #545151;
   font-family: inherit;
   padding: 16px;
   border-radius: 4px;
   border: 1px solid #ced4da;
-  height: 174px;
+  max-height: 174px;
   margin-block: 30px;
   overflow-y: scroll;
   overflow-x: hidden;

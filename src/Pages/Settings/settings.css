@@ -1,0 +1,113 @@
+.settings {
+  padding-right: 4vw;
+}
+
+.settings_tab {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  border-bottom: 1px solid var(--neutral-clr);
+}
+
+.settings_tab .tab {
+  cursor: pointer;
+}
+
+.settings_tab .tab.active {
+  font-weight: 700;
+  position: relative;
+}
+
+.settings_tab .tab.active::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background: var(--pry-clr);
+  border-radius: 5px 5px 0 0;
+}
+
+/* Roles and permissions */
+
+.roles {
+  width: 100%;
+}
+
+.roles .roles_section {
+  background: white;
+  border-radius: var(--box-radius);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.roles_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roles table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.roles table th {
+  padding-bottom: 10px;
+}
+
+.roles table td {
+  padding-block: 10px;
+}
+
+.roles table td label {
+  max-width: max-content;
+  display: flex;
+}
+
+.roles table input[type="checkbox"] {
+  color: var(--pry-clr);
+  display: none;
+}
+
+.checkmark {
+  display: block;
+  width: 28px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid var(--neutral-clr);
+  cursor: pointer;
+  position: relative;
+}
+
+.checkmark:hover {
+  background: var(--neutral-clr-light-grey);
+}
+
+.checkmark::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  aspect-ratio: 1/1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: white;
+  display: none;
+}
+
+.roles table input[type="checkbox"]:checked ~ .checkmark {
+  border: none;
+  background: var(--pry-clr);
+}
+
+.roles table input[type="checkbox"]:checked ~ .checkmark::before {
+  display: block;
+}

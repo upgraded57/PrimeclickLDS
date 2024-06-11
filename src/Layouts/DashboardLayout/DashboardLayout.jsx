@@ -53,20 +53,20 @@ export default function DashboardLayout({ children }) {
             </NavLink>
           </div>
 
-          {/* <div className="link-group">
+          <div className="link-group">
             <NavLink to="/settings" className="link">
               <span className="icon">
                 <PiGearSixFill />
               </span>
               <p>Settings</p>
             </NavLink>
-            <NavLink to="/support" className="link">
+            {/* <NavLink to="/support" className="link">
               <span className="icon">
                 <BiSupport />
               </span>
               <p>Support</p>
-            </NavLink>
-          </div> */}
+            </NavLink> */}
+          </div>
 
           <div className="link-group">
             <div className="link" onClick={() => logout(navigate)}>

@@ -1,21 +1,12 @@
-import "./formwizard.css";
-import Input from "./../../Component/Input/Input";
-import Button from "./../../Component/button/Button";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { axiosInstance } from "./../../Utils/AxiosInstance";
-import { baseURL } from "../../ApiCalls/baseUrl";
-import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import "../FormWizard/formwizard.css";
+
 import { IoExitOutline, IoCopyOutline } from "react-icons/io5";
-import { modalCode } from "../../ApiCalls/modalCode";
-import { copyCodeAsInline, copyCodeAsPopup } from "../../ApiCalls/Lead/Lead";
+import Input from "../../Component/Input/Input";
+import Button from "../../Component/button/Button";
 
-export default function FormWizard() {
-  const user = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : "";
-
-  const { campaign_id } = useParams();
+export default function ContactForm() {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -58,33 +49,14 @@ export default function FormWizard() {
     },
   };
 
-  const createForm = async () => {
-    const toastId = toast.loading("Creating form");
-    await axiosInstance
-      .post(`${baseURL}/campaign/${campaign_id}/form-design/`, {
-        design: JSON.stringify(design),
-      })
-      .then((res) => {
-        toast.success("Form created successully", { id: toastId });
-        setModalActive(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Something went wrong. Please retry", { id: toastId });
-      });
+  const updateForm = async () => {
+    setModalActive(true);
   };
 
-  const codeToCopy = modalCode(campaign_id);
-
+  // const codeToCopy = (modalCode(campaign_id))
+  const codeToCopy = () => console.log("This will work later");
   return (
     <div className="formwizard">
-      <div className="formwizard-top">
-        <h3 className="h-100">Customize your form</h3>
-        <p className="text-body">
-          Welcome {`${user.first_name} ${user.last_name}`}
-        </p>
-      </div>
-
       <div className="wizard">
         <div className="wizard-form-container">
           <div
@@ -156,7 +128,7 @@ export default function FormWizard() {
               bgColor={btnBgColor}
             />
           </div>
-          <Button variant="accent" text="CREATE FORM" clickEvent={createForm} />
+          <Button variant="accent" text="UPDATE FORM" clickEvent={updateForm} />
 
           <div className="wizard-control">
             <h5 className="h-50">Form Settings</h5>
@@ -304,12 +276,6 @@ export default function FormWizard() {
       <div className={modalActive ? "iframe_modal active" : "iframe_modal"}>
         <div className="iframe_modal__backdrop"></div>
         <div className="iframe_modal__content">
-          {/* <div
-            className="iframe_modal__close-btn"
-            onClick={() => setModalActive(false)}
-          >
-            <IoClose />
-          </div> */}
           <h3 className="h-50">View Code</h3>
           <p className="text-body">
             Copy the code below and paste into your website to display the
