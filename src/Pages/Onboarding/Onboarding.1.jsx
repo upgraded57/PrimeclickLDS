@@ -1,4 +1,3 @@
-import "./onboarding.css";
 import Topbar from "./../../Component/Topbar/Topbar";
 import Button from "../../Component/button/Button";
 import Input from "./../../Component/Input/Input";
@@ -6,26 +5,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   createCampaign,
-  createGoogleCampaign,
   uploadCampaign,
 } from "../../ApiCalls/Campaign/Campaign";
+
 export default function Onboarding() {
   const navigate = useNavigate();
   const [onboardingType, setOnboardingType] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
+  const [docLink, setDocLink] = useState("");
   const [campaignName, setCampaignName] = useState("");
-  const [googleCampaignName, setGoogleCampaignName] = useState("");
 
   const completeOnboarding = () => {
-    onboardingType === "upload" && uploadedFile?.name
+    onboardingType === "upload" && (uploadedFile?.name || docLink.length > 0)
       ? uploadCampaign(uploadedFile, navigate)
       : onboardingType === "generate" && campaignName.length > 0
       ? createCampaign(campaignName, navigate)
-      : onboardingType === "formlink" && googleCampaignName.length > 0
-      ? createGoogleCampaign(googleCampaignName, navigate)
       : "";
   };
-
   return (
     <>
       <Topbar />
@@ -51,7 +47,7 @@ export default function Onboarding() {
                   <input
                     type="file"
                     id="file-upload"
-                    hidden
+                    style={{ display: "none" }}
                     accept=".xlsx, .xls, .csv"
                     onChange={(e) => setUploadedFile(e.target.files[0])}
                   />
@@ -74,7 +70,12 @@ export default function Onboarding() {
                 id="generate"
                 onChange={(e) => setOnboardingType(e.target.id)}
               />
-              <label htmlFor="generate">
+              <label
+                htmlFor="generate"
+                style={{
+                  border: onboardingType === "generate" ? "none" : "",
+                }}
+              >
                 <p className="text-body text-bold">Generate Form</p>
               </label>
             </span>
@@ -98,19 +99,17 @@ export default function Onboarding() {
                 onChange={(e) => setOnboardingType(e.target.id)}
               />
               <label htmlFor="formlink">
-                <p className="text-body text-bold">
-                  Add Google Sheet Campaign Name
-                </p>
+                <p className="text-body text-bold">Add Google Sheet Link</p>
               </label>
             </span>
 
             {onboardingType === "formlink" && (
               <div className="file-upload">
                 <div className="upload-option">
-                  <small>Google Sheet Campaign Name</small>
+                  <small>Google Sheet Link</small>
                   <Input
-                    placeholder="Google Sheet campaign name goes here"
-                    setValue={setGoogleCampaignName}
+                    placeholder="Google Sheet link goes here"
+                    setValue={setCampaignName}
                   />
                 </div>
               </div>

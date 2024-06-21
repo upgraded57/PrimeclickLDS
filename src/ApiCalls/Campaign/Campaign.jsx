@@ -51,6 +51,29 @@ export const uploadCampaign = async (file, navigate) => {
     });
 };
 
+// create campaign for google sheet
+export const createGoogleCampaign = async (name, navigate) => {
+  const toastId = toast.loading("Creating campaign");
+  await axiosInstance({
+    method: "post",
+    url: `${baseURL}/campaign/create/${businessId}/`,
+    data: { name },
+  })
+    .then((res) => {
+      toast.success("Campaign name created", {
+        id: toastId,
+      });
+      // navigate(`/form/${res.data.campaign_id}/wizard`);
+      navigate(`/new/sheet/${res.data.campaign_id}/follow-up-method`);
+    })
+    .catch((err) => {
+      console.log(err);
+      toast.error("Something went wrong. Please Retry", {
+        id: toastId,
+      });
+    });
+};
+
 // fetch all campaigns
 const fetchCampaigns = () => {
   return axiosInstance({
@@ -106,7 +129,7 @@ export const addCampaignAudios = async (
     })
     .then((res) => {
       toast.success("Audios assigned to calls", { id: toastId });
-      type === "upload"
+      type === "upload " || type === "sheet"
         ? navigate("/leads")
         : navigate(`/form/${campaign_id}/wizard`);
     })
