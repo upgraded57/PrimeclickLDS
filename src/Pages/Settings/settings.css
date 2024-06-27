@@ -111,3 +111,68 @@
 .roles table input[type="checkbox"]:checked ~ .checkmark::before {
   display: block;
 }
+
+.inviteUserModal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.inviteUserModal .box {
+  padding: 20px;
+  border-radius: var(--box-radius);
+  background: white;
+}
+
+.inviteUserModal .box .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inviteUserModal .box .header .icon {
+  font-size: 30px;
+}
+
+.inviteUserModal form {
+  margin-top: 20px;
+}
+
+.inviteUserModal form .form_field {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-block: 10px;
+}
+
+.inviteUserModal form .form_field input {
+  width: 300px;
+}
+
+.inviteUserModal form .form_field select {
+  width: 200px;
+}
+
+.inviteUserModal form .form_field input,
+.inviteUserModal form .form_field select {
+  height: 40px;
+  font-size: inherit;
+  padding: 10px;
+  border-radius: var(--input-radius);
+  border: 2px solid var(--neutral-clr);
+}
+
+.inviteUserModal form .btns {
+  max-width: max-content;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+
+.inviteUserModal form .btns button {
+  max-width: max-content;
+  padding-inline: 20px;
+}

@@ -2,8 +2,11 @@ import "./settings.css";
 import Button from "./../../Component/button/Button";
 import { FaPlus } from "react-icons/fa6";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import { useState } from "react";
+import InviteUserModal from "./InviteUserModal";
 
 export default function RolesAndPermissions() {
+  const [inviteUserModal, setInviteUserModal] = useState(false);
   const teams = [
     {
       name: "Abudu Olatunbosun",
@@ -57,6 +60,7 @@ export default function RolesAndPermissions() {
       access: ["SuperAdmin"],
     },
   ];
+
   return (
     <div className="roles">
       <div className="roles_section">
@@ -68,7 +72,12 @@ export default function RolesAndPermissions() {
               platform
             </p>
           </span>
-          <Button variant="pill" text="Invite Or Add User" icon={<FaPlus />} />
+          <Button
+            variant="pill"
+            text="Invite Or Add User"
+            icon={<FaPlus />}
+            clickEvent={() => setInviteUserModal(true)}
+          />
         </div>
 
         <table>
@@ -158,6 +167,9 @@ export default function RolesAndPermissions() {
           </tbody>
         </table>
       </div>
+      {inviteUserModal && (
+        <InviteUserModal setInviteUserModal={setInviteUserModal} />
+      )}
     </div>
   );
 }

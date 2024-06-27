@@ -1,8 +1,8 @@
 .btn-tp {
-  height: 48px;
+  height: 40px;
   width: 100%;
   font-family: "IBM Plex Sans", sans-serif !important;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: var(--input-radius);
   border: none;
   outline: none;
@@ -45,7 +45,18 @@ button span {
 }
 
 .outline-btn:hover {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+.ghost-btn {
+  border: 1px solid var(--bg-clr-blue);
+  color: var(--neutral-clr-dark);
+  font-weight: 400;
+  background-color: var(--bg-clr-blue);
+}
+
+.ghost-btn:hover {
+  background-color: var(--neutral-clr-light-grey);
 }
 
 .pill-btn {

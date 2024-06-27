@@ -50,6 +50,19 @@ export default function Button({
         </button>
       );
 
+    case "ghost":
+      return (
+        <button
+          style={{ backgroundColor: bgColor, color: textClr }}
+          type={type ? type : "button"}
+          className="btn-tp ghost-btn"
+          onClick={clickEvent}
+        >
+          {icon && <span>{icon}</span>}
+          {text}
+        </button>
+      );
+
     case "pill":
       return (
         <button
