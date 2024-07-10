@@ -167,7 +167,7 @@ export default function DashboardLayout({ children }) {
             </NavLink>
           </div>
 
-          {/* <div className="link-group">
+          <div className="link-group">
             <NavLink to="/settings" className="link" data-tooltip-id="settings">
               <span className="icon">
                 <PiGearSixFill />
@@ -187,7 +187,7 @@ export default function DashboardLayout({ children }) {
                 <p>Settings</p>
               </Tooltip>
             </NavLink>
-            <NavLink to="/support" className="link" data-tooltip-id="support">
+            {/* <NavLink to="/support" className="link" data-tooltip-id="support">
               <span className="icon">
                 <BiSupport />
               </span>
@@ -205,8 +205,8 @@ export default function DashboardLayout({ children }) {
               >
                 <p>Support</p>
               </Tooltip>
-            </NavLink>
-          </div> */}
+            </NavLink> */}
+          </div>
 
           <div className="link-group">
             <div className="link" onClick={() => logout(navigate)}>

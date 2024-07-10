@@ -4,9 +4,6 @@ import { RiQuillPenLine } from "react-icons/ri";
 import { useState } from "react";
 import sampleAudio from "../../assets/audio/sample-audio.mp3";
 
-// data
-import { users } from "../../Data/data";
-
 // Audio player
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -16,7 +13,6 @@ import Button from "../../Component/button/Button";
 
 export default function LeadInfo() {
   const { id } = useParams();
-  const user = users[0];
   const navigate = useNavigate();
 
   // Fetch lead info
@@ -134,7 +130,7 @@ export default function LeadInfo() {
 
           <div className="leadinfo-audio__info">
             <h4>Transcribe</h4>
-            <p className="text-small">{user.fullName} at 10:00am</p>
+            <p className="text-small">{leadInfo?.full_name} at 10:00am</p>
           </div>
 
           <div className="leadinfo-audio__transcriptions">

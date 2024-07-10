@@ -294,7 +294,7 @@ table td {
 }
 
 .cards {
-  width: 94%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
@@ -346,4 +346,14 @@ table td {
   font-size: 13px;
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
+}
+
+.guest_logo {
+  width: 200px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.guest_logo img {
+  width: 100%;
 }

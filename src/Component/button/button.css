@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  text-wrap: nowrap;
 }
 
 button span {
@@ -72,7 +73,6 @@ button span {
   margin: 0;
   width: max-content;
   font-size: 14px;
-  height: max-content !important;
 }
 
 .pill-btn span {

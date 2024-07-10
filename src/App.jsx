@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./Component/Loader/Loader";
 import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 import ProtectedRoute from "./Utils/ProtectedRoute";
+import UserLead from "./Pages/Roles-User/UserLead/UserLead";
 
 const Home = React.lazy(() => import("./Pages/Home/Home"));
 const Features = React.lazy(() => import("./Pages/Features/Features"));
@@ -34,6 +35,9 @@ const Text = React.lazy(() => import("./Pages/FollowUp/Text"));
 const FormWizard = React.lazy(() => import("./Pages/FormWizard/FormWizard"));
 const FormEdit = React.lazy(() => import("./Pages/FormWizard/FormEdit"));
 const LeadInfo = React.lazy(() => import("./Pages/LeadInfo/LeadInfo"));
+const GuestLeadInfo = React.lazy(() =>
+  import("./Pages/LeadInfo/GuestLeadInfo")
+);
 const TempForm = React.lazy(() => import("./Pages/FormSetup/TempForm"));
 const Forms = React.lazy(() => import("./Pages/Forms/Forms"));
 const Notifications = React.lazy(() =>
@@ -207,6 +211,24 @@ function App() {
             }
           />
 
+          {/* User View only routes */}
+          <Route
+            path="guest/dashboard/:campaign_id"
+            element={
+              <Suspense fallback={<Loader />}>
+                <UserLead />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/guest/leads/:id/info"
+            element={
+              <Suspense fallback={<Loader />}>
+                <GuestLeadInfo />
+              </Suspense>
+            }
+          />
           {/* Public Routes */}
           <Route
             index

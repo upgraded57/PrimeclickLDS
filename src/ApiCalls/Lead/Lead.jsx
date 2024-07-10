@@ -3,6 +3,7 @@ import { axiosInstance } from "../../Utils/AxiosInstance";
 import { baseURL } from "../baseUrl";
 import { useQuery } from "react-query";
 import { inlineCode, modalCode } from "../modalCode";
+import axios from "axios";
 
 // const new_campaign_id = JSON.parse(localStorage.getItem("campaign_id"));
 
@@ -18,13 +19,42 @@ export const useFetchLeads = (campaign_id, setFilteredLeads) => {
   return useQuery(["leads", campaign_id], () => fetchLeads(campaign_id), {
     select: (data) => data.data,
     onSuccess: (data) => setFilteredLeads(data.leads),
+    onError: (err) => {
+      if (err.code === "ERR_BAD_REQUEST") {
+        localStorage.clear();
+        toast.error("You need to be authenticated. Please sign in");
+        window.location = "/auth";
+      }
+    },
   });
+};
+
+// fetch guest leads
+const fetchGuestLeads = (campaign_id, email) => {
+  return axios({
+    method: "get",
+    url: `${baseURL}/dashboard/${campaign_id}/${email}`,
+  });
+};
+
+export const useFetchGuestLeads = (campaign_id, email, setFilteredLeads) => {
+  return useQuery(
+    ["leads", campaign_id],
+    () => fetchGuestLeads(campaign_id, email),
+    {
+      select: (data) => data.data,
+      onSuccess: (data) => setFilteredLeads(data.leads),
+      onError: () => {
+        toast.error("Something went wrong. Please retry");
+      },
+    }
+  );
 };
 
 // create new lead
 export const createLead = async (data, campaign_id, navigate) => {
   const toastId = toast.loading("Creating lead...");
-  await axiosInstance({
+  await axios({
     method: "post",
     url: `${baseURL}/lead/create/${campaign_id}/`,
     data,
@@ -53,6 +83,9 @@ const fetchLeadInfo = (lead_id) => {
 export const useFetchLeadInfo = (lead_id) => {
   return useQuery(["leadInfo", lead_id], () => fetchLeadInfo(lead_id), {
     select: (data) => data.data,
+    onError: () => {
+      toast.error("Something went wrong. Please retry");
+    },
   });
 };
 

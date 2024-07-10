@@ -133,7 +133,6 @@ export const OTPVerify = async (data) => {
 };
 
 export const logout = (navigate) => {
-  localStorage.removeItem("user");
-  localStorage.removeItem("tokens");
+  localStorage.clear();
   navigate("/auth");
 };
