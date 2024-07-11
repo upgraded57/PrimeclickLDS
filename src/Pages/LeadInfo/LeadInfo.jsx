@@ -34,7 +34,7 @@ export default function LeadInfo() {
     <>
       {isLoading && <Loader type="placeholder" />}
       <div className="leadinfo-head">
-        <h3 className="h-100">Form Details</h3>
+        <h3 className="h-100">Lead Information</h3>
         <Button variant="back" clickEvent={() => navigate(-1)} />
       </div>
       <div className="leadinfo">

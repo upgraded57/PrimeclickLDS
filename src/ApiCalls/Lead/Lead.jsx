@@ -30,26 +30,22 @@ export const useFetchLeads = (campaign_id, setFilteredLeads) => {
 };
 
 // fetch guest leads
-const fetchGuestLeads = (campaign_id, email) => {
-  return axios({
-    method: "get",
-    url: `${baseURL}/dashboard/${campaign_id}/${email}`,
-  });
-};
+// const fetchGuestLeads = (campaign_id, email) => {
+//   return axios({
+//     method: "get",
+//     url: `${baseURL}/dashboard/${campaign_id}/${email}`,
+//   });
+// };
 
-export const useFetchGuestLeads = (campaign_id, email, setFilteredLeads) => {
-  return useQuery(
-    ["leads", campaign_id],
-    () => fetchGuestLeads(campaign_id, email),
-    {
-      select: (data) => data.data,
-      onSuccess: (data) => setFilteredLeads(data.leads),
-      onError: () => {
-        toast.error("Something went wrong. Please retry");
-      },
-    }
-  );
-};
+// export const useFetchGuestLeads = (campaign_id, setFilteredLeads) => {
+//   return useQuery(["leads", campaign_id], () => fetchGuestLeads(campaign_id), {
+//     select: (data) => data.data,
+//     onSuccess: (data) => setFilteredLeads(data.leads),
+//     onError: () => {
+//       toast.error("Something went wrong. Please retry");
+//     },
+//   });
+// };
 
 // create new lead
 export const createLead = async (data, campaign_id, navigate) => {
@@ -75,8 +71,8 @@ export const createLead = async (data, campaign_id, navigate) => {
 
 // fetch lead info
 const fetchLeadInfo = (lead_id) => {
-  return axiosInstance({
-    url: `/leads/detail/${lead_id}/`,
+  return axios({
+    url: `${baseURL}/leads/detail/${lead_id}/`,
   });
 };
 
