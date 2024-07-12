@@ -10,6 +10,7 @@ import "react-h5-audio-player/lib/styles.css";
 import { useFetchLeadInfo } from "../../ApiCalls/Lead/Lead";
 import Loader from "./../../Component/Loader/Loader";
 import Button from "../../Component/button/Button";
+import moment from "moment";
 
 export default function LeadInfo() {
   const { id } = useParams();
@@ -25,6 +26,8 @@ export default function LeadInfo() {
       setInputPlaceholder(true);
     }
   };
+
+  console.log(leadInfo);
 
   const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0] || "";
 
@@ -130,7 +133,10 @@ export default function LeadInfo() {
 
           <div className="leadinfo-audio__info">
             <h4>Transcribe</h4>
-            <p className="text-small">{leadInfo?.full_name} at 10:00am</p>
+            <p className="text-small">
+              {leadInfo?.full_name} at{" "}
+              {moment(leadInfo?.created).format("h:m, MMMM DD YYYY")}
+            </p>
           </div>
 
           <div className="leadinfo-audio__transcriptions">

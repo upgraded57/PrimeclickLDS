@@ -87,6 +87,10 @@
   background: var(--green-clr);
 }
 
+.leadinfo-left__user-status span.status.rejected {
+  background: rgba(235, 87, 87, 1);
+}
+
 .leadinfo-left__user-info {
   padding-block: 10px;
   border-bottom: 1px solid var(--neutral-clr-light-grey);
