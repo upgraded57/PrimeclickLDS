@@ -27,8 +27,6 @@ export default function LeadInfo() {
     }
   };
 
-  console.log(leadInfo);
-
   const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0] || "";
 
   const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0] || "";
