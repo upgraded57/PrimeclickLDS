@@ -66,6 +66,10 @@ export const loginUser = async (loginData, setUser, navigate) => {
       const tokens = { access: access_token, refresh: refresh_token };
       localStorage.setItem("tokens", JSON.stringify(tokens));
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem(
+        "business_id",
+        JSON.stringify(user.businesses[0].id)
+      );
       setUser(user);
       toast.success("Login Successful", {
         id: toastId,

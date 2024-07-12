@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { axiosInstance } from "./../../Utils/AxiosInstance";
 import { useQuery } from "react-query";
 
-const businessId = JSON.parse(localStorage.getItem("user"))?.business_id;
+const businessId = JSON.parse(localStorage.getItem("business_id"));
 
 // create campaign
 export const createCampaign = async (name, navigate) => {
