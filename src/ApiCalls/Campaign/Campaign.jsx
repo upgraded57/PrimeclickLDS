@@ -129,7 +129,7 @@ export const addCampaignAudios = async (
     })
     .then((res) => {
       toast.success("Audios assigned to calls", { id: toastId });
-      type === "upload " || type === "sheet"
+      type === "upload" || type === "sheet"
         ? navigate("/leads")
         : navigate(`/form/${campaign_id}/wizard`);
     })
