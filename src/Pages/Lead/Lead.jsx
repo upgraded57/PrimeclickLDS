@@ -11,6 +11,7 @@ import moment from "moment/moment";
 import Loader from "./../../Component/Loader/Loader";
 import EmptyState from "../../Component/emptyState/EmptyState";
 import ShareLead from "./ShareLead";
+import { exportFile } from "../../ApiCalls/exportTable";
 
 export default function Lead() {
   const navigate = useNavigate();
@@ -128,7 +129,7 @@ export default function Lead() {
                 <Button
                   variant="pill"
                   text="Export"
-                  icon={<RiArrowDownSLine />}
+                  clickEvent={() => exportFile(leads)}
                 />
                 <Button
                   variant="pill"
@@ -160,7 +161,7 @@ export default function Lead() {
               </div>
             </div>
             {filteredLeads?.length > 0 ? (
-              <table>
+              <table id="lead_table">
                 <thead>
                   <tr>
                     <th>Full Name</th>
