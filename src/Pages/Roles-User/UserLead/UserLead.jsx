@@ -127,8 +127,6 @@ export default function UserLead() {
         <img src={logo} alt="Autoleads" />
       </div>
       <>
-        <h3 className="h-100">{leads?.campaign_name || "Campaign Name"}</h3>
-
         <div className="guest_lead__top cards">
           <Card text="Total Leads" qty={leads?.leads?.length || "0"} />
           <Card text="Total Called" qty={calledLeads?.length || "0"} />
@@ -162,6 +160,19 @@ export default function UserLead() {
         <div className="leads__table">
           <div className="leads__table-head">
             <h3 className="h-100">Lead List</h3>
+            <div className="pagination">
+              <p>{`${start} - ${end} of ${filteredLeads?.length || "0"}`}</p>
+              <span onClick={decreaseCount}>
+                <AiOutlineLeft style={{ opacity: start === 1 ? "0.5" : "1" }} />
+              </span>
+              <span onClick={increaseCount}>
+                <AiOutlineRight
+                  style={{
+                    opacity: end === filteredLeads?.length ? "0.5" : 1,
+                  }}
+                />
+              </span>
+            </div>
 
             {leads?.length > 0 && (
               <div className="pagination">
