@@ -172,20 +172,6 @@
   border-bottom: 1px solid var(--neutral-clr-light-grey);
 }
 
-.leadinfo-log .logs {
-  max-height: 612px;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-}
-
-.leadinfo-log .logs::-webkit-scrollbar {
-  width: 5px;
-}
-
-.leadinfo-log .logs::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .leadinfo-log .log {
   padding-block: 5px;
   margin: 10px;

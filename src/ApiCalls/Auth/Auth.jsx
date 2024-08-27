@@ -88,7 +88,6 @@ export const loginUser = async (loginData, setUser, navigate) => {
         toast.error("Something went wrong. Please retry", {
           id: toastId,
         });
-        console.log(err);
       }
     });
 };

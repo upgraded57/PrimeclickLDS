@@ -31,8 +31,9 @@ export default function ShareLead({ setShareCampaignModal, campaign_id }) {
       <div className="shareleads_content">
         <h3 className="h-50">Invite user to view this campaign</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Reprehenderit, pariatur?
+          Enter the email address of who you wish to invite as viewer to this
+          campaign. They will not be able to modify or alter the progress of the
+          campaign.
         </p>
 
         <form className="shareleads_form" onSubmit={sendGuestInvite}>

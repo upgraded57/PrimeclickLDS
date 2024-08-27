@@ -2,7 +2,6 @@ import "./leadinfo.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { RiQuillPenLine } from "react-icons/ri";
 import { useState } from "react";
-import sampleAudio from "../../assets/audio/sample-audio.mp3";
 
 // Audio player
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
@@ -30,6 +29,7 @@ export default function LeadInfo() {
   const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0] || "";
 
   const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0] || "";
+
 
   return (
     <>
@@ -83,11 +83,6 @@ export default function LeadInfo() {
               <p className="text-small">Phone: </p>
               <p className="text-body text-bold">{leadInfo?.phone_number}</p>
             </div>
-
-            <div className="leadinfo-left__user-info">
-              <p className="text-small">Company: </p>
-              <p className="text-body text-bold">Bosun's enterprise</p>
-            </div>
           </div>
           <div className="leadinfo-left__comment">
             {inputPlaceholder && (
@@ -117,7 +112,8 @@ export default function LeadInfo() {
         <div className="leadinfo-audio">
           <div className="leadinfo-audio__top">
             <AudioPlayer
-              src={sampleAudio}
+              autoPlay={false}
+              src={leadInfo?.recording_url}
               layout="horizontal-reverse"
               showJumpControls={false}
               customVolumeControls={[]}
@@ -133,66 +129,19 @@ export default function LeadInfo() {
             <h4>Transcribe</h4>
             <p className="text-small">
               {leadInfo?.full_name} at{" "}
-              {moment(leadInfo?.created).format("h:m, MMMM DD YYYY")}
+              {moment(leadInfo?.call_time).format("h:ma, MMMM DD YYYY")}
             </p>
           </div>
 
           <div className="leadinfo-audio__transcriptions">
-            <span>
+            {/* <span>
               <p className="text-small">00:00</p>
               <p className="text-body">
                 Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
               </p>
-            </span>
+            </span> */}
 
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
-
-            <span>
-              <p className="text-small">00:00</p>
-              <p className="text-body">
-                Lorem ipsum dolor sit amet,con sec tetur adipiscing elit, sed
-              </p>
-            </span>
+            <p className="text-small">Transacript not available</p>
           </div>
         </div>
 
@@ -202,75 +151,16 @@ export default function LeadInfo() {
 
           <div className="logs">
             <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
-            </div>
-
-            <div className="log">
-              <h5>Offer Call</h5>
-              <p className="time">24 Jun, 2023 - 10:00AM</p>
-              <p className="text-small text-bold">Duration: 4min</p>
+              <h5>Call</h5>
+              <p className="time">
+                {moment(leadInfo?.call_time).format("YYYY/MM/DD - h:mm a")}
+              </p>
+              <p className="text-small text-bold">
+                Duration:{" "}
+                {leadInfo?.call_duration
+                  ? `${leadInfo?.call_duration}s`
+                  : "Unavailable"}
+              </p>
             </div>
           </div>
         </div>

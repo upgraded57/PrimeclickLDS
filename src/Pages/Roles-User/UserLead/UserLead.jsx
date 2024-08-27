@@ -46,7 +46,6 @@ export default function UserLead() {
 
         setAccessCodeEntryModal(true);
         toast.error("Something went wrong");
-        console.log(err);
       });
   };
 
