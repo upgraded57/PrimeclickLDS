@@ -75,17 +75,20 @@ export default function UserLead() {
   const filterLeads = () => {
     if (filterValue === "all") {
       setFilteredLeads(
-        leads?.leads?.filter((lead) =>
-          lead.full_name.toLowerCase().includes(searchValue.toLowerCase())
-        )
+        leads.leads.filter((lead) => {
+          return lead.full_name
+            .toLowerCase()
+            .includes(searchValue.toLowerCase());
+        })
       );
     } else {
       setFilteredLeads(
-        leads?.leads?.filter(
-          (lead) =>
+        leads.leads.filter((lead) => {
+          return (
             lead.full_name.toLowerCase().includes(searchValue.toLowerCase()) &&
-            lead.status.toLowerCase() === filterValue.toLowerCase()
-        )
+            lead.contacted_status.toLowerCase() === filterValue.toLowerCase()
+          );
+        })
       );
     }
   };

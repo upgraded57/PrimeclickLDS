@@ -1,7 +1,7 @@
 import "./leadinfo.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { RiQuillPenLine } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Audio player
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
@@ -10,6 +10,8 @@ import { useFetchLeadInfo } from "../../ApiCalls/Lead/Lead";
 import Loader from "./../../Component/Loader/Loader";
 import Button from "../../Component/button/Button";
 import moment from "moment";
+import { baseURL } from "../../ApiCalls/baseUrl";
+import axios from "axios";
 
 export default function LeadInfo() {
   const { id } = useParams();
@@ -29,7 +31,6 @@ export default function LeadInfo() {
   const initials1 = leadInfo?.full_name?.split(" ")[0]?.split("")[0] || "";
 
   const initials2 = leadInfo?.full_name?.split(" ")[1]?.split("")[0] || "";
-
 
   return (
     <>
@@ -113,7 +114,7 @@ export default function LeadInfo() {
           <div className="leadinfo-audio__top">
             <AudioPlayer
               autoPlay={false}
-              src={leadInfo?.recording_url}
+              src={`${baseURL}/recording/${leadInfo?.id}/`}
               layout="horizontal-reverse"
               showJumpControls={false}
               customVolumeControls={[]}
